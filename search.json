@@ -35,6 +35,76 @@
     "text": "ALEKS(알렉스)\n아틀라스(아주대)"
   },
   {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "",
+    "text": "Lei Xu, Maria Skoularidou, Alfredo Cuesta-Infante, Kalyan Veeramachaneni, “Modeling Tabular data using Conditional GAN” , NIPS’19, 2019\nCTGAN model open source\nbenchmark\nShine’s dev log Tstory"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#related-work",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#related-work",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Related Work",
+    "text": "Related Work\n과거에 synthetic data는 랜덤변수, 결합 다변량 분포를 모형화하여 표본을 추출했다."
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#notations",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#notations",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Notations",
+    "text": "Notations\n– \\(x_1 \\oplus x_2 \\oplus \\dots\\): concatenate vectors \\(x_1, x_2, \\dots\\)\n– \\(gumbel_{\\gamma} (x)\\): apply Gumbel softmax with parameter \\(\\gamma\\) on a vector \\(x\\)\n– \\(leaky_{\\gamma}(x)\\): apply a leaky ReLU activation on \\(x\\) with leaky ratio \\(\\gamma\\)\n– \\(FC_{u \\to v}(x)\\): apply a linear transformation on a \\(u\\)-dim input to get a \\(v\\)-dim output.\n이 외에도 tanh, ReLU, softmax, BN, drop 등을 사용한다."
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#mode-specific-normalization",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#mode-specific-normalization",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Mode-specific Normalization",
+    "text": "Mode-specific Normalization\n\n\n연속형 변수 \\(C_i\\)는 variational Gaussian mixture model(VGM) 을 사용한다.\n\n위 예시에서 VGM은 \\(\\eta_1,\\eta_2,\\eta_3\\)인 \\(m_i=3\\)인 mode를 찾는다.\nGaussian mixture = \\(\\mathbb{P}_{C_i}(c_{i,j}) = \\sum_{k=1}^3 \\mu_k N (c_{i,j}: \\eta_k, \\phi_k)\\)\n\\(\\mu_k, \\phi_k\\) 의 가중치와 분산은 각각 구해놓는다.\n\n\\(c_{i,j}\\)의 확률밀도함수는 각각 \\(\\rho_1, \\rho_2, \\rho_3\\)이다.\n\ns.t \\(\\rho_k = \\mu_k N(c_{i,j}: \\eta_k, \\phi_k)\\)\n\n3번째 mode를 선택한다. 원핫인코딩을 통해서 \\(c_{i,j} \\to \\beta_{i,j}=[0,0,1]\\)로 바꾼다.\n\n그리고 \\(\\alpha_{i,j}= \\dfrac{c_{i,j}0 - \\eta_3}{4\\phi_3}\\) 가중치를 곱한다.\n연속형과 이산형 열들을 바꿔준다.\n\\(r_j = \\alpha_{1,j}\\oplus \\beta_{1,j}\\oplus \\dots \\oplus \\alpha_{N_{c,j}} \\oplus \\beta_{N_{c,j}} \\oplus d_{1,j} \\oplus \\dots \\oplus d_{N_{d,j}}\\)"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#conditional-generator-and-training-by-sampling",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#conditional-generator-and-training-by-sampling",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Conditional Generator and Training-by-Sampling",
+    "text": "Conditional Generator and Training-by-Sampling\nclass imbalance\n만약 훈련 데이터가 랜덤샘플에서 훈련된다면 열은 적은카테고리를 가지고 있는 분류를 충분히 대표할수 없다.\n이 문제를 the conditional vector, the generator loss, the training-by-sampling method를 이용해 해결하자.\n\n\nConditional vector\n이산형 분포인 \\(D_{N_d}\\)를 원핫인코딩을 통해 \\(d_{N_d}\\)로 바꾼다.\nFor instance, for two discrete columns,D1 = f1, 2, 3g and D2 = f1, 2g,the condition (D2 = 1) is expressed by the mask vectors m1 = [0, 0, 0] and m2 = [1, 0]; so cond = [0, 0, 0, 1, 0].\n\n\nGenerator loss\n\n\nTraining-by-sampling\n- Figure2\n\\(m_i^{(k)} = I(if i=i^* \\  and \\ k=k^*)\\)\n\n\\(D_2\\) 열을 선택한다. 즉 \\(i^*=2\\)이다.\n\\(D_2\\)에서 첫번째를 선택한다. 즉 \\(k^*=1\\)이다.\n\\(m_1=[0,0,0], m_2=[1,0], cond=[0,0,0,1,0]\\)"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#network-structure",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#network-structure",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Network Structure",
+    "text": "Network Structure\n\ngenerator \\(\\mathbb{g}(z,cond)\\)\n\n\\(h_0 = z \\oplus cond\\)\n\\(h_1 = h_0 \\oplus ReLU(BN(FC_{|cond|+|z| \\to 256}(h_0)))\\)\n\\(h_2 = h_1 \\oplus ReLU(BN(FC_{|cond|+|z|+256 \\to 256}(h_1)))\\)\n\\(\\widehat \\alpha_i = tanh(FC_{|cond|+|z|+512 \\to 1}(h_2)), \\ 1 \\leq i \\leq N_c\\)\n\\(\\widehat \\beta_i = gumbel_{0.2}(FC_{|cond|+|z|+512 \\to m_i} (h_2)), \\ 1 \\leq i \\leq N_c\\)\n\\(\\widehat d_i = gumbel_{0.2}(FC_{|cond|+|z|+512 \\to |D_i|}(h_2)), \\ 1 \\leq i \\leq N_c\\)\n\n\n\ncritic \\(C(r_1,\\dots,r_{10},cond_1,\\dots,cond_{10})\\)\n- use PacGAN with 10 samples in each pac to prevent mode collapse\n\n\\(h_0 = r_1 \\oplus \\dots \\oplus r_{10} \\oplus cond_1 \\oplus \\dots \\oplus cond_{10}\\)\n\\(h_1 = drop(leaky_{0.2}(FC_{10|r|+10|cond| \\to 256}(h_0)))\\)\n\\(h_2 = drop(leaky_{0.2}(FC_{256 \\to 256}(h_1)))\\)\n\\(C(\\cdot) = FC_{256 \\to 1}(h_2)\\)\n\nAdam optimaizer 사용한 학습률 \\(2·10^{-4}\\)"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#tvae-model",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#tvae-model",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "TVAE Model",
+    "text": "TVAE Model\n- TVAE generator\n\n\\(h_1 = ReLU(FC_{128 \\to 128}(z_j))\\)\n\\(h_2 = ReLU(FC_{128 \\to 128}(h_1))\\)\n\\(\\bar \\alpha _{i,j} = tanh(FC_{128 \\to 1}(h_2)) \\ , \\ 1 \\leq i \\leq N_c\\)\n\\(\\widehat \\alpha_{i,j} \\sim N(\\bar \\alpha_{i,j} , \\delta_i) \\ , \\ 1 \\leq i \\leq N_c\\)\n\\(\\widehat \\beta_{i,j} \\sim softmax(FC_{128 \\to m_i} (h_2)) \\ , \\ 1 \\leq i \\leq N_c\\)\n\\(\\widehat d_{i,j} \\sim softmax(FC_{128 \\to |D_i|}(h_2)) \\ , \\ 1 \\leq i \\leq N_d\\)\n\\(p_\\theta(r_j|z_j) = \\Pi_{i=1}^{N_c} \\mathbb{P}(\\widehat \\alpha_{i,j} = \\alpha_{i,j}) \\Pi_{i=1}^{N_c} \\mathbb{P}(\\widehat \\beta_{i,j} = \\beta_{i,j}) \\Pi_{i=1}^{N_d} \\mathbb{P}(\\widehat \\alpha_{i,j} = \\alpha_{i,j})\\)\n\n\\(\\widehat \\alpha_{i,j}, \\widehat \\beta_{i,j}, \\widehat d_{i,j}\\) : random variable\n\\(p_\\theta(r_j|z_j)\\) : joint distribuion\nTVAE를 Adam으로 학습한 학습률: \\(1e^{-3}\\)"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#baselines-and-datasets",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#baselines-and-datasets",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Baselines and Datasets",
+    "text": "Baselines and Datasets\n\nsimulated data\n\n오라클 S로부터 \\(T_{train}, T_{test}\\)을 만든다.\n이 오라클은 가우시안 혼합 모델 또는 베이지안 네트워크이다.\nGridR:각 모드에 랜덤 오프셋을 추가\n베이지안 네트워크: alarm, child, asia, insurance를 사용\n\n\n\nreal datasets\n\nUCI머신러닝에서 사용되는 6개 사용\nadult, census, covertype, intrusion,news\nMNIST 사용"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#evaluation-metrics-and-framework",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#evaluation-metrics-and-framework",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Evaluation Metrics and Framework",
+    "text": "Evaluation Metrics and Framework\n\n\nLikelihood fitness metric\n\nsimulated data 사용\n$T_{syn} L_{syn},T_{test} L_{test}, $\n\\(L_{syn}\\)이 과적합되는 문제를 해결하기 위하 \\(L_{test}\\)를 사용\n\n\n\nMachine learning efficacy\n\nreal dataset 사용\naccruracy와 F1, \\(\\mathbb{R^2}\\) 측정"
+  },
+  {
+    "objectID": "posts/Modeling Tabular Data using Conditional GAN.html#benchmarking-results",
+    "href": "posts/Modeling Tabular Data using Conditional GAN.html#benchmarking-results",
+    "title": "[논문] Modeling Tabular Data using Conditional GAN",
+    "section": "Benchmarking Results",
+    "text": "Benchmarking Results\n\n\nGM Sim : Gaussian mixture\nBN Sim : Bayesian networks\nTVAE가 CTGAN보다 우수한 편이지만 privacy해결은 못하므로 privacy생각하면 CTGAN사용.."
+  },
+  {
     "objectID": "posts/학습 유형에 따른 데이터 분석 모델.html",
     "href": "posts/학습 유형에 따른 데이터 분석 모델.html",
     "title": "학습 유형에 따른 데이터 분석 모델(ing)",
@@ -102,6 +172,6 @@
     "href": "index.html",
     "title": "Scribbling",
     "section": "",
-    "text": "2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n학습 유형에 따른 데이터 분석 모델(ing)\n\n\n\n\n\n\n\n학습 유형에 따른 데이터 분석 모델\n\n\n지도 학습\n\n\n비지도 학습\n\n\n준지도 학습\n\n\n강화 학습\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n콰트로 블로그\n\n\n\n\n\n\n\n콰트로 블로그\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
+    "text": "2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n[논문] Modeling Tabular Data using Conditional GAN\n\n\n\n\n\n\n\nSynthetic data\n\n\nGAN\n\n\n\n\n\n\n\n\n\n\n\nMar 31, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n학습 유형에 따른 데이터 분석 모델(ing)\n\n\n\n\n\n\n\n학습 유형에 따른 데이터 분석 모델\n\n\n지도 학습\n\n\n비지도 학습\n\n\n준지도 학습\n\n\n강화 학습\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n콰트로 블로그\n\n\n\n\n\n\n\n콰트로 블로그\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
   }
 ]
