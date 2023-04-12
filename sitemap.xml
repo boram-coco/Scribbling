@@ -2,38 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/VAE.html</loc>
-    <lastmod>2023-03-31T01:48:19.264Z</lastmod>
+    <lastmod>2023-04-12T12:18:15.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/plot_comparison_under_sampling.html</loc>
+    <lastmod>2023-04-12T12:18:15.305Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/콰트로 블로그 만드는 법.html</loc>
-    <lastmod>2023-03-31T01:48:19.428Z</lastmod>
+    <lastmod>2023-04-12T12:18:15.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/graph4-3.html</loc>
+    <lastmod>2023-04-12T12:18:15.693Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/학회.html</loc>
-    <lastmod>2023-03-31T01:48:19.596Z</lastmod>
+    <lastmod>2023-04-12T12:18:15.861Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/AI.html</loc>
-    <lastmod>2023-03-31T01:48:19.752Z</lastmod>
+    <lastmod>2023-04-12T12:18:16.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/graph8(frac=0.4).html</loc>
+    <lastmod>2023-04-12T12:18:16.249Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/untitled.html</loc>
-    <lastmod>2023-03-31T01:48:19.896Z</lastmod>
+    <lastmod>2023-04-12T12:18:16.393Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/Modeling Tabular Data using Conditional GAN.html</loc>
-    <lastmod>2023-03-31T01:48:20.128Z</lastmod>
+    <loc>https://boram-coco.github.io/Scribbling/posts/plot_comparison_over_sampling.html</loc>
+    <lastmod>2023-04-12T12:18:16.677Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/학습 유형에 따른 데이터 분석 모델.html</loc>
-    <lastmod>2023-03-31T01:48:20.280Z</lastmod>
+    <loc>https://boram-coco.github.io/Scribbling/posts/graph8(frac=0.3).html</loc>
+    <lastmod>2023-04-12T12:18:16.973Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/about.html</loc>
-    <lastmod>2023-03-31T01:48:20.428Z</lastmod>
+    <lastmod>2023-04-12T12:18:17.121Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/index.html</loc>
-    <lastmod>2023-03-31T01:48:20.624Z</lastmod>
+    <lastmod>2023-04-12T12:18:17.333Z</lastmod>
   </url>
 </urlset>
