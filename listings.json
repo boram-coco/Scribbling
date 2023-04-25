@@ -2,16 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/plot_comparison_under_sampling.html",
       "/posts/학회.html",
-      "/posts/AI.html",
       "/posts/untitled.html",
-      "/posts/plot_comparison_over_sampling.html",
       "/posts/graph4-3.html",
       "/posts/graph8(frac=0.4).html",
       "/posts/graph8(frac=0.3).html",
-      "/posts/VAE.html",
-      "/posts/콰트로 블로그 만드는 법.html"
+      "/posts/VAE.html"
     ]
   }
 ]
