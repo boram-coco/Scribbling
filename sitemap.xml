@@ -2,34 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/VAE.html</loc>
-    <lastmod>2023-05-09T08:45:24.438Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/회귀진단 실습.html</loc>
-    <lastmod>2023-05-09T08:45:24.822Z</lastmod>
+    <lastmod>2023-05-11T12:24:20.271Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/graph4-3.html</loc>
-    <lastmod>2023-05-09T08:45:25.034Z</lastmod>
+    <lastmod>2023-05-11T12:24:20.487Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/학회.html</loc>
-    <lastmod>2023-05-09T08:45:25.194Z</lastmod>
+    <lastmod>2023-05-11T12:24:20.659Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/변수선택 실습.html</loc>
-    <lastmod>2023-05-09T08:45:25.530Z</lastmod>
+    <loc>https://boram-coco.github.io/Scribbling/posts/ml with python 8.html</loc>
+    <lastmod>2023-05-11T12:24:20.895Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/untitled.html</loc>
-    <lastmod>2023-05-09T08:45:25.682Z</lastmod>
+    <lastmod>2023-05-11T12:24:21.039Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/about.html</loc>
-    <lastmod>2023-05-09T08:45:25.838Z</lastmod>
+    <lastmod>2023-05-11T12:24:21.187Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/index.html</loc>
-    <lastmod>2023-05-09T08:45:26.122Z</lastmod>
+    <lastmod>2023-05-11T12:24:21.383Z</lastmod>
   </url>
 </urlset>
