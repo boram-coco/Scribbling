@@ -84,6 +84,69 @@
     "text": "일정:23. 6.29(목) ~ 7.1 (토)\n장소: 부경대학교(부산)\n발표신청 및 초록제출: 3.20.(월) ~ 4.20.(목)\n발표요약본제출(석사과정) : ~4.20.(목)\n포스터파일제출: ~ 5.19.(금)\n\n\n\n\n\n하계: 2023. 7.6.(목) ~ 7.7.(금)\n고려대학교\n발표신청 및 사전등록: 23.5.29.(월)\n초록 또는 논문제출: ~5.31.(수)\n\n\n\n\n\n일정: 6.23.(금) ~ 6.24.(토)\n장소: 강릉원주대학교\n발표논문 초록 제출: ~5.5.(금)\n발표 논문 제출: ~6.16.(금)\n학생논문: ~6.9.(금)"
   },
   {
+    "objectID": "posts/TS8.html",
+    "href": "posts/TS8.html",
+    "title": "TS HW8",
+    "section": "",
+    "text": "모수 \\(\\theta\\)에 대한 서로 독립인 비편향 추정량 \\(\\hat \\theta_1\\)과 \\(\\hat \\theta_2\\)이 존재하며 \\(Var(\\hat \\theta_i)=\\sigma_i^2, i=1,2\\)이라고 한다. 이를 이용하여 새로운 추정량 \\(\\hat \\theta_{a_1,a_2}=a_1\\hat \\theta_1+ a_2 \\hat \\theta_2\\)를 정의할 때 다음에 답하시오.\n\n\n\\(\\hat \\theta_{a_1,a_2}\\)이 비편향추정량이 될 \\(a_1\\)과 \\(a_2\\)의 조건을 구하시오\n\\(E(a_1\\hat \\theta_1 + a_2 \\hat \\theta_2) = a_1E(\\hat \\theta_1) + a_2 E(\\hat \\theta_2) = \\theta(a_1+a_2)=\\theta\\)\n\\(\\therefore a_1+a_2=1\\)\n\n\n\n비편향추정량인 \\(\\hat \\theta_{a_1,a_2}\\) 중에서 가장 작은 분산을 가지는 추정량을 구하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-2",
+    "href": "posts/TS8.html#section-2",
+    "title": "TS HW8",
+    "section": "(1)",
+    "text": "(1)\n\\(p(1-p)\\)에 대한 비편향추정량의 크래며-라오 하한값을 구하시오\n\\(f(x|p)=p^x(1-p)^{1-x}\\)\n\\(I(p) = E\\left(\\left(\\dfrac{d}{dp}log f(x|p)\\right)^2 \\right)=E\\left(\\left(\\dfrac{d}{dp}[xlogp+(1-x)log(1-p)]\\right)^2 \\right)=E\\left(\\left(\\dfrac{x}{p}-\\dfrac{1-x}{1-p}\\right)^2\\right)=E\\left(\\left(\\dfrac{x-p}{p(1-p)}\\right)^2\\right)=\\dfrac{1}{p^2(1-p)^2}E((x-p)^2)\\)\n\\(\\because E((x-p)^2)=Var\\)~\\(p(1-p)\\)\n\\(=\\dfrac{p(1-p)}{p^2(1-p)^2}=\\dfrac{1}{p(1-p)}\\)\n\\(\\therefore CRLB = \\dfrac{g'(p))^2}{nI(p)}=\\dfrac{p(1-p)(1-2p)^2}{n}\\)"
+  },
+  {
+    "objectID": "posts/TS8.html#section-3",
+    "href": "posts/TS8.html#section-3",
+    "title": "TS HW8",
+    "section": "(2)",
+    "text": "(2)\n\\(X_1(1-X_2)\\)의 기댓값을 구하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-4",
+    "href": "posts/TS8.html#section-4",
+    "title": "TS HW8",
+    "section": "(3)",
+    "text": "(3)\n\\(p(1-p)\\)에 대한 최소분산 비편향추정량을 구하시오.\n\\(E(\\bar X_n - \\bar X_n^2) = \\dfrac{(n-1)(1-p)}{n}\\)\n\\(\\dfrac{n\\bar X_n(1- \\bar X_n)}{n-1}\\)"
+  },
+  {
+    "objectID": "posts/TS8.html#section-5",
+    "href": "posts/TS8.html#section-5",
+    "title": "TS HW8",
+    "section": "(4)",
+    "text": "(4)\n\\(p(1-p)\\)에 대한 적률추정량을 구하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-6",
+    "href": "posts/TS8.html#section-6",
+    "title": "TS HW8",
+    "section": "(5)",
+    "text": "(5)\n\\(p(1-p)\\)에 대한 최대가능도추정량을 구하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-7",
+    "href": "posts/TS8.html#section-7",
+    "title": "TS HW8",
+    "section": "(1)",
+    "text": "(1)\n\\(\\theta\\)에 대한 적절한 추축변량을 구하고, 해당 추축변량의 분포를 명시하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-8",
+    "href": "posts/TS8.html#section-8",
+    "title": "TS HW8",
+    "section": "(2)",
+    "text": "(2)\n\\(\\theta\\)에 대한 95% 신뢰구간을 구하시오."
+  },
+  {
+    "objectID": "posts/TS8.html#section-9",
+    "href": "posts/TS8.html#section-9",
+    "title": "TS HW8",
+    "section": "(3)",
+    "text": "(3)\n\\(P(X>1)\\)에 대한 95% 신뢰구간을 구하시오."
+  },
+  {
     "objectID": "posts/ml with python 8.html",
     "href": "posts/ml with python 8.html",
     "title": "지도 학습",
@@ -168,6 +231,34 @@
     "text": "ARIMA 모델의 하이퍼 파라미터 선정하기\n\nbitcoin_df = pd.read_csv(file_path, names = ['day', 'price'])\nbitcoin_df['day'] = pd.to_datetime(bitcoin_df['day'])\nbitcoin_df.index = bitcoin_df['day']\nbitcoin_df.set_index('day', inplace=True)\n\n\nfrom statsmodels.graphics.tsaplots import plot_acf, plot_pacf\n\nplot_acf(bitcoin_df.price.values)\nplot_pacf(bitcoin_df.price.values)\nplt.show()\n\n\nmodel = ARIMA(bitcoin_df.price.values, order=(15,2,0))\nmodel_fit = model.fit(trend='c',full_output=True, disp=True)\nprint(model_fit.summary())\n\n\nmodel = ARIMA(bitcoin_df.price.values, order=(2,1,2))\nmodel_fit = model.fit(trend='c',full_output=True, disp=True)\nprint(model_fit.summary())"
   },
   {
+    "objectID": "posts/교수님 data(re).html",
+    "href": "posts/교수님 data(re).html",
+    "title": "Scribbling",
+    "section": "",
+    "text": "신용카드 거래 사기탐지 TRY 변형"
+  },
+  {
+    "objectID": "posts/교수님 data(re).html#분석1",
+    "href": "posts/교수님 data(re).html#분석1",
+    "title": "Scribbling",
+    "section": "분석1",
+    "text": "분석1\n- step1: data\n\nX = np.array(df02_tr.loc[:,['amt']])\nXX = np.array(df50_test.loc[:,['amt']])\ny = np.array(df02_tr.is_fraud)\nyy = np.array(df50_test.is_fraud)\n\n- step2: lrnr\n\nlrnr = ensemble.GradientBoostingClassifier()\n\n- step3: fit\n\nlrnr.fit(X,y)\n\nGradientBoostingClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.GradientBoostingClassifierGradientBoostingClassifier()\n\n\n- step4: evaluate\n\nthresh = y.mean()\nyyhat = (lrnr.predict_proba(XX)> thresh)[:,-1]\n#yyhat = lrnr.predict(XX) \n\n\nmetrics = [sklearn.metrics.accuracy_score,\n           sklearn.metrics.precision_score,\n           sklearn.metrics.recall_score,\n           sklearn.metrics.f1_score]\n\n\n_results1= pd.DataFrame({m.__name__:[m(yy,yyhat).round(6)] for m in metrics},index=['분석1'])\n_results1\n\n\n\n\n\n  \n    \n      \n      accuracy_score\n      precision_score\n      recall_score\n      f1_score\n    \n  \n  \n    \n      분석1\n      0.88678\n      0.910677\n      0.86025\n      0.884746"
+  },
+  {
+    "objectID": "posts/교수님 data(re).html#분석2",
+    "href": "posts/교수님 data(re).html#분석2",
+    "title": "Scribbling",
+    "section": "분석2",
+    "text": "분석2\n- step1: data\n\ndef amtano(df_train):\n    df = df_train.copy()\n    df = df.assign(amtano1=0)\n    df = df.assign(amtano2=0)\n    df = df.assign(amtano3=0)\n    normalize = lambda arr: (arr-np.median(arr)) if np.std(arr)!=0 else arr*0 \n    rollmax = lambda arr: arr.rolling(window=3, min_periods=1).max()\n    rollmin = lambda arr: arr.rolling(window=3, min_periods=1).min()    \n    rollmean = lambda arr: arr.rolling(window=3, min_periods=1).mean()    \n    rollstd = lambda arr: arr.rolling(window=3, min_periods=1).std()    \n    for cc_num, sub_df in df.groupby('cc_num'):\n        df.loc[df.cc_num == cc_num,['amtano1']] = normalize(sub_df.amt)\n        df.loc[df.cc_num == cc_num,['amtano2']] = (sub_df.amt * rollmean(normalize(sub_df.amt)))/rollmin(sub_df.amt)\n        df.loc[df.cc_num == cc_num,['amtano3']] = rollmin(normalize(sub_df.amt))\n    return df  \n\n\ndf02_tr2 = amtano(df02_tr)\ndf50_test2 = amtano(df50_test)\n\nX = np.array(df02_tr2.loc[:,['amtano2']])\nXX = np.array(df50_test2.loc[:,['amtano2']])\ny = np.array(df02_tr.is_fraud)\nyy = np.array(df50_test.is_fraud)\n\n\ncclist = df02_tr2.cc_num.unique().tolist()\n\n\ni=190\nplt.plot(df02_tr2.query('cc_num==@cclist[@i]').trans_date_trans_time, df02_tr2.query('cc_num==@cclist[@i]').amt,'o')\nplt.plot(df02_tr2.query('cc_num==@cclist[@i]').trans_date_trans_time, df02_tr2.query('cc_num==@cclist[@i]').is_fraud*df02_tr2.query('cc_num==@cclist[@i]').amt,'x')\n\n\n\n\n- step2: lrnr\n\nlrnr = ensemble.GradientBoostingClassifier()\n\n- step3: fit\n\nlrnr.fit(X,y)\n\nGradientBoostingClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.GradientBoostingClassifierGradientBoostingClassifier()\n\n\n- step4: evaluate\n\n# thresh = y.mean()\n# yyhat = (lrnr.predict_proba(XX)> thresh)[:,-1]\nyyhat = lrnr.predict(XX) \n\n\nmetrics = [sklearn.metrics.accuracy_score,\n           sklearn.metrics.precision_score,\n           sklearn.metrics.recall_score,\n           sklearn.metrics.f1_score]\n\n\n_results2= pd.DataFrame({m.__name__:[m(yy,yyhat).round(6)] for m in metrics},index=['분석2'])\n_results2\n\n\n\n\n\n  \n    \n      \n      accuracy_score\n      precision_score\n      recall_score\n      f1_score\n    \n  \n  \n    \n      분석2\n      0.53047\n      0.908397\n      0.078444\n      0.144417"
+  },
+  {
+    "objectID": "posts/교수님 data(re).html#분석-정리",
+    "href": "posts/교수님 data(re).html#분석-정리",
+    "title": "Scribbling",
+    "section": "분석 정리",
+    "text": "분석 정리\n\npd.concat([_results1,_results2])\n\n\n\n\n\n  \n    \n      \n      accuracy_score\n      precision_score\n      recall_score\n      f1_score\n    \n  \n  \n    \n      분석1\n      0.88678\n      0.910677\n      0.860250\n      0.884746\n    \n    \n      분석2\n      0.53047\n      0.908397\n      0.078444\n      0.144417"
+  },
+  {
     "objectID": "posts/교수님.html",
     "href": "posts/교수님.html",
     "title": "Scribbling",
@@ -235,6 +326,6 @@
     "href": "index.html",
     "title": "Scribbling",
     "section": "",
-    "text": "imports\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nimport\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nimport\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
+    "text": "imports\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nimport\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nimport\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nimport\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nTS HW8\n\n\n\n\n\n\n\nTheoretical statistics\n\n\nhomework\n\n\n\n\n\n\n\n\n\n\n\nMay 31, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
   }
 ]

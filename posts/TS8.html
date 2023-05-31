@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="김보람">
+<meta name="dcterms.date" content="2023-05-31">
 
-<title>Scribbling – quarto-input2210683e</title>
+<title>Scribbling - TS HW8</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -95,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">TS HW8</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,7 +106,39 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">TS HW8</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Theoretical statistics</div>
+                <div class="quarto-category">homework</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>김보람 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 31, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -128,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link active">2023년 학회 발표 준비</a>
+  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/TS8.html" class="sidebar-item-text sidebar-link">TS HW8</a>
+  <a href="../posts/TS8.html" class="sidebar-item-text sidebar-link active">TS HW8</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,14 +242,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#년-학회-발표-준비" id="toc-년-학회-발표-준비" class="nav-link active" data-scroll-target="#년-학회-발표-준비">2023년 학회 발표 준비</a>
+  <li><a href="#번" id="toc-번" class="nav-link active" data-scroll-target="#번">1번</a>
   <ul class="collapse">
-  <li><a href="#한국통계학회" id="toc-한국통계학회" class="nav-link" data-scroll-target="#한국통계학회">한국통계학회</a></li>
-  <li><a href="#자료분석학회" id="toc-자료분석학회" class="nav-link" data-scroll-target="#자료분석학회">자료분석학회</a></li>
-  <li><a href="#한국데이터마이닝학회" id="toc-한국데이터마이닝학회" class="nav-link" data-scroll-target="#한국데이터마이닝학회">한국데이터마이닝학회</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">(1)</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">(2)</a></li>
   </ul></li>
-  <li><a href="#논문-작성시" id="toc-논문-작성시" class="nav-link" data-scroll-target="#논문-작성시">논문 작성시</a></li>
-  <li><a href="#공개데이터셋-구하기" id="toc-공개데이터셋-구하기" class="nav-link" data-scroll-target="#공개데이터셋-구하기">공개데이터셋 구하기</a></li>
+  <li><a href="#번-1" id="toc-번-1" class="nav-link" data-scroll-target="#번-1">2번</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">(1)</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">(2)</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">(3)</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">(4)</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">(5)</a></li>
+  </ul></li>
+  <li><a href="#번-2" id="toc-번-2" class="nav-link" data-scroll-target="#번-2">3번</a>
+  <ul class="collapse">
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">(1)</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">(2)</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">(3)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -223,106 +269,69 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="년-학회-발표-준비" class="level1">
-<h1>2023년 학회 발표 준비</h1>
-<section id="한국통계학회" class="level2">
-<h2 class="anchored" data-anchor-id="한국통계학회">한국통계학회</h2>
-<ul>
-<li><p>일정:23. 6.29(목) ~ 7.1 (토)</p></li>
-<li><p>장소: 부경대학교(부산)</p></li>
-<li><p>발표신청 및 초록제출: 3.20.(월) ~ 4.20.(목)</p></li>
-<li><p>발표요약본제출(석사과정) : ~4.20.(목)</p></li>
-<li><p>포스터파일제출: ~ 5.19.(금)</p></li>
-</ul>
+
+<section id="번" class="level1">
+<h1>1번</h1>
+<p>모수 <span class="math inline">\(\theta\)</span>에 대한 서로 독립인 비편향 추정량 <span class="math inline">\(\hat \theta_1\)</span>과 <span class="math inline">\(\hat \theta_2\)</span>이 존재하며 <span class="math inline">\(Var(\hat \theta_i)=\sigma_i^2, i=1,2\)</span>이라고 한다. 이를 이용하여 새로운 추정량 <span class="math inline">\(\hat \theta_{a_1,a_2}=a_1\hat \theta_1+ a_2 \hat \theta_2\)</span>를 정의할 때 다음에 답하시오.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">(1)</h2>
+<p><span class="math inline">\(\hat \theta_{a_1,a_2}\)</span>이 비편향추정량이 될 <span class="math inline">\(a_1\)</span>과 <span class="math inline">\(a_2\)</span>의 조건을 구하시오</p>
+<p><span class="math inline">\(E(a_1\hat \theta_1 + a_2 \hat \theta_2) = a_1E(\hat \theta_1) + a_2 E(\hat \theta_2) = \theta(a_1+a_2)=\theta\)</span></p>
+<p><span class="math inline">\(\therefore a_1+a_2=1\)</span></p>
 </section>
-<section id="자료분석학회" class="level2">
-<h2 class="anchored" data-anchor-id="자료분석학회">자료분석학회</h2>
-<ul>
-<li><p>하계: 2023. 7.6.(목) ~ 7.7.(금)</p></li>
-<li><p>고려대학교</p></li>
-<li><p>발표신청 및 사전등록: 23.5.29.(월)</p></li>
-<li><p>초록 또는 논문제출: ~5.31.(수)</p></li>
-</ul>
-</section>
-<section id="한국데이터마이닝학회" class="level2">
-<h2 class="anchored" data-anchor-id="한국데이터마이닝학회">한국데이터마이닝학회</h2>
-<ul>
-<li><p>일정: 6.23.(금) ~ 6.24.(토)</p></li>
-<li><p>장소: 강릉원주대학교</p></li>
-<li><p>발표논문 초록 제출: ~5.5.(금)</p></li>
-<li><p>발표 논문 제출: ~6.16.(금)</p></li>
-<li><p>학생논문: ~6.9.(금)</p></li>
-</ul>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">(2)</h2>
+<p>비편향추정량인 <span class="math inline">\(\hat \theta_{a_1,a_2}\)</span> 중에서 가장 작은 분산을 가지는 추정량을 구하시오.</p>
 </section>
 </section>
-<section id="논문-작성시" class="level1">
-<h1>논문 작성시</h1>
-<ol type="1">
-<li><p>분포가 비슷한지 ex) 나이가 20인데 164 이렇게 바꾸면 이상함</p></li>
-<li><p>유추할 수 없게끔</p></li>
-</ol>
-<p>비식별화 하자</p>
-<ol start="3" type="1">
-<li><p>논문에서 실험을 비교하는 거 보면 데이터셋을 확보해야함 데이터셋을 확보하자!!</p></li>
-<li><p>한글논문 먼저 읽기</p></li>
-</ol>
+<section id="번-1" class="level1">
+<h1>2번</h1>
+<p><span class="math inline">\(X_1,X_2,\dots,X_n\)</span>이 <span class="math inline">\(Ber(p)\)</span>로부터의 랜덤표본이라고 하자. 모집단의 분포 <span class="math inline">\(Ber(p)\)</span>의 분산인 <span class="math inline">\(p(1-p)\)</span>을 추정하고자 한다.</p>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">(1)</h2>
+<p><span class="math inline">\(p(1-p)\)</span>에 대한 비편향추정량의 크래며-라오 하한값을 구하시오</p>
+<p><span class="math inline">\(f(x|p)=p^x(1-p)^{1-x}\)</span></p>
+<p><span class="math inline">\(I(p) = E\left(\left(\dfrac{d}{dp}log f(x|p)\right)^2 \right)=E\left(\left(\dfrac{d}{dp}[xlogp+(1-x)log(1-p)]\right)^2 \right)=E\left(\left(\dfrac{x}{p}-\dfrac{1-x}{1-p}\right)^2\right)=E\left(\left(\dfrac{x-p}{p(1-p)}\right)^2\right)=\dfrac{1}{p^2(1-p)^2}E((x-p)^2)\)</span></p>
+<p><span class="math inline">\(\because E((x-p)^2)=Var\)</span>~<span class="math inline">\(p(1-p)\)</span></p>
+<p><span class="math inline">\(=\dfrac{p(1-p)}{p^2(1-p)^2}=\dfrac{1}{p(1-p)}\)</span></p>
+<p><span class="math inline">\(\therefore CRLB = \dfrac{g'(p))^2}{nI(p)}=\dfrac{p(1-p)(1-2p)^2}{n}\)</span></p>
 </section>
-<section id="공개데이터셋-구하기" class="level1">
-<h1>공개데이터셋 구하기</h1>
-<ol type="1">
-<li><a href="https://www.kaggle.com/datasets">Kaggle; 데이터 과학 및 기계 학습 커뮤니티</a></li>
-</ol>
-<ul>
-<li><a href="https://www.kaggle.com/datasets/datascientistanna/customers-dataset?resource=download">customers</a></li>
-<li><a href="https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset">heart</a></li>
-</ul>
-<ol start="2" type="1">
-<li><a href="https://archive.ics.uci.edu/ml/index.php">UCI Machine Learning Repository</a></li>
-<li><a href="https://datasetsearch.research.google.com/">Google Dataset Search</a></li>
-<li>AWS Public Dataset: 아마존 웹 서비스</li>
-<li><a href="https://www.data.go.kr">공공데이터포털</a></li>
-</ol>
-<ul>
-<li><a href="https://www.kaggle.com/datasets/datascientistanna/customers-dataset?resource=download">국민건강보험공단_건강검진정보</a></li>
-</ul>
-<ol start="6" type="1">
-<li><a href="https://www.consumer.go.kr">한국소비자원</a></li>
-<li><a href="https://ecos.bok.or.kr">한국은행 경제통계시스템</a></li>
-</ol>
-<p>R패키지 사용하여 구현하는것 - 예제를 돌려보기</p>
-<ul>
-<li><p>기존 전국 사업체 조사</p></li>
-<li><p>뒤의 시뮬레이션</p></li>
-</ul>
-<p>needleworm.github.io/dataset/</p>
-<p>위에서 관심있는거 있으면 읽어보고 주제로 잡기</p>
-<ol type="1">
-<li>그래프신호</li>
-</ol>
-<ul>
-<li>자료형태가 노드랑 엣지.. 값이 되어잇음</li>
-<li>시계열자료 : 순서대로 연결</li>
-<li>이미지자료</li>
-<li>그래프자료(시공간,타임이팩트[투표결과/기상자료/교통자료])</li>
-</ul>
-<p>그래프신호에서 underlying function을 찾는 연구주제가 이씅ㅁ</p>
-<ol start="2" type="1">
-<li><p>그래프 클러스터링 그룹핑</p></li>
-<li><p>음성신호 (lstm 혹은 음악소리듣고.. 분석)</p></li>
-<li><p>태양광</p></li>
-</ol>
-<p>원래 회귀분석에서는 xp+1 인데 여기서는 더하는게 아니라 곱세믕로 표시됨ㄴ다??</p>
-<ol start="5" type="1">
-<li>시계열분류</li>
-</ol>
-<p>신용카드에 대한 데이터 분석 데이터=신용카드 거래 정상적인 거래인지/비정상적인 거래인지 라벨링이 되어이ㅇ서엇 그 모형 설명이 되어잇덩..</p>
-<p>약점-&gt;</p>
-<p>논문을 쓰려면 약점을 8장을 따라가고</p>
-<p>정사인 케이스가 맞는데 정상/비정상 클래스피케이셔날때</p>
-<p>정상인 데이터-&gt;1000건-&gt;샘플링 100건 비정상데이터 100건</p>
-<p>smapling하는 방법</p>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">(2)</h2>
+<p><span class="math inline">\(X_1(1-X_2)\)</span>의 기댓값을 구하시오.</p>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">(3)</h2>
+<p><span class="math inline">\(p(1-p)\)</span>에 대한 최소분산 비편향추정량을 구하시오.</p>
+<p><span class="math inline">\(E(\bar X_n - \bar X_n^2) = \dfrac{(n-1)(1-p)}{n}\)</span></p>
+<p><span class="math inline">\(\dfrac{n\bar X_n(1- \bar X_n)}{n-1}\)</span></p>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">(4)</h2>
+<p><span class="math inline">\(p(1-p)\)</span>에 대한 적률추정량을 구하시오.</p>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">(5)</h2>
+<p><span class="math inline">\(p(1-p)\)</span>에 대한 최대가능도추정량을 구하시오.</p>
+</section>
+</section>
+<section id="번-2" class="level1">
+<h1>3번</h1>
+<p><span class="math inline">\(X_1,\dots,X_n\)</span>은 확률밀도함수 <span class="math inline">\(f(x;\theta)=\theta exp(-\theta x) I(x&gt;0)\)</span>를 따르는 모집단으로부터의 랜덤표본이라고 하자. 다음에 답하시오.</p>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">(1)</h2>
+<p><span class="math inline">\(\theta\)</span>에 대한 적절한 추축변량을 구하고, 해당 추축변량의 분포를 명시하시오.</p>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">(2)</h2>
+<p><span class="math inline">\(\theta\)</span>에 대한 95% 신뢰구간을 구하시오.</p>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9">(3)</h2>
+<p><span class="math inline">\(P(X&gt;1)\)</span>에 대한 95% 신뢰구간을 구하시오.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
