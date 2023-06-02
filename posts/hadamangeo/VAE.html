@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="김보람">
-<meta name="dcterms.date" content="2023-05-31">
+<meta name="dcterms.date" content="2023-03-14">
 
-<title>Scribbling - TS HW8</title>
+<title>Scribbling - VAE(-ing)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,25 +22,88 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,9 +124,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -73,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Scribbling</span>
     </a>
   </div>
@@ -83,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../about.html" aria-current="page">
+    <a class="nav-link active" href="../../about.html" aria-current="page">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -98,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">TS HW8</h1>
+      <h1 class="quarto-secondary-nav-title">VAE(-ing)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -109,10 +171,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">TS HW8</h1>
+      <h1 class="title d-none d-lg-block">VAE(-ing)</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Theoretical statistics</div>
-                <div class="quarto-category">homework</div>
+                <div class="quarto-category">VAE</div>
+                <div class="quarto-category">Auto-Encoding Variational Bayes</div>
               </div>
                   </div>
   </div>
@@ -130,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 31, 2023</p>
+        <p class="date">March 14, 2023</p>
       </div>
     </div>
     
@@ -150,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -163,55 +225,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
+  <a href="../../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/논문.html" class="sidebar-item-text sidebar-link">GNN</a>
+  <a href="../../posts/논문.html" class="sidebar-item-text sidebar-link">GNN</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/TS8.html" class="sidebar-item-text sidebar-link active">TS HW8</a>
+  <a href="../../posts/TS8.html" class="sidebar-item-text sidebar-link">TS HW8</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Hadamangeo</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Hadamangeo</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
+  <a href="../../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</a>
+  <a href="../../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</a>
+  <a href="../../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link">VAE(-ing)</a>
+  <a href="../../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link active">VAE(-ing)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">미래 예측 데이터 분석(비트코인 시세 예측)</a>
+  <a href="../../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">미래 예측 데이터 분석(비트코인 시세 예측)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">지도 학습</a>
+  <a href="../../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">지도 학습</a>
   </div>
 </li>
       </ul>
@@ -226,47 +288,47 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
+  <a href="../../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">import</a>
+  <a href="../../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">import</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">import</a>
+  <a href="../../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">import</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">import</a>
+  <a href="../../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">import</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">import</a>
+  <a href="../../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">import</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">imports</a>
+  <a href="../../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">imports</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">imports</a>
+  <a href="../../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">imports</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">낙서</a>
+  <a href="../../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">낙서</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">분석</a>
+  <a href="../../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">분석</a>
   </div>
 </li>
       </ul>
@@ -282,25 +344,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#번" id="toc-번" class="nav-link active" data-scroll-target="#번">1번</a>
+  <li><a href="#사전학습" id="toc-사전학습" class="nav-link active" data-scroll-target="#사전학습">사전학습</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">(1)</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">(2)</a></li>
+  <li><a href="#오토인코더" id="toc-오토인코더" class="nav-link" data-scroll-target="#오토인코더">오토인코더</a></li>
   </ul></li>
-  <li><a href="#번-1" id="toc-번-1" class="nav-link" data-scroll-target="#번-1">2번</a>
-  <ul class="collapse">
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">(1)</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">(2)</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">(3)</a></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">(4)</a></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">(5)</a></li>
-  </ul></li>
-  <li><a href="#번-2" id="toc-번-2" class="nav-link" data-scroll-target="#번-2">3번</a>
-  <ul class="collapse">
-  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">(1)</a></li>
-  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">(2)</a></li>
-  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">(3)</a></li>
-  </ul></li>
+  <li><a href="#vae" id="toc-vae" class="nav-link" data-scroll-target="#vae">VAE</a></li>
+  <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">ref</a></li>
   </ul>
 </nav>
     </div>
@@ -310,68 +359,48 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="번" class="level1">
-<h1>1번</h1>
-<p>모수 <span class="math inline">\(\theta\)</span>에 대한 서로 독립인 비편향 추정량 <span class="math inline">\(\hat \theta_1\)</span>과 <span class="math inline">\(\hat \theta_2\)</span>이 존재하며 <span class="math inline">\(Var(\hat \theta_i)=\sigma_i^2, i=1,2\)</span>이라고 한다. 이를 이용하여 새로운 추정량 <span class="math inline">\(\hat \theta_{a_1,a_2}=a_1\hat \theta_1+ a_2 \hat \theta_2\)</span>를 정의할 때 다음에 답하시오.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">(1)</h2>
-<p><span class="math inline">\(\hat \theta_{a_1,a_2}\)</span>이 비편향추정량이 될 <span class="math inline">\(a_1\)</span>과 <span class="math inline">\(a_2\)</span>의 조건을 구하시오</p>
-<p><span class="math inline">\(E(a_1\hat \theta_1 + a_2 \hat \theta_2) = a_1E(\hat \theta_1) + a_2 E(\hat \theta_2) = \theta(a_1+a_2)=\theta\)</span></p>
-<p><span class="math inline">\(\therefore a_1+a_2=1\)</span></p>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">(2)</h2>
-<p>비편향추정량인 <span class="math inline">\(\hat \theta_{a_1,a_2}\)</span> 중에서 가장 작은 분산을 가지는 추정량을 구하시오.</p>
-</section>
-</section>
-<section id="번-1" class="level1">
-<h1>2번</h1>
-<p><span class="math inline">\(X_1,X_2,\dots,X_n\)</span>이 <span class="math inline">\(Ber(p)\)</span>로부터의 랜덤표본이라고 하자. 모집단의 분포 <span class="math inline">\(Ber(p)\)</span>의 분산인 <span class="math inline">\(p(1-p)\)</span>을 추정하고자 한다.</p>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">(1)</h2>
-<p><span class="math inline">\(p(1-p)\)</span>에 대한 비편향추정량의 크래며-라오 하한값을 구하시오</p>
-<p><span class="math inline">\(f(x|p)=p^x(1-p)^{1-x}\)</span></p>
-<p><span class="math inline">\(I(p) = E\left(\left(\dfrac{d}{dp}log f(x|p)\right)^2 \right)=E\left(\left(\dfrac{d}{dp}[xlogp+(1-x)log(1-p)]\right)^2 \right)=E\left(\left(\dfrac{x}{p}-\dfrac{1-x}{1-p}\right)^2\right)=E\left(\left(\dfrac{x-p}{p(1-p)}\right)^2\right)=\dfrac{1}{p^2(1-p)^2}E((x-p)^2)\)</span></p>
-<p><span class="math inline">\(\because E((x-p)^2)=Var\)</span>~<span class="math inline">\(p(1-p)\)</span></p>
-<p><span class="math inline">\(=\dfrac{p(1-p)}{p^2(1-p)^2}=\dfrac{1}{p(1-p)}\)</span></p>
-<p><span class="math inline">\(\therefore CRLB = \dfrac{g'(p))^2}{nI(p)}=\dfrac{p(1-p)(1-2p)^2}{n}\)</span></p>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">(2)</h2>
-<p><span class="math inline">\(X_1(1-X_2)\)</span>의 기댓값을 구하시오.</p>
-</section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">(3)</h2>
-<p><span class="math inline">\(p(1-p)\)</span>에 대한 최소분산 비편향추정량을 구하시오.</p>
-<p><span class="math inline">\(E(\bar X_n - \bar X_n^2) = \dfrac{(n-1)(1-p)}{n}\)</span></p>
-<p><span class="math inline">\(\dfrac{n\bar X_n(1- \bar X_n)}{n-1}\)</span></p>
-</section>
-<section id="section-5" class="level2">
-<h2 class="anchored" data-anchor-id="section-5">(4)</h2>
-<p><span class="math inline">\(p(1-p)\)</span>에 대한 적률추정량을 구하시오.</p>
-</section>
-<section id="section-6" class="level2">
-<h2 class="anchored" data-anchor-id="section-6">(5)</h2>
-<p><span class="math inline">\(p(1-p)\)</span>에 대한 최대가능도추정량을 구하시오.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>https:<span class="op">//</span>arxiv.org<span class="op">/</span>pdf<span class="op">/</span><span class="fl">1312.6114</span>.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="사전학습" class="level1">
+<h1>사전학습</h1>
+<dl>
+<dt>개인정보를 비식별화하는 기술</dt>
+<dd>
+ISO/IEC 20889 국제표준에 따르면 통계 기술, 암호호 ㅏ기술, 가명화 기술, 해부화, 일반화기술, 무작위화 기술, 재현 데이터로 나눈다.
+</dd>
+</dl>
+<section id="오토인코더" class="level2">
+<h2 class="anchored" data-anchor-id="오토인코더">오토인코더</h2>
+<ul>
+<li>Encoder, Decoder 네트워크로 구성된 모델</li>
+<li>학습 데이터-&gt; encoder에 입력값</li>
+</ul>
 </section>
 </section>
-<section id="번-2" class="level1">
-<h1>3번</h1>
-<p><span class="math inline">\(X_1,\dots,X_n\)</span>은 확률밀도함수 <span class="math inline">\(f(x;\theta)=\theta exp(-\theta x) I(x&gt;0)\)</span>를 따르는 모집단으로부터의 랜덤표본이라고 하자. 다음에 답하시오.</p>
-<section id="section-7" class="level2">
-<h2 class="anchored" data-anchor-id="section-7">(1)</h2>
-<p><span class="math inline">\(\theta\)</span>에 대한 적절한 추축변량을 구하고, 해당 추축변량의 분포를 명시하시오.</p>
+<section id="vae" class="level1">
+<h1>VAE</h1>
+<p>https://di-bigdata-study.tistory.com/4</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">-</span> 입력 데이터를 받아서 인코더를 거쳐 차원 축소를 통한 샘플링 후 디코더를 걸쳐 복원된다.</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="op">-</span> 기본 오토인코더와 같은 구조</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="op">-</span> 인코더 내에서 평균과 분산에서 샘플링을 하여 잠재공간을 중심으로 군집이 응집</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="section-8" class="level2">
-<h2 class="anchored" data-anchor-id="section-8">(2)</h2>
-<p><span class="math inline">\(\theta\)</span>에 대한 95% 신뢰구간을 구하시오.</p>
-</section>
-<section id="section-9" class="level2">
-<h2 class="anchored" data-anchor-id="section-9">(3)</h2>
-<p><span class="math inline">\(P(X&gt;1)\)</span>에 대한 95% 신뢰구간을 구하시오.</p>
+<section id="ref" class="level1">
+<h1>ref</h1>
+<p>http://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&amp;control_no=472ffae348d7013cffe0bdc3ef48d419&amp;keyword=vae</p>
+<p>김수진. “빅데이터 환경에서 딥러닝 기반 VAE를 활용한 개인정보 비식별화 기법.” 국내석사학위논문 숭실대학교 대학원, 2023. 서울</p>
+<p>https://arxiv.org/pdf/1312.6114.pdf</p>
+<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11161449">황주효, 진교홍.(2022).이상 탐지를 위한 합성 데이터 생성 및 성능 분석.한국정보통신학회 종합학술대회 논문집,26(2),19-21.</a></p>
+<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11205195">정현우, 조윤상, 고건우, 송재익, 유동현.(2023).신용카드 거래 데이터에 대한 재현 데이터 생성 방법 비교 연구.한국데이터정보과학회지,34(1),49-72.</a></p>
+<p>[강준영(2021) 차분 프라이버시를 만족하는 재현 데이터 생성을 위한 딥러닝 모델 활용 기술 연구]https://dcollection.kongju.ac.kr/public_resource/pdf/000000030609_20230317142414.pdf</p>
+<p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11036988">김승환, 전성해.(2022).변이형 오토인코더를 이용한 영과잉 특허 데이터 분석.한국지능시스템학회 논문지,32(1),44-50.</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
