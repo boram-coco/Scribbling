@@ -1,5 +1,117 @@
 [
   {
+    "objectID": "posts/AS4.html",
+    "href": "posts/AS4.html",
+    "title": "AS HW4",
+    "section": "",
+    "text": "library(car)\nlibrary(MASS)\nlibrary(glmnet)"
+  },
+  {
+    "objectID": "posts/AS4.html#section",
+    "href": "posts/AS4.html#section",
+    "title": "AS HW4",
+    "section": "(1)",
+    "text": "(1)\n변수들 사이의 산점도행렬을 그리고 설명하여라.\n\npairs(ex4)\n\n\nhipcenter와 대부분 음의 상관관계가 있어보이고, Age는 관계가 없어보인다.\n다른 설명변수들간에도 서로 양의 상관관계가 있어보인다. Age는 다른 변수들과도 관계가 없어 보임."
+  },
+  {
+    "objectID": "posts/AS4.html#section-1",
+    "href": "posts/AS4.html#section-1",
+    "title": "AS HW4",
+    "section": "(2)",
+    "text": "(2)\n변수들 사이의 상관계수를 구하여라. (소수점 둘째자리까지 반올림) 다중공선성이 존재한다고 할 수 있는가?\n\nround(cor(ex4),2)\n\n\n각 변수들간의 상관관계가 대체적으로 높은 편이며 양의 상관관계를 가지는 경우가 많다."
+  },
+  {
+    "objectID": "posts/AS4.html#section-2",
+    "href": "posts/AS4.html#section-2",
+    "title": "AS HW4",
+    "section": "(3)",
+    "text": "(3)\n선형회귀모형을 적합하여라. (계수를 추정. 예 : \\(\\hat y = 3 + 2x\\) 이렇게 적어주기)\n\nfit <- lm(hipcenter~., ex4)\nsummary(fit)\n\n\\(\\widehat {hipcenter}=436.43+0.78 \\widehat{Age} + 0.03 \\widehat{Weight} - 2.69 \\widehat{HtShoes}+0.60\\widehat{Ht}+0.53\\widehat{Seated}-1.33\\widehat{Arm}-1.14\\widehat{Thigh}-6.44\\widehat{Leg}\\)"
+  },
+  {
+    "objectID": "posts/AS4.html#section-3",
+    "href": "posts/AS4.html#section-3",
+    "title": "AS HW4",
+    "section": "(4)",
+    "text": "(4)\n위의 선형회귀모형에서 개별 회귀계수의 유의성 검정 결과와 (1),(2)번 결과와 연관지어 설명하여라.\n회귀모형의 p-value값은 1.306e-05으로 유의하고 \\(R^2\\)값도 68%정도로 약간 높은 편이지만 회귀계수는 절편을 제외하고는(절편도..그닥.) 모두 유의하지 않다. 이와 같은 경우는 다중공산성이 존재하기 때문이다."
+  },
+  {
+    "objectID": "posts/AS4.html#section-4",
+    "href": "posts/AS4.html#section-4",
+    "title": "AS HW4",
+    "section": "(5)",
+    "text": "(5)\ncar 패키지의 vif 함수를 이용하여 각 설명변수의 vif값을 구하여라.\n\nvif(fit)\n\n\nvif의 값이 10이상이면 다중공산성이 있다고 보자.\nHtShoes,Ht의 값이 높은 값을 가지며 다중곤상성이 있다."
+  },
+  {
+    "objectID": "posts/AS4.html#section-5",
+    "href": "posts/AS4.html#section-5",
+    "title": "AS HW4",
+    "section": "(6)",
+    "text": "(6)\nglmnet 함수를 이용하여 능형회귀모형을 적합하고자 한다.\n\nrfit <- lm.ridge(hipcenter~., ex4, lambda=seq(0,100,10))\n\n\n(a)\nλ 의 값에 따라 회귀계수가 변하는지 그림으로 보여라. (이 때 0 < λ < 100 으로 설정)\n\nmatplot(rfit$lambda, t(rfit$coef), type='l',\n        xlab=expression(lambda),\n        ylab=expression(bold(beta)(lambda)), lwd=2) \nabline(h=0, col=\"grey\", lty=2)\nabline(v=14.91, col=\"black\", lty=2)\n\n\n\n(b)\n교차검증을 수행하였을 때, MSE를 가장 작게 하는 λ 는 무엇인가?\n\nselect(rfit) \n\n\nround(rfit$coef[,rfit$lam=='20'],3)\n\n\n\n(c)\n위의 λ에 대한 능형회귀 추정량은 무엇인가?\n\nsum(rfit$coef[,rfit$lam=='20']^2)"
+  },
+  {
+    "objectID": "posts/AS4.html#section-6",
+    "href": "posts/AS4.html#section-6",
+    "title": "AS HW4",
+    "section": "(1)",
+    "text": "(1)\n나이를 예측변수로 하여 척추후만증에 대한 로지스틱 회귀모형을 적합하라. (모형을 정확하게 기재)\n\nmodel <- glm(kyphosis ~ age, data = dt, family = binomial())\n\n\nsummary(model)\n\n\nCall:\nglm(formula = kyphosis ~ age, family = binomial(), data = dt)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.3126  -1.0907  -0.9482   1.2170   1.4052  \n\nCoefficients:\n             Estimate Std. Error z value Pr(>|z|)\n(Intercept) -0.572693   0.602395  -0.951    0.342\nage          0.004296   0.005849   0.734    0.463\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 55.051  on 39  degrees of freedom\nResidual deviance: 54.504  on 38  degrees of freedom\nAIC: 58.504\n\nNumber of Fisher Scoring iterations: 4\n\n\n\\(\\widehat {kyphosis} = -0.5727 +0.0043 \\widehat{age}\\)"
+  },
+  {
+    "objectID": "posts/AS4.html#section-7",
+    "href": "posts/AS4.html#section-7",
+    "title": "AS HW4",
+    "section": "(2)",
+    "text": "(2)\n나이가 유의한 효과를 갖는지를 검정하라.\nage의 z-value의 값은 0.734로 0.05보다 크므로 유의하지 않다."
+  },
+  {
+    "objectID": "posts/AS4.html#section-8",
+    "href": "posts/AS4.html#section-8",
+    "title": "AS HW4",
+    "section": "(3)",
+    "text": "(3)\n자료에 대한 산점도를 그려라. 단, 척추후만증의 두 수준에서 나이의 분포가 차이가 나는 것을 주목하라.(상자그림 확인)\n\nboxplot(age ~ kyphosis, data = dt, cex.axis = 0.8,\n        xlab = \"Kyphosis\", ylab = \"Age\", col = c(\"steelblue\", \"darkorange\"))"
+  },
+  {
+    "objectID": "posts/AS4.html#section-9",
+    "href": "posts/AS4.html#section-9",
+    "title": "AS HW4",
+    "section": "(4)",
+    "text": "(4)\n로지스틱 회귀모형\n\\[logit(Pr(x))= log \\dfrac{Pr(y = 1|x)}{1 − Pr(y = 1|x)}= α + β_1x + β_2x^2\\]\n를 적합시킨 후에 나이의 제곱합에 대한 유의성검정을 하여라"
+  },
+  {
+    "objectID": "posts/AS4.html#section-10",
+    "href": "posts/AS4.html#section-10",
+    "title": "AS HW4",
+    "section": "(5)",
+    "text": "(5)\n\\(\\hat β_2\\)의 의미를 서술하시오."
+  },
+  {
+    "objectID": "posts/AS4.html#section-11",
+    "href": "posts/AS4.html#section-11",
+    "title": "AS HW4",
+    "section": "(1)",
+    "text": "(1)\n사형선고에 대한 추정확률은 피고인이 백인(D=0)이고 피해자가 흑인(V=1)일 때 가장 낮다.\n\nT\n\nTRUE"
+  },
+  {
+    "objectID": "posts/AS4.html#다시",
+    "href": "posts/AS4.html#다시",
+    "title": "AS HW4",
+    "section": "(2)다시",
+    "text": "(2)다시\n피해자의 인종이 주어져 있을 떄 백인 피고인이 사형선고를 받을 오즈의 추정값은 흑인 피고인의 오즈의 0.87배이다. 만약 백인 피고인일 경우 D = 1이고 흑인일 경우 D = 0이면 D의 회귀계수의 추정값은 0.87이 아니라 1/0.87 = 1.15가 되었을 것이다.\n\nD의 회귀계수 추정값: 0.87\n\n백인 피고인의 오즈가 흑인 피고인의 오즈의 0.87배"
+  },
+  {
+    "objectID": "posts/AS4.html#section-12",
+    "href": "posts/AS4.html#section-12",
+    "title": "AS HW4",
+    "section": "(3)",
+    "text": "(3)\n절편의 추정값 −2.06은 피고인과 피해자가 백인일 경우(D = V = 0)에 사형선고에 대한 추정확률이다."
+  },
+  {
+    "objectID": "posts/AS4.html#section-13",
+    "href": "posts/AS4.html#section-13",
+    "title": "AS HW4",
+    "section": "(4)",
+    "text": "(4)\n만약, 백인피해자와 피고인이 500명일 때, 사형선고를 받는 사람에 대해 모형에서 적합된 도수(즉, 추정되는 기대도수)는 \\(500e^{−2.06}/(1 + e^{−2.06})\\)과 같다."
+  },
+  {
     "objectID": "posts/논문.html",
     "href": "posts/논문.html",
     "title": "Scribbling",
@@ -124,69 +236,6 @@
     "title": "Scribbling",
     "section": "",
     "text": "일정:23. 6.29(목) ~ 7.1 (토)\n장소: 부경대학교(부산)\n발표신청 및 초록제출: 3.20.(월) ~ 4.20.(목)\n발표요약본제출(석사과정) : ~4.20.(목)\n포스터파일제출: ~ 5.19.(금)\n\n\n\n\n\n하계: 2023. 7.6.(목) ~ 7.7.(금)\n고려대학교\n발표신청 및 사전등록: 23.5.29.(월)\n초록 또는 논문제출: ~5.31.(수)\n\n\n\n\n\n일정: 6.23.(금) ~ 6.24.(토)\n장소: 강릉원주대학교\n발표논문 초록 제출: ~5.5.(금)\n발표 논문 제출: ~6.16.(금)\n학생논문: ~6.9.(금)"
-  },
-  {
-    "objectID": "posts/TS8.html",
-    "href": "posts/TS8.html",
-    "title": "TS HW8",
-    "section": "",
-    "text": "모수 \\(\\theta\\)에 대한 서로 독립인 비편향 추정량 \\(\\hat \\theta_1\\)과 \\(\\hat \\theta_2\\)이 존재하며 \\(Var(\\hat \\theta_i)=\\sigma_i^2, i=1,2\\)이라고 한다. 이를 이용하여 새로운 추정량 \\(\\hat \\theta_{a_1,a_2}=a_1\\hat \\theta_1+ a_2 \\hat \\theta_2\\)를 정의할 때 다음에 답하시오.\n\n\n\\(\\hat \\theta_{a_1,a_2}\\)이 비편향추정량이 될 \\(a_1\\)과 \\(a_2\\)의 조건을 구하시오\n\\(E(a_1\\hat \\theta_1 + a_2 \\hat \\theta_2) = a_1E(\\hat \\theta_1) + a_2 E(\\hat \\theta_2) = \\theta(a_1+a_2)=\\theta\\)\n\\(\\therefore a_1+a_2=1\\)\n\n\n\n비편향추정량인 \\(\\hat \\theta_{a_1,a_2}\\) 중에서 가장 작은 분산을 가지는 추정량을 구하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-2",
-    "href": "posts/TS8.html#section-2",
-    "title": "TS HW8",
-    "section": "(1)",
-    "text": "(1)\n\\(p(1-p)\\)에 대한 비편향추정량의 크래며-라오 하한값을 구하시오\n\\(f(x|p)=p^x(1-p)^{1-x}\\)\n\\(I(p) = E\\left(\\left(\\dfrac{d}{dp}log f(x|p)\\right)^2 \\right)=E\\left(\\left(\\dfrac{d}{dp}[xlogp+(1-x)log(1-p)]\\right)^2 \\right)=E\\left(\\left(\\dfrac{x}{p}-\\dfrac{1-x}{1-p}\\right)^2\\right)=E\\left(\\left(\\dfrac{x-p}{p(1-p)}\\right)^2\\right)=\\dfrac{1}{p^2(1-p)^2}E((x-p)^2)\\)\n\\(\\because E((x-p)^2)=Var\\)~\\(p(1-p)\\)\n\\(=\\dfrac{p(1-p)}{p^2(1-p)^2}=\\dfrac{1}{p(1-p)}\\)\n\\(\\therefore CRLB = \\dfrac{g'(p))^2}{nI(p)}=\\dfrac{p(1-p)(1-2p)^2}{n}\\)"
-  },
-  {
-    "objectID": "posts/TS8.html#section-3",
-    "href": "posts/TS8.html#section-3",
-    "title": "TS HW8",
-    "section": "(2)",
-    "text": "(2)\n\\(X_1(1-X_2)\\)의 기댓값을 구하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-4",
-    "href": "posts/TS8.html#section-4",
-    "title": "TS HW8",
-    "section": "(3)",
-    "text": "(3)\n\\(p(1-p)\\)에 대한 최소분산 비편향추정량을 구하시오.\n\\(E(\\bar X_n - \\bar X_n^2) = \\dfrac{(n-1)(1-p)}{n}\\)\n\\(\\dfrac{n\\bar X_n(1- \\bar X_n)}{n-1}\\)"
-  },
-  {
-    "objectID": "posts/TS8.html#section-5",
-    "href": "posts/TS8.html#section-5",
-    "title": "TS HW8",
-    "section": "(4)",
-    "text": "(4)\n\\(p(1-p)\\)에 대한 적률추정량을 구하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-6",
-    "href": "posts/TS8.html#section-6",
-    "title": "TS HW8",
-    "section": "(5)",
-    "text": "(5)\n\\(p(1-p)\\)에 대한 최대가능도추정량을 구하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-7",
-    "href": "posts/TS8.html#section-7",
-    "title": "TS HW8",
-    "section": "(1)",
-    "text": "(1)\n\\(\\theta\\)에 대한 적절한 추축변량을 구하고, 해당 추축변량의 분포를 명시하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-8",
-    "href": "posts/TS8.html#section-8",
-    "title": "TS HW8",
-    "section": "(2)",
-    "text": "(2)\n\\(\\theta\\)에 대한 95% 신뢰구간을 구하시오."
-  },
-  {
-    "objectID": "posts/TS8.html#section-9",
-    "href": "posts/TS8.html#section-9",
-    "title": "TS HW8",
-    "section": "(3)",
-    "text": "(3)\n\\(P(X>1)\\)에 대한 95% 신뢰구간을 구하시오."
   },
   {
     "objectID": "posts/사기거래/낙서.html",
@@ -403,6 +452,6 @@
     "href": "index.html",
     "title": "Scribbling",
     "section": "",
-    "text": "GNN\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on Graph Neural Networks with PyTorch & PyTorch Geometric\n\n\n\n\n\n\n\nGNN\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 날짜 wmatrix\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTS HW8\n\n\n\n\n\n\n\nTheoretical statistics\n\n\nhomework\n\n\n\n\n\n\n\n\n\n\n\nMay 31, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님 코드-변형)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 변형코드\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(설명변수 time추가)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님과 같이 정리중)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
+    "text": "GNN\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nAS HW4\n\n\n\n\n\n\n\nApplied statistics\n\n\nhomework\n\n\n\n\n\n\n\n\n\n\n\nJun 9, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on Graph Neural Networks with PyTorch & PyTorch Geometric\n\n\n\n\n\n\n\nGNN\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 날짜 wmatrix\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님 코드-변형)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 변형코드\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(설명변수 time추가)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님과 같이 정리중)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
   }
 ]
