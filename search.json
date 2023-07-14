@@ -175,95 +175,53 @@
     "text": "일정:23. 6.29(목) ~ 7.1 (토)\n장소: 부경대학교(부산)\n발표신청 및 초록제출: 3.20.(월) ~ 4.20.(목)\n발표요약본제출(석사과정) : ~4.20.(목)\n포스터파일제출: ~ 5.19.(금)\n\n\n\n\n\n하계: 2023. 7.6.(목) ~ 7.7.(금)\n고려대학교\n발표신청 및 사전등록: 23.5.29.(월)\n초록 또는 논문제출: ~5.31.(수)\n\n\n\n\n\n일정: 6.23.(금) ~ 6.24.(토)\n장소: 강릉원주대학교\n발표논문 초록 제출: ~5.5.(금)\n발표 논문 제출: ~6.16.(금)\n학생논문: ~6.9.(금)"
   },
   {
-    "objectID": "posts/GNN논문.html",
-    "href": "posts/GNN논문.html",
-    "title": "Scribbling",
-    "section": "",
-    "text": "Node Classification\n\n\nNode embedding을 통해 점 분류 (인용 네트워크, Reddit게시물, Youtube동영상)\n\n\nLink Prediction\n\n\n그래프 점들 사이에 관계 파악 및 두 점 사이 연관성 예측\n\n\nGraph Classification\n\n\n그래프 전체 여러가지 카테고리로 분류"
-  },
-  {
-    "objectID": "posts/GNN논문.html#ref",
-    "href": "posts/GNN논문.html#ref",
-    "title": "Scribbling",
-    "section": "REF",
-    "text": "REF\nhttps://wonbae.github.io/2021-02-26-Graph9-GNN/\nhttps://thejb.ai/comprehensive-gnns-3/ \\(\\star\\)\nhttps://github.com/heartcored98/Standalone-DeepLearning/tree/master\nhttps://ahjeong.tistory.com/15"
-  },
-  {
-    "objectID": "posts/GNN논문.html#논문-종류",
-    "href": "posts/GNN논문.html#논문-종류",
-    "title": "Scribbling",
-    "section": "논문 종류",
-    "text": "논문 종류\n\nRecurrent Graph Neural Network\nSpatial Convolutional Network\nSpectral Convolutional Network"
-  },
-  {
-    "objectID": "posts/GNN논문.html#section-1",
-    "href": "posts/GNN논문.html#section-1",
-    "title": "Scribbling",
-    "section": "1-1",
-    "text": "1-1\nhttps://arxiv.org/ftp/arxiv/papers/1812/1812.08434.pdf\nPropagation Modeule - Recurrent Operator - Convergence - GNN\nGraph neural networks: A review of methods and applications\n\npopular platforms for graph computing |Platform|Link|Reference| |—|—|—| |PyTorch Geometric |https://github.com/rusty1s/pytorch_geometric| Fey and Lenssen (2019)| |Deep Graph Library |https://github.com/dmlc/dgl |Wang et al. (2019b)| |AliGraph |https://github.com/alibaba/aligraph |Zhu et al. (2019a)| |GraphVite |https://github.com/DeepGraphLearning/graphvite |Zhu et al. (2019b)| |Paddle Graph Learning |https://github.com/PaddlePaddle/PGL|| |Euler |https://github.com/alibaba/euler|| |Plato |https://github.com/tencent/plato|| |CogDL |https://github.com/THUDM/cogdl/|| |OpenNE h|ttps://github.com/thunlp/OpenNE/tree/pytorch||"
-  },
-  {
-    "objectID": "posts/GNN논문.html#section-2",
-    "href": "posts/GNN논문.html#section-2",
-    "title": "Scribbling",
-    "section": "1-2",
-    "text": "1-2\nhttps://ieeexplore.ieee.org/document/4700287\n\n@ARTICLE{4700287,\n  author={Scarselli, Franco and Gori, Marco and Tsoi, Ah Chung and Hagenbuchner, Markus and Monfardini, Gabriele},\n  journal={IEEE Transactions on Neural Networks}, \n  title={The Graph Neural Network Model}, \n  year={2009},\n  volume={20},\n  number={1},\n  pages={61-80},\n  doi={10.1109/TNN.2008.2005605}}"
-  },
-  {
-    "objectID": "posts/GNN논문.html#section-4",
-    "href": "posts/GNN논문.html#section-4",
-    "title": "Scribbling",
-    "section": "2-1",
-    "text": "2-1\nhttps://arxiv.org/abs/1609.02907\n‘Semi-Supervised Classification with Graph Convolutional Networks’"
-  },
-  {
-    "objectID": "posts/GNN논문.html#section-5",
-    "href": "posts/GNN논문.html#section-5",
-    "title": "Scribbling",
-    "section": "2-2",
-    "text": "2-2\n참고자료\n\nF. Scarselli, M. Gori, “The graph neural network model,” IEEE Transactions on Neural Networks, 2009\n\n\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4700287\n\n\nZ. Wu, S. Pan, F. Chen, G. Long, C. Zhang, Philip S. Yu, “A Comprehensive Survey on Graph Neural Networks”, arXiv:1901.00596\n\n\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9046288\n\n\nT. N. Kipf and M. Welling, “Semi-supervised classification with graph convolutional networks,” in Proc. of ICLR, 2017\n\n\nhttps://arxiv.org/pdf/1609.02907.pdf%EF%BC%89\n\n\nJ. Gilmer, S. S. Schoenholz, P. F. Riley, O. Vinyals, and G. E. Dahl, “Neural Message Passing for Quantum Chemistry”, in Proc. of ICML, 2017\n\n\nhttp://proceedings.mlr.press/v70/gilmer17a/gilmer17a.pdf\n이건 화학적 분자구조를 뉴럴로 한거같은데,, 약간 참고자료용??\n\n\nD. Xu, Y. Zhu, C. B. Choy, and L. Fei-Fei, “Scene graph generation by iterative message passing,” in Proc. of CVPR, 2017\n\n\nhttps://openaccess.thecvf.com/content_cvpr_2017/papers/Xu_Scene_Graph_Generation_CVPR_2017_paper.pdf\n시각적 기반이 되는 이미지 그래픽 구조\n입력 이미지로부터 구조화된 장면 표현하는 모델\n\n\nJ. Johnson, A. Gupta, and L. Fei-Fei, “Image generation from scene graphs,” in Proc. of CVPR, 2018\n\n\n그래프 모델을 사용한 이미지 생성\n\n\nD. Teney, L. Liu and A. van den Hengel, “Graph-Structured Representations for Visual Question Answering”, in Proc. of CVPR, 2017\nB. Sanchez-Lengeling, J. N. Wei, B. K. Lee, R. C. Gerkin, A. Aspuru-Guzik, and A. B. Wiltschko, “Machine Learning for Scent: Learning Generalizable Perceptual Representations of Small Molecules”, arXiv: 1910.10685\nR. van den Berg, T. N. Kipf, and M. Welling, “Graph Convolutional Matrix Completion”, arXiv:1706.02263\n\nAlet, Ferran, et al. “Graph element networks: adaptive, structured computation and memory.” International Conference on Machine Learning. PMLR, 2019.\n\nspatial processes가 없는 공간\n\nAllamanis, Miltiadis, Marc Brockschmidt, and Mahmoud Khademi. “Learning to represent programs with graphs.” arXiv preprint arXiv:1711.00740 (2017)."
-  },
-  {
-    "objectID": "posts/GNN논문.html#그래프-합성곱-네트워크",
-    "href": "posts/GNN논문.html#그래프-합성곱-네트워크",
-    "title": "Scribbling",
-    "section": "1. 그래프 합성곱 네트워크",
-    "text": "1. 그래프 합성곱 네트워크\n\n(1) 스펙트럼 방법(여러 가지 파동들의 집합)\n- Spectral Convolutional Neural Network (Spectral CNN) 스펙트럼 네트워크(Denton, Emily L., et al. “Exploiting linear structure within convolutional networks for efficient evaluation.” Advances in neural information processing systems 27 (2014).)\n\n푸리에 영역에서 그래프 라플라시안의 고유 분해 계산\n\n\\[x \\in {\\mathbb R}, \\theta \\in {\\mathbb R}^N, g_\\theta=diah(\\theta)\\]\n\\[g_\\theta \\times x = U_{g_\\theta}(\\wedge)U^Tx\\]\n\\[L=I_N-D^{-\\frac{1}{2}}AD^{-\\frac{1}{2}}=U \\wedge U^T\\]\nU: L의 고유벡터로 이루어진 행렬, \\(\\wedge\\): L의 고윳값으로 이뤄진 대각행렬\n- Chebyshev Spectral Convolutional Neural Network(ChebNet)\n\n논문링크\n거리가 K이하인 범위를 다루는 합성곱을 사용해 합성곱 신경망을 정의함->라플라시안 고유벡터 전부 계산 안해도 된다.\n\\[g_\\theta  = \\sum_{i=0}^K \\theta_i T_i(\\tilde \\wedge)\\]\n\n- 체비쇼프 다항식\n\\(T_k(x) = 2xT_{k-1}(x) - T_{k-2}(x)\\)\n\\(T_0(x)=1, T_1(x) = x\\)\n- Graph Convolutional Network (GCN)\n\n(https://arxiv.org/pdf/1706.02263.pdf)\nhttps://arxiv.org/abs/1609.02907\nChebNet의 식에서 \\(K=1, \\lambda_{max}=2\\)로 근사\n\n\\[g_\\theta' \\times x \\approx \\theta_0' x + \\theta_1'(L-I_N)x = \\theta_0' x - \\theta_1' D^{-\\frac{1}{2}}AD^{-\\frac{1}{2}}x\\]\n\n위 식에서 \\(\\theta=\\theta_0' = -\\theta_1'\\) 이라고 가정(오버피팅 방지)\n\n\\[g_\\theta \\times x \\approx \\theta(I_N + D^{-\\frac{1}{2}}AD^{-\\frac{1}{2}})x\\]\n- AGCN\n\nLi, Ruoyu, et al. “Adaptive graph convolutional neural networks.” Proceedings of the AAAI conference on artificial intelligence. Vol. 32. No. 1. 2018\n\n\n\n(2) 공간 방법\n\n공간적으로 가까운 이웃 노드에 직접 적용하는 합성곱 정의\n\n- 뉴럴 FPS\n논문:Convolutional Networks on Graphs for Learning Molecular Fingerprints\n다른 차수의 노드에 다른 가중치 행렬 사용\n- PATCHY-SAN\n논문:Learning Convolutional Neural Networks for Graphs\n\n노드 선택\n이웃 모으기\n그래프 정규화\n합성곱 구조\n\n- Diffusion-Convolutional Neural Network(DCNN:확산 합성곱 신경망)\n논문: Diffusion-Convolutional Neural Networks\n- DGCN\n논문: Dual Graph Convolutional Networks for Graph-Based Semi-Supervised Classification\n그래프의 부분 일관성과 전체 일관성 모두 고려\n- LGCN\n논문:Large-Scale Learnable Graph Convolutional Networks\n- MoNET\n- GraphSAGE\n논문:Representation learning on graphs: Methods and applications\n논문:Inductive representation learning on large graphs"
-  },
-  {
-    "objectID": "posts/GNN논문.html#gated-graph-neural-networkggnn게이트-그래프-신경망",
-    "href": "posts/GNN논문.html#gated-graph-neural-networkggnn게이트-그래프-신경망",
-    "title": "Scribbling",
-    "section": "Gated Graph Neural Network(GGNN:게이트 그래프 신경망)",
-    "text": "Gated Graph Neural Network(GGNN:게이트 그래프 신경망)\n논문:Gated graph sequence neural networks"
-  },
-  {
-    "objectID": "posts/GNN논문.html#tree-lstm",
-    "href": "posts/GNN논문.html#tree-lstm",
-    "title": "Scribbling",
-    "section": "Tree-LSTM",
-    "text": "Tree-LSTM\n\nChild-Sum Tree-LSTM\nN-ary Tree-LSTM\n\n논문:Improved semantic representations from tree-structured long short-term memory networks)"
-  },
-  {
-    "objectID": "posts/GNN논문.html#그래프-lstm",
-    "href": "posts/GNN논문.html#그래프-lstm",
-    "title": "Scribbling",
-    "section": "그래프 LSTM",
-    "text": "그래프 LSTM"
-  },
-  {
-    "objectID": "posts/GNN논문.html#s-lstm",
-    "href": "posts/GNN논문.html#s-lstm",
-    "title": "Scribbling",
-    "section": "S-LSTM",
-    "text": "S-LSTM"
-  },
-  {
     "objectID": "posts/2022_04_23_중간고사예상문제.html",
     "href": "posts/2022_04_23_중간고사예상문제.html",
     "title": "Scribbling",
     "section": "",
     "text": "import numpy as np\nimport tensorflow as tf\nimport tensorflow.experimental.numpy as tnp\nimport matplotlib.pyplot as plt\n\n\ntnp.experimental_enable_numpy_behavior()\n\n\n\n(1) 아래는 \\(X_i \\overset{iid}{\\sim} N(3,2^2)\\) 를 생성하는 코드이다. (10점)\n\ntf.random.set_seed(43052)\nx= tnp.random.randn(10000)*2+3\nx\n\n<tf.Tensor: shape=(10000,), dtype=float64, numpy=\narray([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,\n        5.01072291, -1.13050477])>\n\n\n함수 \\(L(\\mu,\\sigma)\\)을 최대화하는 \\((\\mu,\\sigma)\\)를 tf.GradeintTape()를 활용하여 추정하라. (경사하강법 혹은 경사상승법을 사용하고 \\(\\mu\\)의 초기값은 2로 \\(\\sigma\\)의 초기값은 3으로 설정할 것)\n\\[L(\\mu,\\sigma)=\\prod_{i=1}^{n}f(x_i), \\quad f(x_i)=\\frac{1}{\\sqrt{2\\pi}\\sigma}e^{-\\frac{1}{2}(\\frac{x_i-\\mu}{\\sigma})^2}\\]\nhint: \\(L(\\mu,\\sigma)\\)를 최대화하는 \\((\\mu,\\sigma)\\)는 \\(\\log L(\\mu,\\sigma)\\)를 역시 최대화한다는 사실을 이용할 것.\nhint: \\(\\mu\\)의 참값은 3, \\(\\sigma\\)의 참값은 2이다. (따라서 \\(\\mu\\)와 \\(\\sigma\\)는 각각 2와 3근처로 추정되어야 한다.)\n\nmu = tf.Variable(2.0)\nsigma = tf.Variable(3.0)\n\n\nwith tf.GradientTape() as tape:\n    pdf = 1/sigma * tnp.exp(-0.5*((x-mu)/sigma)**2)\n    log = tf.reduce_sum(tnp.log(pdf))\ntape.gradient(log, [mu, sigma])\n\n[<tf.Tensor: shape=(), dtype=float32, numpy=1129.3353>,\n <tf.Tensor: shape=(), dtype=float32, numpy=-1488.3431>]\n\n\n\nfor i in range(1000):\n    with tf.GradientTape() as tape:\n        pdf = 1/sigma * tnp.exp(-0.5*((x-mu)/sigma)**2)\n        log = tf.reduce_sum(tnp.log(pdf))\n    slope1, slope2 = tape.gradient(log, [mu, sigma])\n    mu.assign_add(slope1 * 0.1 / 10000)\n    sigma.assign_add(slope2 * 0.1 / 10000)\n\n(2)\n(3)\n\n\n\n아래와 같은 선형모형을 고려하자.\n\\[y_i = \\beta_0 + \\beta_1 x_i +\\epsilon_i.\\]\n이때 오차항은 정규분포로 가정한다. 즉 \\(\\epsilon_i \\overset{iid}{\\sim} N(0,\\sigma^2)\\)라고 가정한다.\n관측데이터가 아래와 같을때 아래의 물음에 답하라.\n\nx= tnp.array([20.1, 22.2, 22.7, 23.3, 24.4, 25.1, 26.2, 27.3, 28.4, 30.4])\ny= tnp.array([55.4183651 , 58.19427589, 61.23082496, 62.31255873, 63.1070028 ,\n              63.69569103, 67.24704918, 71.43650092, 73.10130336, 77.84988286])\n# X= tnp.array([[1.0, 20.1], [1.0, 22.2], [1.0, 22.7], [1.0, 23.3], [1.0, 24.4],\n#               [1.0, 25.1], [1.0, 26.2], [1.0, 27.3], [1.0, 28.4], [1.0, 30.4]])\n\n(1) MSE loss를 최소화 하는 \\(\\beta_0,\\beta_1\\)의 해석해를 구하라.\n(2) 경사하강법과 MSE loss의 도함수를 이용하여 \\(\\beta_0,\\beta_1\\)을 추정하라.\n주의 tf.GradeintTape()를 이용하지 말고 MSE loss의 해석적 도함수를 사용할 것.\n(3) tf.keras.optimizers의 apply_gradients()를 이용하여 \\(\\beta_0,\\beta_1\\)을 추정하라.\n(4) tf.keras.optimizers의 minimize()를 이용하여 \\(\\beta_0,\\beta_1\\)을 추정하라.\nhint1 alpha=0.0015로 설정할 것\nhint2 epoc은 10000번정도 반복실행하며 적당한 횟수를 찾을 것\nhint3 (1)의 최적값에 반드시 정확히 수렴시킬 필요는 없음 (너무 많은 에폭이 소모됨)\nhint4 초기값으로 [5,10] 정도 이용할 것\n\n\n\n(1) 아래와 같은 모형을 고려하자.\n\\[y_i= \\beta_0 + \\sum_{k=1}^{5} \\beta_k \\cos(k t_i)+\\epsilon_i, \\quad i=0,1,\\dots, 999\\]\n여기에서 \\(t_i=\\frac{2\\pi i}{1000}\\) 이다. 그리고 \\(\\epsilon_i \\sim i.i.d~ N(0,\\sigma^2)\\), 즉 서로 독립인 표준정규분포에서 추출된 샘플이다. 위의 모형에서 아래와 같은 데이터를 관측했다고 가정하자.\n\nnp.random.seed(43052)\nt= np.array(range(1000))* np.pi/1000\ny = -2+ 3*np.cos(t) + 1*np.cos(2*t) + 0.5*np.cos(5*t) + np.random.randn(1000)*0.2\nplt.plot(t,y,'.',alpha=0.2)\n\n\n\n\ntf.keras를 이용하여 \\(\\beta_0,\\dots,\\beta_5\\)를 추정하라. (\\(\\beta_0,\\dots,\\beta_5\\)의 참값은 각각 -2,3,1,0,0,0.5 이다)\n(2) 아래와 같은 모형을 고려하자.\n\\[y_i \\sim Ber(\\pi_i), ~ \\text{where} ~ \\pi_i=\\frac{\\exp(w_0+w_1x_i)}{1+\\exp(w_0+w_1x_i)}\\]\n위의 모형에서 관측한 데이터는 아래와 같다.\n\ntf.random.set_seed(43052)\nx = tnp.linspace(-1,1,2000)\ny = tf.constant(np.random.binomial(1, tf.nn.sigmoid(-1+5*x)),dtype=tf.float64)\nplt.plot(x,y,'.',alpha=0.05)\n\n\n\n\ntf.keras를 이용하여 \\(w_0,w_1\\)을 추정하라. (참고: \\(w_0, w_1\\)에 대한 참값은 -1과 5이다.)\n\n\n\n\n\n\n(1) 적절한 학습률이 선택된다면, 경사하강법은 손실함수가 convex일때 언제 전역최소해를 찾을 수 있다.\n(2)\n(3)\n(4)\n(5)\n\n\n- 용어를 모르겠는 분은 질문하시기 바랍니다.\n- 풀다가 에러나는 코드 질문하면 에러 수정해드립니다."
+  },
+  {
+    "objectID": "posts/tensor basic.html",
+    "href": "posts/tensor basic.html",
+    "title": "Tensor Basic",
+    "section": "",
+    "text": "Book: 딥러닝 파이토치 교과서(서지영 지음, 길벗 출판사)\ngithub: https://github.com/gilbutITbook/080289/tree/main"
+  },
+  {
+    "objectID": "posts/tensor basic.html#basic",
+    "href": "posts/tensor basic.html#basic",
+    "title": "Tensor Basic",
+    "section": "Basic",
+    "text": "Basic\n\nimport torch\n\n\nprint(torch.tensor([[1,2],[3,4]]))\n\ntensor([[1, 2],\n        [3, 4]])\n\n\n\nprint(torch.tensor([[1,2],[3,4]],device=\"cuda:0\"))\n\ntensor([[1, 2],\n        [3, 4]], device='cuda:0')\n\n\n\nprint(torch.tensor([[1,2],[3,4]],dtype=torch.float64))\n\ntensor([[1., 2.],\n        [3., 4.]], dtype=torch.float64)\n\n\n- ndarray 변환\n\ntemp = torch.tensor([[1,2],[3,4]])\nprint(temp.numpy())\n\n[[1 2]\n [3 4]]\n\n\n\ntemp = torch.tensor([[1,2],[3,4]],device=\"cuda:0\")\nprint(temp.to(\"cpu\").numpy())\n\n[[1 2]\n [3 4]]\n\n\n- 텐서 차원 조작\n\ntemp = torch.tensor([[1,2],[3,4]])\n\n\ntemp.shape\n\ntorch.Size([2, 2])\n\n\n\ntemp.view(4,1)\n\ntensor([[1],\n        [2],\n        [3],\n        [4]])\n\n\n\ntemp.view(-1)\n\ntensor([1, 2, 3, 4])\n\n\n\ntemp.view(1,-1)\n\ntensor([[1, 2, 3, 4]])\n\n\n\ntemp.view(-1,1)\n\ntensor([[1],\n        [2],\n        [3],\n        [4]])"
+  },
+  {
+    "objectID": "posts/tensor basic.html#모델-정의",
+    "href": "posts/tensor basic.html#모델-정의",
+    "title": "Tensor Basic",
+    "section": "모델 정의",
+    "text": "모델 정의\n- nn.Module() 상속하여 정의\nclass MLP(Module):\n    def __init__(self, inputs):\n        super(MLP, self).__init__()\n        self.layer = Linear(inputs,1) # 계층 정의\n        self.activation = Sigmoid() # 활성화 함수 정의\n        \n    def forward(self, X):\n        X = self.layer(X)\n        X = self.activation(X)\n        return X\n- Sequential 신경망 정의하는 방법\nimport torch.nn as nn\nclass MLP(nn.Module):\n    def __init__(self):\n        super(MLP, self).__init__()\n        self.layer1 = nn.Sequential(\n            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=5),\n            nn.ReLU(inplace=True),\n            nn.MaxPool2d(2))\n        \n        self.layer2 = nn.Sequential(\n            nn.Conv2d(in_channels=64, out_channels=30, kernel_size=5),\n            nn.ReLU(inplace=True),\n            nn.MaxPool2d(2))\n        \n        self.layer3 = nn.Sequential(\n            nn.Linear(in_features=30*5*5, out_features=10, bias=True),\n            nn.ReLU(inplace=True))\n        \n        def forward(self,x):\n            x = self.layer1(x)\n            x = self.layer2(x)\n            x = x.view(x.shape[0],-1)\n            x = slelf.layer3(x)\n            return x\n        \n    model = MLP()   # 모델에 대한 객체 생성"
+  },
+  {
+    "objectID": "posts/tensor basic.html#모델의-파라미터-정의",
+    "href": "posts/tensor basic.html#모델의-파라미터-정의",
+    "title": "Tensor Basic",
+    "section": "모델의 파라미터 정의",
+    "text": "모델의 파라미터 정의\n- 손실 함수 (loss function)\n\n\\(y\\)와 \\(\\hat y\\)의 오차를 구해서 모델의 정확성을 측정\nBCELoss: 이진 분류\nCrossEntropyLoss: 다중 클래스 분류\nMSELoss: 회귀 모델\n\n- 옵티마이저 (optimizer)\n\n데이터의 손실 함수를 바탕으로 모델의 업데이트 방법 결정\ntorch.optim.Optimizer(params, defaults)는 옵티마이저 기본 클래스\nzero_grad() 옵티마이저 사용된 파라미터의 기울기 0으로\ntorch.optim.lr_scheduler 에폭에 따라 학습률 조절\n종류\n\n<optim Adadelta, optim.Adagrad, optim.Adam, optim.SparseAdam, optim.Adamax>\n<optim.ASGD, optim.LBFGS>\n<optim.RMSProp, optim.Rprop, optim.SGD>"
+  },
+  {
+    "objectID": "posts/tensor basic.html#모델-훈련",
+    "href": "posts/tensor basic.html#모델-훈련",
+    "title": "Tensor Basic",
+    "section": "모델 훈련",
+    "text": "모델 훈련\n- 예시 코드\nfor epoch in range(100):\n    yhat = model(x_train)\n    loss = criterion(yhat, y_train)\n    optimizer.zero_gard()\n    loss.backward()\n    optimizer.step()"
+  },
+  {
+    "objectID": "posts/tensor basic.html#예시",
+    "href": "posts/tensor basic.html#예시",
+    "title": "Tensor Basic",
+    "section": "예시",
+    "text": "예시\n\n\nimport torch\nimport torch.nn as nn\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline\n\n\ndataset = pd.read_csv('car_evaluation.csv')\n\n\ndataset.head()\n\n\n\n\n\n  \n    \n      \n      price\n      maint\n      doors\n      persons\n      lug_capacity\n      safety\n      output\n    \n  \n  \n    \n      0\n      vhigh\n      vhigh\n      2\n      2\n      small\n      low\n      unacc\n    \n    \n      1\n      vhigh\n      vhigh\n      2\n      2\n      small\n      med\n      unacc\n    \n    \n      2\n      vhigh\n      vhigh\n      2\n      2\n      small\n      high\n      unacc\n    \n    \n      3\n      vhigh\n      vhigh\n      2\n      2\n      med\n      low\n      unacc\n    \n    \n      4\n      vhigh\n      vhigh\n      2\n      2\n      med\n      med\n      unacc\n    \n  \n\n\n\n\n\noutput(차상태): unacc(허용 불가능한 수준), 양호(good), 매우 좋은(very good, vgood)\n\n\ndataset.head()\n\n\n\n\n\n  \n    \n      \n      price\n      maint\n      doors\n      persons\n      lug_capacity\n      safety\n      output\n    \n  \n  \n    \n      0\n      vhigh\n      vhigh\n      2\n      2\n      small\n      low\n      unacc\n    \n    \n      1\n      vhigh\n      vhigh\n      2\n      2\n      small\n      med\n      unacc\n    \n    \n      2\n      vhigh\n      vhigh\n      2\n      2\n      small\n      high\n      unacc\n    \n    \n      3\n      vhigh\n      vhigh\n      2\n      2\n      med\n      low\n      unacc\n    \n    \n      4\n      vhigh\n      vhigh\n      2\n      2\n      med\n      med\n      unacc\n    \n  \n\n\n\n\n\nfig_size = plt.rcParams[\"figure.figsize\"]\nfig_size[0] = 8\nfig_size[1] = 6\nplt.rcParams[\"figure.figsize\"] = fig_size\ndataset.output.value_counts().plot(kind='pie', autopct='%0.05f%%', colors=['lightblue', 'lightgreen', 'orange', 'pink'], explode=(0.05, 0.05, 0.05, 0.05))\n\n<Axes: ylabel='output'>\n\n\n\n\n\n\ncategorical_columns = ['price', 'maint', 'doors', 'persons', 'lug_capacity', 'safety']\n\n\nfor category in categorical_columns:\n    dataset[category] = dataset[category].astype('category')\n\n\nastype() 메서드를 이용하여 데이터를 범주형으로 변환\n\n- 범주형 데이터를 텐서로 변환하기 위해서는\n범주형 데이터 -> dataser[category] -> 넘파이 배열(NumPy array) -> 텐서(Tensor)\n\nprice = dataset['price'].cat.codes.values\nmaint = dataset['maint'].cat.codes.values\ndoors = dataset['doors'].cat.codes.values\npersons = dataset['persons'].cat.codes.values\nlug_capacity = dataset['lug_capacity'].cat.codes.values\nsafety = dataset['safety'].cat.codes.values\n\ncategorical_data = np.stack([price, maint, doors, persons, lug_capacity, safety], 1)\ncategorical_data[:10]\n\narray([[3, 3, 0, 0, 2, 1],\n       [3, 3, 0, 0, 2, 2],\n       [3, 3, 0, 0, 2, 0],\n       [3, 3, 0, 0, 1, 1],\n       [3, 3, 0, 0, 1, 2],\n       [3, 3, 0, 0, 1, 0],\n       [3, 3, 0, 0, 0, 1],\n       [3, 3, 0, 0, 0, 2],\n       [3, 3, 0, 0, 0, 0],\n       [3, 3, 0, 1, 2, 1]], dtype=int8)\n\n\n- 배열 텐서로 변환\n\ncategorical_data = torch.tensor(categorical_data, dtype=torch.int64)\ncategorical_data[:10]\n\ntensor([[3, 3, 0, 0, 2, 1],\n        [3, 3, 0, 0, 2, 2],\n        [3, 3, 0, 0, 2, 0],\n        [3, 3, 0, 0, 1, 1],\n        [3, 3, 0, 0, 1, 2],\n        [3, 3, 0, 0, 1, 0],\n        [3, 3, 0, 0, 0, 1],\n        [3, 3, 0, 0, 0, 2],\n        [3, 3, 0, 0, 0, 0],\n        [3, 3, 0, 1, 2, 1]])\n\n\n- 레이블(outputs) 사용할 칼럼을 텐서로 변환\n\noutputs = pd.get_dummies(dataset.output)\noutputs = outputs.values\noutputs = torch.tensor(outputs).flatten()\n\nprint(categorical_data.shape)\nprint(outputs.shape)\n\ntorch.Size([1728, 6])\ntorch.Size([6912])\n\n\n\nnote: revel(), reshape(), flatten()\n텐서 차원 변경\n\n\ncategorical_column_sizes = [len(dataset[column].cat.categories) for column in categorical_columns]\ncategorical_embedding_sizes = [(col_size, min(50, (col_size+1)//2)) for col_size in categorical_column_sizes]\nprint(categorical_embedding_sizes)\n\n[(4, 2), (4, 2), (4, 2), (3, 2), (3, 2), (3, 2)]\n\n\n- test/train\n\ntotal_records = 1728\ntest_records = int(total_records * .2)   # 20%만 테스트 용도로 사용\n\ncategorical_train_data = categorical_data[:total_records-test_records]\ncategorical_test_data = categorical_data[total_records-test_records:total_records]\ntrain_outputs = outputs[:total_records-test_records]\ntest_outputs = outputs[total_records-test_records:total_records]\n\n\nprint(len(categorical_train_data))\nprint(len(train_outputs))\nprint(len(categorical_test_data))\nprint(len(test_outputs))\n\n1383\n1383\n345\n345\n\n\n- 네트워크 생성\n\nclass Model(nn.Module):\n    def __init__(self, embedding_size, output_size, layers, p=0.4):\n        super().__init__()\n        self.all_embeddings = nn.ModuleList([nn.Embedding(ni, nf) for ni, nf in embedding_size])\n        self.embedding_dropout = nn.Dropout(p)\n        \n        all_layers = []\n        num_categorical_cols = sum((nf for ni, nf in embedding_size))\n        input_size = num_categorical_cols \n\n        for i in layers:\n            all_layers.append(nn.Linear(input_size, i))\n            all_layers.append(nn.ReLU(inplace=True))\n            all_layers.append(nn.BatchNorm1d(i)) # 배치정규화.. 평균0 분산 1\n            all_layers.append(nn.Dropout(p))\n            input_size = i\n\n        all_layers.append(nn.Linear(layers[-1], output_size))\n        self.layers = nn.Sequential(*all_layers)\n\n    def forward(self, x_categorical):\n        embeddings = []\n        for i,e in enumerate(self.all_embeddings):\n            embeddings.append(e(x_categorical[:,i]))\n        x = torch.cat(embeddings, 1)\n        x = self.embedding_dropout(x)\n        x = self.layers(x)\n        return x\n\n\nmodel = Model(categorical_embedding_sizes, 4, [200,100,50], p=0.4)\nprint(model)\n\nModel(\n  (all_embeddings): ModuleList(\n    (0-2): 3 x Embedding(4, 2)\n    (3-5): 3 x Embedding(3, 2)\n  )\n  (embedding_dropout): Dropout(p=0.4, inplace=False)\n  (layers): Sequential(\n    (0): Linear(in_features=12, out_features=200, bias=True)\n    (1): ReLU(inplace=True)\n    (2): BatchNorm1d(200, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (3): Dropout(p=0.4, inplace=False)\n    (4): Linear(in_features=200, out_features=100, bias=True)\n    (5): ReLU(inplace=True)\n    (6): BatchNorm1d(100, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (7): Dropout(p=0.4, inplace=False)\n    (8): Linear(in_features=100, out_features=50, bias=True)\n    (9): ReLU(inplace=True)\n    (10): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (11): Dropout(p=0.4, inplace=False)\n    (12): Linear(in_features=50, out_features=4, bias=True)\n  )\n)\n\n\n\n\nloss_function = nn.CrossEntropyLoss()\noptimizer = torch.optim.Adam(model.parameters(), lr=0.001)\n\n\nif torch.cuda.is_available():\n    device = torch.device('cuda')\nelse:\n    device = torch.device('cpu')\n\n\nepochs = 500\naggregated_losses = []\ntrain_outputs = train_outputs.to(device=device, dtype=torch.int64)\nfor i in range(epochs):\n    i += 1\n    y_pred = model(categorical_train_data)\n    single_loss = loss_function(y_pred, train_outputs)\n    aggregated_losses.append(single_loss)   # 반복할 때마다 오차 aggregated_losses에 추가\n\n    if i%25 == 1:\n        print(f'epoch: {i:3} loss: {single_loss.item():10.8f}')\n\n    optimizer.zero_grad()\n    single_loss.backward()   # 가중치 업데이트\n    optimizer.step()         # 기울기 업데이트\n\nprint(f'epoch: {i:3} loss: {single_loss.item():10.10f}')\n\n\ntest_outputs = test_outputs.to(device=device, dtype=torch.int64)\nwith torch.no_grad():\n    y_val = model(categorical_test_data)\n    loss = loss_function(y_val, test_outputs)\nprint(f'Loss: {loss:.8f}')\n\n\nprint(y_val[:5])\n\n\ny_val = np.argmax(y_val, axis=1)\nprint(y_val[:5])\n\n\n\nfrom sklearn.metrics import classification_report, confusion_matrix, accuracy_score\n\nprint(confusion_matrix(test_outputs,y_val))\nprint(classification_report(test_outputs,y_val))\nprint(accuracy_score(test_outputs, y_val))"
   },
   {
     "objectID": "posts/사기거래/낙서.html",
@@ -480,6 +438,6 @@
     "href": "index.html",
     "title": "Scribbling",
     "section": "",
-    "text": "GNN\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGNN으로 할 수 있는 것\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n중간고사 예상문제\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nAS HW4_5\n\n\n\n\n\n\n\nApplied statistics\n\n\nhomework\n\n\n\n\n\n\n\n\n\n\n\nJun 9, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on Graph Neural Networks with PyTorch & PyTorch Geometric\n\n\n\n\n\n\n\nGNN\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 날짜 wmatrix\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님 코드-변형)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 변형코드\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(설명변수 time추가)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님과 같이 정리중)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
+    "text": "GNN\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCzech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n2023년 학회 발표 준비\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n중간고사 예상문제\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n분석\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nTensor Basic\n\n\n\n\n\n\n\nTensor\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAS HW4_5\n\n\n\n\n\n\n\nApplied statistics\n\n\nhomework\n\n\n\n\n\n\n\n\n\n\n\nJun 9, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on Graph Neural Networks with PyTorch & PyTorch Geometric\n\n\n\n\n\n\n\nGNN\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 날짜 wmatrix\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님 코드-변형)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래 변형코드\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(설명변수 time추가)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n미래 예측 데이터 분석(비트코인 시세 예측)\n\n\n\n\n\n\n\n회귀 분석\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n사기거래(교수님과 같이 정리중)\n\n\n\n\n\n\n\n사기거래\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n지도 학습\n\n\n\n\n\n\n\n\n\n\n\nMay 11, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH4. 지도 그래프 학습(그래프 정규화 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVAE(-ing)\n\n\n\n\n\n\n\nVAE\n\n\nAuto-Encoding Variational Bayes\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
   }
 ]
