@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="김보람">
-<meta name="dcterms.date" content="2023-03-14">
+<meta name="author" content="신록예찬">
+<meta name="dcterms.date" content="2023-07-19">
 
-<title>Scribbling - VAE(-ing)</title>
+<title>Scribbling - [FRAUD] 그래프자료로 데이터정리</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,6 +123,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -160,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">VAE(-ing)</h1>
+      <h1 class="quarto-secondary-nav-title"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -171,12 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">VAE(-ing)</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">VAE</div>
-                <div class="quarto-category">Auto-Encoding Variational Bayes</div>
-              </div>
-                  </div>
+      <h1 class="title d-none d-lg-block"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</h1>
+                      </div>
   </div>
     
   
@@ -185,14 +184,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>김보람 </p>
+               <p>신록예찬 </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 14, 2023</p>
+        <p class="date">July 19, 2023</p>
       </div>
     </div>
     
@@ -245,12 +244,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Hadamangeo</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Hadamangeo</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
@@ -268,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link active">VAE(-ing)</a>
+  <a href="../../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link">VAE(-ing)</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -285,15 +284,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">사기거래</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">사기거래</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a>
+  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link active"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -354,12 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#사전학습" id="toc-사전학습" class="nav-link active" data-scroll-target="#사전학습">사전학습</a>
-  <ul class="collapse">
-  <li><a href="#오토인코더" id="toc-오토인코더" class="nav-link" data-scroll-target="#오토인코더">오토인코더</a></li>
-  </ul></li>
-  <li><a href="#vae" id="toc-vae" class="nav-link" data-scroll-target="#vae">VAE</a></li>
-  <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">ref</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
   </ul>
 </nav>
     </div>
@@ -369,46 +363,350 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>https:<span class="op">//</span>arxiv.org<span class="op">/</span>pdf<span class="op">/</span><span class="fl">1312.6114</span>.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="imports" class="level1">
+<h1>imports</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> torch </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch_geometric</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="사전학습" class="level1">
-<h1>사전학습</h1>
-<dl>
-<dt>개인정보를 비식별화하는 기술</dt>
-<dd>
-ISO/IEC 20889 국제표준에 따르면 통계 기술, 암호호 ㅏ기술, 가명화 기술, 해부화, 일반화기술, 무작위화 기술, 재현 데이터로 나눈다.
-</dd>
-</dl>
-<section id="오토인코더" class="level2">
-<h2 class="anchored" data-anchor-id="오토인코더">오토인코더</h2>
-<ul>
-<li>Encoder, Decoder 네트워크로 구성된 모델</li>
-<li>학습 데이터-&gt; encoder에 입력값</li>
-</ul>
-</section>
-</section>
-<section id="vae" class="level1">
-<h1>VAE</h1>
-<p>https://di-bigdata-study.tistory.com/4</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 모든엣지를 고려</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>N <span class="op">=</span> <span class="dv">10</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># edge_attr = 그래프의 웨이트 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">-</span> 입력 데이터를 받아서 인코더를 거쳐 차원 축소를 통한 샘플링 후 디코더를 걸쳐 복원된다.</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="op">-</span> 기본 오토인코더와 같은 구조</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="op">-</span> 인코더 내에서 평균과 분산에서 샘플링을 하여 잠재공간을 중심으로 군집이 응집</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>fraudTrain <span class="op">=</span> pd.read_csv(<span class="st">"~/Desktop/fraudTrain.csv"</span>).iloc[:,<span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="ref" class="level1">
-<h1>ref</h1>
-<p>http://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&amp;control_no=472ffae348d7013cffe0bdc3ef48d419&amp;keyword=vae</p>
-<p>김수진. “빅데이터 환경에서 딥러닝 기반 VAE를 활용한 개인정보 비식별화 기법.” 국내석사학위논문 숭실대학교 대학원, 2023. 서울</p>
-<p>https://arxiv.org/pdf/1312.6114.pdf</p>
-<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11161449">황주효, 진교홍.(2022).이상 탐지를 위한 합성 데이터 생성 및 성능 분석.한국정보통신학회 종합학술대회 논문집,26(2),19-21.</a></p>
-<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11205195">정현우, 조윤상, 고건우, 송재익, 유동현.(2023).신용카드 거래 데이터에 대한 재현 데이터 생성 방법 비교 연구.한국데이터정보과학회지,34(1),49-72.</a></p>
-<p>[강준영(2021) 차분 프라이버시를 만족하는 재현 데이터 생성을 위한 딥러닝 모델 활용 기술 연구]https://dcollection.kongju.ac.kr/public_resource/pdf/000000030609_20230317142414.pdf</p>
-<p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11036988">김승환, 전성해.(2022).변이형 오토인코더를 이용한 영과잉 특허 데이터 분석.한국지능시스템학회 논문지,32(1),44-50.</a></p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
+<span id="cb4-2"><a href="#cb4-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>trans_date_trans_time</th>
+      <th>cc_num</th>
+      <th>merchant</th>
+      <th>category</th>
+      <th>amt</th>
+      <th>first</th>
+      <th>last</th>
+      <th>gender</th>
+      <th>street</th>
+      <th>city</th>
+      <th>...</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>city_pop</th>
+      <th>job</th>
+      <th>dob</th>
+      <th>trans_num</th>
+      <th>unix_time</th>
+      <th>merch_lat</th>
+      <th>merch_long</th>
+      <th>is_fraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01 00:00:00</td>
+      <td>2.703190e+15</td>
+      <td>fraud_Rippin, Kub and Mann</td>
+      <td>misc_net</td>
+      <td>4.97</td>
+      <td>Jennifer</td>
+      <td>Banks</td>
+      <td>F</td>
+      <td>561 Perry Cove</td>
+      <td>Moravian Falls</td>
+      <td>...</td>
+      <td>36.0788</td>
+      <td>-81.1781</td>
+      <td>3495</td>
+      <td>Psychologist, counselling</td>
+      <td>1988-03-09</td>
+      <td>0b242abb623afc578575680df30655b9</td>
+      <td>1325376018</td>
+      <td>36.011293</td>
+      <td>-82.048315</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-01 00:00:00</td>
+      <td>6.304230e+11</td>
+      <td>fraud_Heller, Gutmann and Zieme</td>
+      <td>grocery_pos</td>
+      <td>107.23</td>
+      <td>Stephanie</td>
+      <td>Gill</td>
+      <td>F</td>
+      <td>43039 Riley Greens Suite 393</td>
+      <td>Orient</td>
+      <td>...</td>
+      <td>48.8878</td>
+      <td>-118.2105</td>
+      <td>149</td>
+      <td>Special educational needs teacher</td>
+      <td>1978-06-21</td>
+      <td>1f76529f8574734946361c461b024d99</td>
+      <td>1325376044</td>
+      <td>49.159047</td>
+      <td>-118.186462</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-01 00:00:00</td>
+      <td>3.885950e+13</td>
+      <td>fraud_Lind-Buckridge</td>
+      <td>entertainment</td>
+      <td>220.11</td>
+      <td>Edward</td>
+      <td>Sanchez</td>
+      <td>M</td>
+      <td>594 White Dale Suite 530</td>
+      <td>Malad City</td>
+      <td>...</td>
+      <td>42.1808</td>
+      <td>-112.2620</td>
+      <td>4154</td>
+      <td>Nature conservation officer</td>
+      <td>1962-01-19</td>
+      <td>a1a22d70485983eac12b5b88dad1cf95</td>
+      <td>1325376051</td>
+      <td>43.150704</td>
+      <td>-112.154481</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-01 00:01:00</td>
+      <td>3.534090e+15</td>
+      <td>fraud_Kutch, Hermiston and Farrell</td>
+      <td>gas_transport</td>
+      <td>45.00</td>
+      <td>Jeremy</td>
+      <td>White</td>
+      <td>M</td>
+      <td>9443 Cynthia Court Apt. 038</td>
+      <td>Boulder</td>
+      <td>...</td>
+      <td>46.2306</td>
+      <td>-112.1138</td>
+      <td>1939</td>
+      <td>Patent attorney</td>
+      <td>1967-01-12</td>
+      <td>6b849c168bdad6f867558c3793159a81</td>
+      <td>1325376076</td>
+      <td>47.034331</td>
+      <td>-112.561071</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-01 00:03:00</td>
+      <td>3.755340e+14</td>
+      <td>fraud_Keeling-Crist</td>
+      <td>misc_pos</td>
+      <td>41.96</td>
+      <td>Tyler</td>
+      <td>Garcia</td>
+      <td>M</td>
+      <td>408 Bradley Rest</td>
+      <td>Doe Hill</td>
+      <td>...</td>
+      <td>38.4207</td>
+      <td>-79.4629</td>
+      <td>99</td>
+      <td>Dance movement psychotherapist</td>
+      <td>1986-03-28</td>
+      <td>a41d7549acf90789359a9aa5346dcb46</td>
+      <td>1325376186</td>
+      <td>38.674999</td>
+      <td>-78.632459</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1048570</th>
+      <td>2020-03-10 16:07:00</td>
+      <td>6.011980e+15</td>
+      <td>fraud_Fadel Inc</td>
+      <td>health_fitness</td>
+      <td>77.00</td>
+      <td>Haley</td>
+      <td>Wagner</td>
+      <td>F</td>
+      <td>05561 Farrell Crescent</td>
+      <td>Annapolis</td>
+      <td>...</td>
+      <td>39.0305</td>
+      <td>-76.5515</td>
+      <td>92106</td>
+      <td>Accountant, chartered certified</td>
+      <td>1943-05-28</td>
+      <td>45ecd198c65e81e597db22e8d2ef7361</td>
+      <td>1362931649</td>
+      <td>38.779464</td>
+      <td>-76.317042</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1048571</th>
+      <td>2020-03-10 16:07:00</td>
+      <td>4.839040e+15</td>
+      <td>fraud_Cremin, Hamill and Reichel</td>
+      <td>misc_pos</td>
+      <td>116.94</td>
+      <td>Meredith</td>
+      <td>Campbell</td>
+      <td>F</td>
+      <td>043 Hanson Turnpike</td>
+      <td>Hedrick</td>
+      <td>...</td>
+      <td>41.1826</td>
+      <td>-92.3097</td>
+      <td>1583</td>
+      <td>Geochemist</td>
+      <td>1999-06-28</td>
+      <td>c00ce51c6ebb7657474a77b9e0b51f34</td>
+      <td>1362931670</td>
+      <td>41.400318</td>
+      <td>-92.726724</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1048572</th>
+      <td>2020-03-10 16:08:00</td>
+      <td>5.718440e+11</td>
+      <td>fraud_O'Connell, Botsford and Hand</td>
+      <td>home</td>
+      <td>21.27</td>
+      <td>Susan</td>
+      <td>Mills</td>
+      <td>F</td>
+      <td>005 Cody Estates</td>
+      <td>Louisville</td>
+      <td>...</td>
+      <td>38.2507</td>
+      <td>-85.7476</td>
+      <td>736284</td>
+      <td>Engineering geologist</td>
+      <td>1952-04-02</td>
+      <td>17c9dc8b2a6449ca2473726346e58e6c</td>
+      <td>1362931711</td>
+      <td>37.293339</td>
+      <td>-84.798122</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1048573</th>
+      <td>2020-03-10 16:08:00</td>
+      <td>4.646850e+18</td>
+      <td>fraud_Thompson-Gleason</td>
+      <td>health_fitness</td>
+      <td>9.52</td>
+      <td>Julia</td>
+      <td>Bell</td>
+      <td>F</td>
+      <td>576 House Crossroad</td>
+      <td>West Sayville</td>
+      <td>...</td>
+      <td>40.7320</td>
+      <td>-73.1000</td>
+      <td>4056</td>
+      <td>Film/video editor</td>
+      <td>1990-06-25</td>
+      <td>5ca650881b48a6a38754f841c23b77ab</td>
+      <td>1362931718</td>
+      <td>39.773077</td>
+      <td>-72.213209</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1048574</th>
+      <td>2020-03-10 16:08:00</td>
+      <td>2.283740e+15</td>
+      <td>fraud_Buckridge PLC</td>
+      <td>misc_pos</td>
+      <td>6.81</td>
+      <td>Shannon</td>
+      <td>Williams</td>
+      <td>F</td>
+      <td>9345 Spencer Junctions Suite 183</td>
+      <td>Alpharetta</td>
+      <td>...</td>
+      <td>34.0770</td>
+      <td>-84.3033</td>
+      <td>165556</td>
+      <td>Prison officer</td>
+      <td>1997-12-27</td>
+      <td>8d0a575fe635bbde12f1a2bffc126731</td>
+      <td>1362931730</td>
+      <td>33.601468</td>
+      <td>-83.891921</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1048575 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>diff <span class="op">=</span> fraudTrain.trans_date_trans_time[<span class="dv">101</span>]<span class="op">-</span>fraudTrain.trans_date_trans_time[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>Timedelta('0 days 01:17:00')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>theta <span class="op">=</span> <span class="dv">86400</span><span class="op">*</span><span class="fl">1.2</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>np.exp(<span class="op">-</span>diff.total_seconds()<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>0.9564180361647693</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># !git add .</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># !git commit -m. </span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># !git push </span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># !quarto publish --no-browser --no-prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
