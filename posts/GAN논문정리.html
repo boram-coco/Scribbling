@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="김보람">
-<meta name="dcterms.date" content="2023-03-14">
+<meta name="dcterms.date" content="2023-08-01">
 
-<title>Scribbling - VAE(-ing)</title>
+<title>Scribbling - [GAN] 논문 정리 (~ing)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,88 +22,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -124,8 +61,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -135,7 +73,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Scribbling</span>
     </a>
   </div>
@@ -145,7 +83,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../about.html" aria-current="page">
+    <a class="nav-link active" href="../about.html" aria-current="page">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -160,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">VAE(-ing)</h1>
+      <h1 class="quarto-secondary-nav-title">[GAN] 논문 정리 (~ing)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -171,10 +109,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">VAE(-ing)</h1>
+      <h1 class="title d-none d-lg-block">[GAN] 논문 정리 (~ing)</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">VAE</div>
-                <div class="quarto-category">Auto-Encoding Variational Bayes</div>
+                <div class="quarto-category">GAN</div>
               </div>
                   </div>
   </div>
@@ -192,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 14, 2023</p>
+        <p class="date">August 1, 2023</p>
       </div>
     </div>
     
@@ -212,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../about.html" class="sidebar-item-text sidebar-link">About</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -225,65 +162,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/GAN논문정리.html" class="sidebar-item-text sidebar-link">[GAN] 논문 정리 (~ing)</a>
+  <a href="../posts/GAN논문정리.html" class="sidebar-item-text sidebar-link active">[GAN] 논문 정리 (~ing)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
+  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/AS4_5.html" class="sidebar-item-text sidebar-link">AS HW4_5</a>
+  <a href="../posts/AS4_5.html" class="sidebar-item-text sidebar-link">AS HW4_5</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/논문.html" class="sidebar-item-text sidebar-link">GNN</a>
+  <a href="../posts/논문.html" class="sidebar-item-text sidebar-link">GNN</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/2022_04_23_중간고사예상문제.html" class="sidebar-item-text sidebar-link">중간고사 예상문제</a>
+  <a href="../posts/2022_04_23_중간고사예상문제.html" class="sidebar-item-text sidebar-link">중간고사 예상문제</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Hadamangeo</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Hadamangeo</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
+  <a href="../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</a>
+  <a href="../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</a>
+  <a href="../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link active">VAE(-ing)</a>
+  <a href="../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link">VAE(-ing)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">미래 예측 데이터 분석(비트코인 시세 예측)</a>
+  <a href="../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">미래 예측 데이터 분석(비트코인 시세 예측)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">지도 학습</a>
+  <a href="../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">지도 학습</a>
   </div>
 </li>
       </ul>
@@ -298,52 +235,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a>
+  <a href="../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
+  <a href="../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">낙서</a>
+  <a href="../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">낙서</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">분석</a>
+  <a href="../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">분석</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">사기거래 날짜 wmatrix</a>
+  <a href="../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">사기거래 날짜 wmatrix</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">사기거래 변형코드</a>
+  <a href="../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">사기거래 변형코드</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">사기거래(교수님 코드-변형)</a>
+  <a href="../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">사기거래(교수님 코드-변형)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">사기거래(교수님)</a>
+  <a href="../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">사기거래(교수님)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">사기거래(교수님과 같이 정리중)</a>
+  <a href="../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">사기거래(교수님과 같이 정리중)</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">사기거래(설명변수 time추가)</a>
+  <a href="../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">사기거래(설명변수 time추가)</a>
   </div>
 </li>
       </ul>
@@ -359,11 +296,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#사전학습" id="toc-사전학습" class="nav-link active" data-scroll-target="#사전학습">사전학습</a>
-  <ul class="collapse">
-  <li><a href="#오토인코더" id="toc-오토인코더" class="nav-link" data-scroll-target="#오토인코더">오토인코더</a></li>
-  </ul></li>
-  <li><a href="#vae" id="toc-vae" class="nav-link" data-scroll-target="#vae">VAE</a></li>
+  <li><a href="#generative-adversarial-nets" id="toc-generative-adversarial-nets" class="nav-link active" data-scroll-target="#generative-adversarial-nets">Generative Adversarial Nets</a></li>
+  <li><a href="#unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks" id="toc-unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks" class="nav-link" data-scroll-target="#unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</a></li>
+  <li><a href="#infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets" id="toc-infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets" class="nav-link" data-scroll-target="#infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets">InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets</a></li>
+  <li><a href="#improved-training-of-wasserstein-gans" id="toc-improved-training-of-wasserstein-gans" class="nav-link" data-scroll-target="#improved-training-of-wasserstein-gans">Improved training of wasserstein gans</a></li>
+  <li><a href="#least-squares-generative-adversarial-networks" id="toc-least-squares-generative-adversarial-networks" class="nav-link" data-scroll-target="#least-squares-generative-adversarial-networks">Least Squares Generative Adversarial Networks</a></li>
+  <li><a href="#energy-based-generative-adversarial-network" id="toc-energy-based-generative-adversarial-network" class="nav-link" data-scroll-target="#energy-based-generative-adversarial-network">Energy-based Generative Adversarial Network</a></li>
+  <li><a href="#began-boundary-equilibrium-generative-adversarial-networks" id="toc-began-boundary-equilibrium-generative-adversarial-networks" class="nav-link" data-scroll-target="#began-boundary-equilibrium-generative-adversarial-networks">BEGAN: Boundary Equilibrium Generative Adversarial Networks</a></li>
+  <li><a href="#conditional-generative-adversarial-nets" id="toc-conditional-generative-adversarial-nets" class="nav-link" data-scroll-target="#conditional-generative-adversarial-nets">Conditional Generative Adversarial Nets</a></li>
   <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">ref</a></li>
   </ul>
 </nav>
@@ -374,46 +314,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>https:<span class="op">//</span>arxiv.org<span class="op">/</span>pdf<span class="op">/</span><span class="fl">1312.6114</span>.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="사전학습" class="level1">
-<h1>사전학습</h1>
+<section id="generative-adversarial-nets" class="level3">
+<h3 class="anchored" data-anchor-id="generative-adversarial-nets">Generative Adversarial Nets</h3>
 <dl>
-<dt>개인정보를 비식별화하는 기술</dt>
+<dt>https://proceedings.neurips.cc/paper_files/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf</dt>
 <dd>
-ISO/IEC 20889 국제표준에 따르면 통계 기술, 암호호 ㅏ기술, 가명화 기술, 해부화, 일반화기술, 무작위화 기술, 재현 데이터로 나눈다.
+<p>lan Goodfellow(2014)</p>
 </dd>
 </dl>
-<section id="오토인코더" class="level2">
-<h2 class="anchored" data-anchor-id="오토인코더">오토인코더</h2>
 <ul>
-<li>Encoder, Decoder 네트워크로 구성된 모델</li>
-<li>학습 데이터-&gt; encoder에 입력값</li>
+<li>가장 최초로 GAN을 제안한 논문으로 새로운 이미지를 생성하는 생성자 Generator와 샘플 데이터와 생성자가 생성한 이미지를 구분하는 구별자 Discriminator 두 네트워크 구조 제안</li>
 </ul>
 </section>
+<section id="unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</h3>
+<p>https://arxiv.org/pdf/1511.06434.pdf%C3</p>
+<p>:Ranford(2015)</p>
+<ul>
+<li>GAN + CNN : DCGAN(Deep Convolutinal Generative Adversarial Networks)</li>
+</ul>
 </section>
-<section id="vae" class="level1">
-<h1>VAE</h1>
-<p>https://di-bigdata-study.tistory.com/4</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">-</span> 입력 데이터를 받아서 인코더를 거쳐 차원 축소를 통한 샘플링 후 디코더를 걸쳐 복원된다.</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="op">-</span> 기본 오토인코더와 같은 구조</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="op">-</span> 인코더 내에서 평균과 분산에서 샘플링을 하여 잠재공간을 중심으로 군집이 응집</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets" class="level3">
+<h3 class="anchored" data-anchor-id="infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets">InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets</h3>
+<p>https://proceedings.neurips.cc/paper_files/paper/2016/file/7c9d0b1f96aebd7b5eca8c3edaa19ebb-Paper.pdf</p>
+<p>:Xi Chen(2016)</p>
+<ul>
+<li>기존 GAN 모델에서 생성자 생성 이미지와 잠재 벡터의 상호 정보량을 높이 가지는 term을 추가하여 실제 벡터 공간의 이동이나 조작이 유의미한 생성 이미지의 변화를 가져오도록 설계</li>
+</ul>
+</section>
+<section id="improved-training-of-wasserstein-gans" class="level3">
+<h3 class="anchored" data-anchor-id="improved-training-of-wasserstein-gans">Improved training of wasserstein gans</h3>
+<p>https://proceedings.neurips.cc/paper_files/paper/2017/file/892c3b1c6dccd52936e27cbd0ff683d6-Paper.pdf</p>
+<p>:Ishaan Gulrajani(2017)</p>
+<ul>
+<li>Wassertein Distance 도입</li>
+</ul>
+</section>
+<section id="least-squares-generative-adversarial-networks" class="level3">
+<h3 class="anchored" data-anchor-id="least-squares-generative-adversarial-networks">Least Squares Generative Adversarial Networks</h3>
+<p>https://openaccess.thecvf.com/content_ICCV_2017/papers/Mao_Least_Squares_Generative_ICCV_2017_paper.pdf</p>
+<p>:Xudong Mao(2017):LSGANs</p>
+<p>$min_D V_{LSGAN}(D) = <em>{x P</em>{data}(x)} [ (D(x) - b)^2 ] + _{z p_x(z)} [(D(G(z)) - a)^2 ] $</p>
+<p><span class="math inline">\(min_G V_{LSGAN}(G) = \frac{1}{2} \mathbb{E}_{z~p_z(z)} [(D(G(z))-c)^2]\)</span></p>
+<ul>
+<li><p>(a): fake label</p></li>
+<li><p>(b): real label</p></li>
+</ul>
+</section>
+<section id="energy-based-generative-adversarial-network" class="level3">
+<h3 class="anchored" data-anchor-id="energy-based-generative-adversarial-network">Energy-based Generative Adversarial Network</h3>
+</section>
+<section id="began-boundary-equilibrium-generative-adversarial-networks" class="level3">
+<h3 class="anchored" data-anchor-id="began-boundary-equilibrium-generative-adversarial-networks">BEGAN: Boundary Equilibrium Generative Adversarial Networks</h3>
+</section>
+<section id="conditional-generative-adversarial-nets" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-generative-adversarial-nets">Conditional Generative Adversarial Nets</h3>
+<p>https://arxiv.org/pdf/1411.1784.pdf%EF%BC%88CGAN%EF%BC%89</p>
 </section>
 <section id="ref" class="level1">
 <h1>ref</h1>
-<p>http://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&amp;control_no=472ffae348d7013cffe0bdc3ef48d419&amp;keyword=vae</p>
-<p>김수진. “빅데이터 환경에서 딥러닝 기반 VAE를 활용한 개인정보 비식별화 기법.” 국내석사학위논문 숭실대학교 대학원, 2023. 서울</p>
-<p>https://arxiv.org/pdf/1312.6114.pdf</p>
-<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11161449">황주효, 진교홍.(2022).이상 탐지를 위한 합성 데이터 생성 및 성능 분석.한국정보통신학회 종합학술대회 논문집,26(2),19-21.</a></p>
-<p><a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11205195">정현우, 조윤상, 고건우, 송재익, 유동현.(2023).신용카드 거래 데이터에 대한 재현 데이터 생성 방법 비교 연구.한국데이터정보과학회지,34(1),49-72.</a></p>
-<p>[강준영(2021) 차분 프라이버시를 만족하는 재현 데이터 생성을 위한 딥러닝 모델 활용 기술 연구]https://dcollection.kongju.ac.kr/public_resource/pdf/000000030609_20230317142414.pdf</p>
-<p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11036988">김승환, 전성해.(2022).변이형 오토인코더를 이용한 영과잉 특허 데이터 분석.한국지능시스템학회 논문지,32(1),44-50.</a></p>
+<p>https://ysbsb.github.io/gan/2020/06/17/GAN-newbie-guide.html</p>
+<p>https://di-bigdata-study.tistory.com/12</p>
 
 
 </section>
