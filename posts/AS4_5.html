@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.283">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,13 +96,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
@@ -138,44 +116,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Scribbling</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../about.html" aria-current="page">
+    <a class="nav-link active" href="../about.html" rel="" target="" aria-current="page">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">AS HW4_5</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/AS4_5.html">AS HW4_5</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/AS4_5.html">AS HW4_5</a></li></ol></nav>
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">AS HW4_5</h1>
+      <h1 class="title">AS HW4_5</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Applied statistics</div>
                 <div class="quarto-category">homework</div>
@@ -206,148 +191,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/GAN논문정리.html" class="sidebar-item-text sidebar-link">[GAN] 논문 정리 (~ing)</a>
+  <a href="../posts/2022_04_23_중간고사예상문제.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">중간고사 예상문제</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link">2023년 학회 발표 준비</a>
+  <a href="../posts/AS4_5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">AS HW4_5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/AS4_5.html" class="sidebar-item-text sidebar-link active">AS HW4_5</a>
+  <a href="../posts/GAN논문정리.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">[GAN] 논문 정리 (~ing)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/논문.html" class="sidebar-item-text sidebar-link">GNN</a>
+  <a href="../posts/논문.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GNN</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/2022_04_23_중간고사예상문제.html" class="sidebar-item-text sidebar-link">중간고사 예상문제</a>
+  <a href="../posts/학회.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2023년 학회 발표 준비</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Hadamangeo</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Hadamangeo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">CH4. 지도 그래프 학습(그래프 정규화 방법)</a>
+  <a href="../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">미래 예측 데이터 분석(비트코인 시세 예측)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</a>
+  <a href="../posts/hadamangeo/Czech-banking-customer-trans-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Czech Bank’s Financial Data Analysis. Moving from gut feeling to data-driven decisions.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</a>
+  <a href="../posts/hadamangeo/graph4-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH4. 지도 그래프 학습(그래프 정규화 방법)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link">VAE(-ing)</a>
+  <a href="../posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hands-on Graph Neural Networks with PyTorch &amp; PyTorch Geometric</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/coin prediction.html" class="sidebar-item-text sidebar-link">미래 예측 데이터 분석(비트코인 시세 예측)</a>
+  <a href="../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">지도 학습</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/hadamangeo/ml with python 8.html" class="sidebar-item-text sidebar-link">지도 학습</a>
+  <a href="../posts/hadamangeo/VAE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VAE(-ing)</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">사기거래</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">사기거래</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a>
+  <a href="../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래(교수님 코드-변형)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
+  <a href="../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">낙서</a>
+  <a href="../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">분석</a>
+  <a href="../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래(교수님과 같이 정리중)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">사기거래 날짜 wmatrix</a>
+  <a href="../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">사기거래 변형코드</a>
+  <a href="../posts/사기거래/교수님.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/2023-05-24-try2변형.html" class="sidebar-item-text sidebar-link">사기거래(교수님 코드-변형)</a>
+  <a href="../posts/사기거래/교수님 data(re).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래 변형코드</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">사기거래(교수님)</a>
+  <a href="../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래(설명변수 time추가)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/9999.html" class="sidebar-item-text sidebar-link">사기거래(교수님과 같이 정리중)</a>
+  <a href="../posts/사기거래/교수님 data(원본).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래(교수님)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/사기거래/교수님 data(time12).html" class="sidebar-item-text sidebar-link">사기거래(설명변수 time추가)</a>
+  <a href="../posts/사기거래/낙서.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">낙서</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../posts/사기거래/사기거래 날짜 230602.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">사기거래 날짜 wmatrix</span></a>
   </div>
 </li>
       </ul>
@@ -357,6 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -412,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="import" class="level1">
 <h1>import</h1>
-<div class="cell" data-execution_count="1">
+<div id="dfbb9e24-6ae0-481c-8275-f750ff76f60b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(MASS) <span class="co">#lm.ridge </span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(car) <span class="co">#vif</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(ggplot2)</span>
@@ -426,7 +443,7 @@ Loaded glmnet 4.1-7
 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="2">
+<div id="5748ed5f-bae3-4a42-859b-830d68eaa4e1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>get_high_vif_variables <span class="ot">&lt;-</span> <span class="cf">function</span>(data, threshold) {</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  vif_values <span class="ot">&lt;-</span> <span class="fu">vif</span>(data)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  high_vif_variables <span class="ot">&lt;-</span> <span class="fu">names</span>(vif_values[vif_values <span class="sc">&gt;</span> threshold])</span>
@@ -436,49 +453,232 @@ Loaded glmnet 4.1-7
 </section>
 <section id="데이터셋" class="level1">
 <h1>데이터셋</h1>
-<div class="cell" data-execution_count="3">
+<div id="fb388d67-9dfb-415f-a2b8-7e8f6d9748f8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>picher <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Dropbox/coco/posts/Applied statistics/picher_stats_2017.csv"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">head</span>(picher)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>A data.frame: 6 × 22</caption>
 <thead>
-    <tr><th></th><th scope="col">선수명</th><th scope="col">팀명</th><th scope="col">승</th><th scope="col">패</th><th scope="col">세</th><th scope="col">홀드</th><th scope="col">블론</th><th scope="col">경기</th><th scope="col">선발</th><th scope="col">이닝</th><th scope="col">⋯</th><th scope="col">홈런.9</th><th scope="col">BABIP</th><th scope="col">LOB.</th><th scope="col">ERA</th><th scope="col">RA9.WAR</th><th scope="col">FIP</th><th scope="col">kFIP</th><th scope="col">WAR</th><th scope="col">연봉.2018.</th><th scope="col">연봉.2017.</th></tr>
-    <tr><th></th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">⋯</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th></tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">선수명</th>
+<th data-quarto-table-cell-role="th" scope="col">팀명</th>
+<th data-quarto-table-cell-role="th" scope="col">승</th>
+<th data-quarto-table-cell-role="th" scope="col">패</th>
+<th data-quarto-table-cell-role="th" scope="col">세</th>
+<th data-quarto-table-cell-role="th" scope="col">홀드</th>
+<th data-quarto-table-cell-role="th" scope="col">블론</th>
+<th data-quarto-table-cell-role="th" scope="col">경기</th>
+<th data-quarto-table-cell-role="th" scope="col">선발</th>
+<th data-quarto-table-cell-role="th" scope="col">이닝</th>
+<th data-quarto-table-cell-role="th" scope="col">⋯</th>
+<th data-quarto-table-cell-role="th" scope="col">홈런.9</th>
+<th data-quarto-table-cell-role="th" scope="col">BABIP</th>
+<th data-quarto-table-cell-role="th" scope="col">LOB.</th>
+<th data-quarto-table-cell-role="th" scope="col">ERA</th>
+<th data-quarto-table-cell-role="th" scope="col">RA9.WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">FIP</th>
+<th data-quarto-table-cell-role="th" scope="col">kFIP</th>
+<th data-quarto-table-cell-role="th" scope="col">WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2018.</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2017.</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;chr&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;chr&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">⋯</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+</tr>
 </thead>
 <tbody>
-    <tr><th scope="row">1</th><td>켈리    </td><td>SK  </td><td>16</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>190.0</td><td>⋯</td><td>0.76</td><td>0.342</td><td>73.7</td><td>3.60</td><td>6.91</td><td>3.69</td><td>3.44</td><td>6.62</td><td>140000</td><td> 85000</td></tr>
-    <tr><th scope="row">2</th><td>소사    </td><td>LG  </td><td>11</td><td>11</td><td>1</td><td>0</td><td>0</td><td>30</td><td>29</td><td>185.1</td><td>⋯</td><td>0.53</td><td>0.319</td><td>67.1</td><td>3.88</td><td>6.80</td><td>3.52</td><td>3.41</td><td>6.08</td><td>120000</td><td> 50000</td></tr>
-    <tr><th scope="row">3</th><td>양현종  </td><td>KIA </td><td>20</td><td> 6</td><td>0</td><td>0</td><td>0</td><td>31</td><td>31</td><td>193.1</td><td>⋯</td><td>0.79</td><td>0.332</td><td>72.1</td><td>3.44</td><td>6.54</td><td>3.94</td><td>3.82</td><td>5.64</td><td>230000</td><td>150000</td></tr>
-    <tr><th scope="row">4</th><td>차우찬  </td><td>LG  </td><td>10</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>28</td><td>28</td><td>175.2</td><td>⋯</td><td>1.02</td><td>0.298</td><td>75.0</td><td>3.43</td><td>6.11</td><td>4.20</td><td>4.03</td><td>4.63</td><td>100000</td><td>100000</td></tr>
-    <tr><th scope="row">5</th><td>레일리  </td><td>롯데</td><td>13</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>187.1</td><td>⋯</td><td>0.91</td><td>0.323</td><td>74.1</td><td>3.80</td><td>6.13</td><td>4.36</td><td>4.31</td><td>4.38</td><td>111000</td><td> 85000</td></tr>
-    <tr><th scope="row">6</th><td>피어밴드</td><td>KT  </td><td> 8</td><td>10</td><td>0</td><td>0</td><td>0</td><td>26</td><td>26</td><td>160.0</td><td>⋯</td><td>1.12</td><td>0.289</td><td>76.1</td><td>3.04</td><td>6.52</td><td>4.42</td><td>4.32</td><td>3.94</td><td> 85000</td><td> 35000</td></tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">1</td>
+<td>켈리</td>
+<td>SK</td>
+<td>16</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>190.0</td>
+<td>⋯</td>
+<td>0.76</td>
+<td>0.342</td>
+<td>73.7</td>
+<td>3.60</td>
+<td>6.91</td>
+<td>3.69</td>
+<td>3.44</td>
+<td>6.62</td>
+<td>140000</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">2</td>
+<td>소사</td>
+<td>LG</td>
+<td>11</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>185.1</td>
+<td>⋯</td>
+<td>0.53</td>
+<td>0.319</td>
+<td>67.1</td>
+<td>3.88</td>
+<td>6.80</td>
+<td>3.52</td>
+<td>3.41</td>
+<td>6.08</td>
+<td>120000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">3</td>
+<td>양현종</td>
+<td>KIA</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>31</td>
+<td>31</td>
+<td>193.1</td>
+<td>⋯</td>
+<td>0.79</td>
+<td>0.332</td>
+<td>72.1</td>
+<td>3.44</td>
+<td>6.54</td>
+<td>3.94</td>
+<td>3.82</td>
+<td>5.64</td>
+<td>230000</td>
+<td>150000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">4</td>
+<td>차우찬</td>
+<td>LG</td>
+<td>10</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>175.2</td>
+<td>⋯</td>
+<td>1.02</td>
+<td>0.298</td>
+<td>75.0</td>
+<td>3.43</td>
+<td>6.11</td>
+<td>4.20</td>
+<td>4.03</td>
+<td>4.63</td>
+<td>100000</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">5</td>
+<td>레일리</td>
+<td>롯데</td>
+<td>13</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>187.1</td>
+<td>⋯</td>
+<td>0.91</td>
+<td>0.323</td>
+<td>74.1</td>
+<td>3.80</td>
+<td>6.13</td>
+<td>4.36</td>
+<td>4.31</td>
+<td>4.38</td>
+<td>111000</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">6</td>
+<td>피어밴드</td>
+<td>KT</td>
+<td>8</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>26</td>
+<td>26</td>
+<td>160.0</td>
+<td>⋯</td>
+<td>1.12</td>
+<td>0.289</td>
+<td>76.1</td>
+<td>3.04</td>
+<td>6.52</td>
+<td>4.42</td>
+<td>4.32</td>
+<td>3.94</td>
+<td>85000</td>
+<td>35000</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div id="f5f97eff-dcd3-4f14-a7e0-13b22edc992e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">subset</span>(picher, <span class="at">select =</span> <span class="sc">-</span><span class="fu">c</span>(팀명,선수명))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
+<div id="80df07cd-f00f-43f1-9841-ce483a6a0baa" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>dt2018 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">new_col =</span> dt<span class="sc">$</span>연봉.<span class="fl">2018.</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="6">
+<div id="0adf8bf0-1697-4cce-bab1-f8ce4044c5d1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>dt2017 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">new_col =</span> dt<span class="sc">$</span>연봉.<span class="fl">2017.</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="7">
+<div id="15e9d00e-e973-4a15-9b83-55501a99285b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">subset</span>(picher, <span class="at">select =</span> <span class="sc">-</span><span class="fu">c</span>(연봉.<span class="fl">2017.</span>,연봉.<span class="fl">2018.</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="8">
+<div id="91371a32-d7e5-416e-bc66-d23796acc595" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dt, <span class="at">new_col =</span> dt2017)</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">names</span>(dt)[<span class="fu">length</span>(<span class="fu">names</span>(dt))] <span class="ot">&lt;-</span> <span class="st">"연봉.2017."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="9">
+<div id="a0aab81e-17b7-48ca-b653-de8a21511882" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dt, <span class="at">new_col =</span> dt2018)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">names</span>(dt)[<span class="fu">length</span>(<span class="fu">names</span>(dt))] <span class="ot">&lt;-</span> <span class="st">"연봉.2018."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="13">
+<div id="1e26fcfd-f492-427c-8c84-3c0d04e77e52" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">subset</span>(picher, <span class="at">select =</span> <span class="sc">-</span><span class="fu">c</span>(팀명,선수명))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -486,7 +686,7 @@ Loaded glmnet 4.1-7
 <h1>회귀직선적합</h1>
 <section id="model1원본" class="level2">
 <h2 class="anchored" data-anchor-id="model1원본">model1(원본)</h2>
-<div class="cell" data-execution_count="15">
+<div id="7bc7b71f-7750-4305-ab26-dada7c9b9fd0" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(연봉.<span class="fl">2018.</span> <span class="sc">~</span> ., dt)</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -528,7 +728,7 @@ Multiple R-squared:  0.9228,    Adjusted R-squared:  0.9116
 F-statistic: 82.99 on 19 and 132 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="127">
+<div id="bc3dd248-2312-497d-8635-292ef47c014e" class="cell" data-execution_count="127">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">vif</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
@@ -539,10 +739,10 @@ F-statistic: 82.99 on 19 and 132 DF,  p-value: &lt; 2.2e-16</code></pre>
 </style><dl class="dl-inline"><dt>승</dt><dd>7.69934669638176</dd><dt>패</dt><dd>5.30032799820878</dd><dt>세</dt><dd>3.03718565968123</dd><dt>홀드</dt><dd>3.63605161357374</dd><dt>블론</dt><dd>2.75956034802692</dd><dt>경기</dt><dd>14.2011271199637</dd><dt>선발</dt><dd>36.1601878733279</dd><dt>이닝</dt><dd>60.3244538179009</dd><dt>삼진.9</dt><dd>78.7161704892493</dd><dt>볼넷.9</dt><dd>50.7257985016107</dd><dt>홈런.9</dt><dd>368.399308168573</dd><dt>BABIP</dt><dd>3.11936893312554</dd><dt>LOB.</dt><dd>4.04602533224649</dd><dt>ERA</dt><dd>10.0441738232824</dd><dt>RA9.WAR</dt><dd>13.4198973515016</dd><dt>FIP</dt><dd>12525.2424059086</dd><dt>kFIP</dt><dd>9046.04880487446</dd><dt>WAR</dt><dd>9.99177856816849</dd><dt>연봉.2017.</dt><dd>2.21186942564398</dd></dl>
 </div>
 </div>
-<div class="cell" data-execution_count="128">
+<div id="9a0a74ec-cecd-460f-b282-d1b1725c60a1" class="cell" data-execution_count="128">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>threshold <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="129">
+<div id="a02a7ba6-ae73-4c2c-ac1e-34d4db8ab5e4" class="cell" data-execution_count="129">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>high_vif_vars <span class="ot">&lt;-</span> <span class="fu">get_high_vif_variables</span>(model1, threshold)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">print</span>(high_vif_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -550,17 +750,17 @@ F-statistic: 82.99 on 19 and 132 DF,  p-value: &lt; 2.2e-16</code></pre>
  [8] "RA9.WAR" "FIP"     "kFIP"   </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="130">
+<div id="8f8b5673-a789-4f21-b3b9-4311f77d3f46" class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>threshold <span class="ot">&lt;-</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="131">
+<div id="deab8c25-1462-4888-aa00-77db1547cc35" class="cell" data-execution_count="131">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>high_vif_vars <span class="ot">&lt;-</span> <span class="fu">get_high_vif_variables</span>(model1, threshold)</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="fu">print</span>(high_vif_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "선발"   "이닝"   "삼진.9" "볼넷.9" "홈런.9" "FIP"    "kFIP"  </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="132">
+<div id="f5eeb081-dcc2-4e26-b708-80a4607b7389" class="cell" data-execution_count="132">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">pairs</span>(dt,<span class="at">panel=</span>panel.smooth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="AS4_5_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
@@ -569,7 +769,7 @@ F-statistic: 82.99 on 19 and 132 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li>수치형 데이터들끼리의 상관계수 확인..</li>
 </ul>
-<div class="cell" data-execution_count="133">
+<div id="d9f574f1-784b-4cef-b711-2fe28f8ec4f7" class="cell" data-execution_count="133">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>dt_numeric <span class="ot">&lt;-</span> dt[, <span class="fu">sapply</span>(dt, is.numeric)]</span>
 <span id="cb22-2"><a href="#cb22-2"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(dt_numeric)</span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="fu">print</span>(<span class="fu">round</span>(cor_matrix,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -621,7 +821,7 @@ WAR        -0.08  0.14 -0.26    0.92 -0.39 -0.41  1.00       0.79       0.68
 </section>
 <section id="model2vif-10-이상인-변수-제거" class="level2">
 <h2 class="anchored" data-anchor-id="model2vif-10-이상인-변수-제거">model2(Vif 10 이상인 변수 제거)</h2>
-<div class="cell" data-execution_count="134">
+<div id="1978c824-9bc4-4309-9c7f-359164be9c6d" class="cell" data-execution_count="134">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(연봉.<span class="fl">2018.</span> <span class="sc">~</span> .<span class="sc">-</span>경기<span class="sc">-</span>선발<span class="sc">-</span>이닝<span class="sc">-</span>삼진<span class="fl">.9</span><span class="sc">-</span>볼넷<span class="fl">.9</span><span class="sc">-</span>홈런<span class="fl">.9</span><span class="sc">-</span>ERA<span class="sc">-</span>RA9.WAR<span class="sc">-</span>FIP<span class="sc">-</span>kFIP, dt)</span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -654,7 +854,7 @@ Multiple R-squared:  0.9178,    Adjusted R-squared:  0.9126
 F-statistic: 176.1 on 9 and 142 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="135">
+<div id="b4d26c51-014e-4b4f-8d65-929b95b12b01" class="cell" data-execution_count="135">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">vif</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
@@ -675,102 +875,1599 @@ F-statistic: 176.1 on 9 and 142 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h1>다중공산성 해결 방법</h1>
 <section id="정규화" class="level2">
 <h2 class="anchored" data-anchor-id="정규화">정규화</h2>
-<div class="cell" data-execution_count="137">
+<div id="4876d20d-8a6f-44de-b388-2785a500a4cd" class="cell" data-execution_count="137">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>dt2 <span class="ot">&lt;-</span> dt[,<span class="dv">1</span><span class="sc">:</span><span class="dv">19</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="139">
+<div id="b330fd77-69db-4bff-ac2b-9d323b928d39" class="cell" data-execution_count="139">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">head</span>(dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>A data.frame: 6 × 20</caption>
 <thead>
-    <tr><th></th><th scope="col">승</th><th scope="col">패</th><th scope="col">세</th><th scope="col">홀드</th><th scope="col">블론</th><th scope="col">경기</th><th scope="col">선발</th><th scope="col">이닝</th><th scope="col">삼진.9</th><th scope="col">볼넷.9</th><th scope="col">홈런.9</th><th scope="col">BABIP</th><th scope="col">LOB.</th><th scope="col">ERA</th><th scope="col">RA9.WAR</th><th scope="col">FIP</th><th scope="col">kFIP</th><th scope="col">WAR</th><th scope="col">연봉.2018.</th><th scope="col">연봉.2017.</th></tr>
-    <tr><th></th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th></tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">승</th>
+<th data-quarto-table-cell-role="th" scope="col">패</th>
+<th data-quarto-table-cell-role="th" scope="col">세</th>
+<th data-quarto-table-cell-role="th" scope="col">홀드</th>
+<th data-quarto-table-cell-role="th" scope="col">블론</th>
+<th data-quarto-table-cell-role="th" scope="col">경기</th>
+<th data-quarto-table-cell-role="th" scope="col">선발</th>
+<th data-quarto-table-cell-role="th" scope="col">이닝</th>
+<th data-quarto-table-cell-role="th" scope="col">삼진.9</th>
+<th data-quarto-table-cell-role="th" scope="col">볼넷.9</th>
+<th data-quarto-table-cell-role="th" scope="col">홈런.9</th>
+<th data-quarto-table-cell-role="th" scope="col">BABIP</th>
+<th data-quarto-table-cell-role="th" scope="col">LOB.</th>
+<th data-quarto-table-cell-role="th" scope="col">ERA</th>
+<th data-quarto-table-cell-role="th" scope="col">RA9.WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">FIP</th>
+<th data-quarto-table-cell-role="th" scope="col">kFIP</th>
+<th data-quarto-table-cell-role="th" scope="col">WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2018.</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2017.</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+</tr>
 </thead>
 <tbody>
-    <tr><th scope="row">1</th><td>16</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>190.0</td><td>8.95</td><td>2.13</td><td>0.76</td><td>0.342</td><td>73.7</td><td>3.60</td><td>6.91</td><td>3.69</td><td>3.44</td><td>6.62</td><td>140000</td><td> 85000</td></tr>
-    <tr><th scope="row">2</th><td>11</td><td>11</td><td>1</td><td>0</td><td>0</td><td>30</td><td>29</td><td>185.1</td><td>7.43</td><td>1.85</td><td>0.53</td><td>0.319</td><td>67.1</td><td>3.88</td><td>6.80</td><td>3.52</td><td>3.41</td><td>6.08</td><td>120000</td><td> 50000</td></tr>
-    <tr><th scope="row">3</th><td>20</td><td> 6</td><td>0</td><td>0</td><td>0</td><td>31</td><td>31</td><td>193.1</td><td>7.36</td><td>2.09</td><td>0.79</td><td>0.332</td><td>72.1</td><td>3.44</td><td>6.54</td><td>3.94</td><td>3.82</td><td>5.64</td><td>230000</td><td>150000</td></tr>
-    <tr><th scope="row">4</th><td>10</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>28</td><td>28</td><td>175.2</td><td>8.04</td><td>1.95</td><td>1.02</td><td>0.298</td><td>75.0</td><td>3.43</td><td>6.11</td><td>4.20</td><td>4.03</td><td>4.63</td><td>100000</td><td>100000</td></tr>
-    <tr><th scope="row">5</th><td>13</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>187.1</td><td>7.49</td><td>2.11</td><td>0.91</td><td>0.323</td><td>74.1</td><td>3.80</td><td>6.13</td><td>4.36</td><td>4.31</td><td>4.38</td><td>111000</td><td> 85000</td></tr>
-    <tr><th scope="row">6</th><td> 8</td><td>10</td><td>0</td><td>0</td><td>0</td><td>26</td><td>26</td><td>160.0</td><td>7.42</td><td>1.74</td><td>1.12</td><td>0.289</td><td>76.1</td><td>3.04</td><td>6.52</td><td>4.42</td><td>4.32</td><td>3.94</td><td> 85000</td><td> 35000</td></tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">1</td>
+<td>16</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>190.0</td>
+<td>8.95</td>
+<td>2.13</td>
+<td>0.76</td>
+<td>0.342</td>
+<td>73.7</td>
+<td>3.60</td>
+<td>6.91</td>
+<td>3.69</td>
+<td>3.44</td>
+<td>6.62</td>
+<td>140000</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">2</td>
+<td>11</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>185.1</td>
+<td>7.43</td>
+<td>1.85</td>
+<td>0.53</td>
+<td>0.319</td>
+<td>67.1</td>
+<td>3.88</td>
+<td>6.80</td>
+<td>3.52</td>
+<td>3.41</td>
+<td>6.08</td>
+<td>120000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">3</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>31</td>
+<td>31</td>
+<td>193.1</td>
+<td>7.36</td>
+<td>2.09</td>
+<td>0.79</td>
+<td>0.332</td>
+<td>72.1</td>
+<td>3.44</td>
+<td>6.54</td>
+<td>3.94</td>
+<td>3.82</td>
+<td>5.64</td>
+<td>230000</td>
+<td>150000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">4</td>
+<td>10</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>175.2</td>
+<td>8.04</td>
+<td>1.95</td>
+<td>1.02</td>
+<td>0.298</td>
+<td>75.0</td>
+<td>3.43</td>
+<td>6.11</td>
+<td>4.20</td>
+<td>4.03</td>
+<td>4.63</td>
+<td>100000</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">5</td>
+<td>13</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>187.1</td>
+<td>7.49</td>
+<td>2.11</td>
+<td>0.91</td>
+<td>0.323</td>
+<td>74.1</td>
+<td>3.80</td>
+<td>6.13</td>
+<td>4.36</td>
+<td>4.31</td>
+<td>4.38</td>
+<td>111000</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">6</td>
+<td>8</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>26</td>
+<td>26</td>
+<td>160.0</td>
+<td>7.42</td>
+<td>1.74</td>
+<td>1.12</td>
+<td>0.289</td>
+<td>76.1</td>
+<td>3.04</td>
+<td>6.52</td>
+<td>4.42</td>
+<td>4.32</td>
+<td>3.94</td>
+<td>85000</td>
+<td>35000</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="cell" data-execution_count="138">
+<div id="d7bb4aeb-16c8-4eea-b000-8cd32ec348e5" class="cell" data-execution_count="138">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>dt2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>A data.frame: 152 × 19</caption>
 <thead>
-    <tr><th></th><th scope="col">승</th><th scope="col">패</th><th scope="col">세</th><th scope="col">홀드</th><th scope="col">블론</th><th scope="col">경기</th><th scope="col">선발</th><th scope="col">이닝</th><th scope="col">삼진.9</th><th scope="col">볼넷.9</th><th scope="col">홈런.9</th><th scope="col">BABIP</th><th scope="col">LOB.</th><th scope="col">ERA</th><th scope="col">RA9.WAR</th><th scope="col">FIP</th><th scope="col">kFIP</th><th scope="col">WAR</th><th scope="col">연봉.2018.</th></tr>
-    <tr><th></th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;int&gt;</th></tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">승</th>
+<th data-quarto-table-cell-role="th" scope="col">패</th>
+<th data-quarto-table-cell-role="th" scope="col">세</th>
+<th data-quarto-table-cell-role="th" scope="col">홀드</th>
+<th data-quarto-table-cell-role="th" scope="col">블론</th>
+<th data-quarto-table-cell-role="th" scope="col">경기</th>
+<th data-quarto-table-cell-role="th" scope="col">선발</th>
+<th data-quarto-table-cell-role="th" scope="col">이닝</th>
+<th data-quarto-table-cell-role="th" scope="col">삼진.9</th>
+<th data-quarto-table-cell-role="th" scope="col">볼넷.9</th>
+<th data-quarto-table-cell-role="th" scope="col">홈런.9</th>
+<th data-quarto-table-cell-role="th" scope="col">BABIP</th>
+<th data-quarto-table-cell-role="th" scope="col">LOB.</th>
+<th data-quarto-table-cell-role="th" scope="col">ERA</th>
+<th data-quarto-table-cell-role="th" scope="col">RA9.WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">FIP</th>
+<th data-quarto-table-cell-role="th" scope="col">kFIP</th>
+<th data-quarto-table-cell-role="th" scope="col">WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2018.</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+</tr>
 </thead>
 <tbody>
-    <tr><th scope="row">1</th><td>16</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>30</td><td>30</td><td>190.0</td><td> 8.95</td><td>2.13</td><td>0.76</td><td>0.342</td><td>73.7</td><td>3.60</td><td>6.91</td><td>3.69</td><td>3.44</td><td>6.62</td><td>140000</td></tr>
-    <tr><th scope="row">2</th><td>11</td><td>11</td><td> 1</td><td> 0</td><td>0</td><td>30</td><td>29</td><td>185.1</td><td> 7.43</td><td>1.85</td><td>0.53</td><td>0.319</td><td>67.1</td><td>3.88</td><td>6.80</td><td>3.52</td><td>3.41</td><td>6.08</td><td>120000</td></tr>
-    <tr><th scope="row">3</th><td>20</td><td> 6</td><td> 0</td><td> 0</td><td>0</td><td>31</td><td>31</td><td>193.1</td><td> 7.36</td><td>2.09</td><td>0.79</td><td>0.332</td><td>72.1</td><td>3.44</td><td>6.54</td><td>3.94</td><td>3.82</td><td>5.64</td><td>230000</td></tr>
-    <tr><th scope="row">4</th><td>10</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>28</td><td>28</td><td>175.2</td><td> 8.04</td><td>1.95</td><td>1.02</td><td>0.298</td><td>75.0</td><td>3.43</td><td>6.11</td><td>4.20</td><td>4.03</td><td>4.63</td><td>100000</td></tr>
-    <tr><th scope="row">5</th><td>13</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>30</td><td>30</td><td>187.1</td><td> 7.49</td><td>2.11</td><td>0.91</td><td>0.323</td><td>74.1</td><td>3.80</td><td>6.13</td><td>4.36</td><td>4.31</td><td>4.38</td><td>111000</td></tr>
-    <tr><th scope="row">6</th><td> 8</td><td>10</td><td> 0</td><td> 0</td><td>0</td><td>26</td><td>26</td><td>160.0</td><td> 7.42</td><td>1.74</td><td>1.12</td><td>0.289</td><td>76.1</td><td>3.04</td><td>6.52</td><td>4.42</td><td>4.32</td><td>3.94</td><td> 85000</td></tr>
-    <tr><th scope="row">7</th><td> 8</td><td>12</td><td> 0</td><td> 1</td><td>0</td><td>25</td><td>24</td><td>141.2</td><td> 7.94</td><td>1.02</td><td>0.83</td><td>0.362</td><td>64.6</td><td>5.08</td><td>2.97</td><td>3.88</td><td>3.78</td><td>3.87</td><td> 11500</td></tr>
-    <tr><th scope="row">8</th><td>14</td><td> 9</td><td> 0</td><td> 0</td><td>0</td><td>29</td><td>29</td><td>180.1</td><td> 6.24</td><td>2.55</td><td>0.60</td><td>0.293</td><td>75.8</td><td>3.14</td><td>7.28</td><td>4.26</td><td>4.35</td><td>3.85</td><td>100000</td></tr>
-    <tr><th scope="row">9</th><td> 9</td><td> 8</td><td> 0</td><td> 2</td><td>0</td><td>35</td><td>24</td><td>137.1</td><td> 9.11</td><td>4.19</td><td>0.52</td><td>0.321</td><td>73.1</td><td>3.67</td><td>4.99</td><td>3.91</td><td>3.67</td><td>3.78</td><td> 16000</td></tr>
-    <tr><th scope="row">10</th><td> 9</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>30</td><td>29</td><td>176.0</td><td> 7.31</td><td>1.99</td><td>1.12</td><td>0.353</td><td>76.5</td><td>4.14</td><td>5.66</td><td>4.65</td><td>4.61</td><td>3.64</td><td> 70000</td></tr>
-    <tr><th scope="row">11</th><td>12</td><td> 9</td><td> 0</td><td> 0</td><td>0</td><td>28</td><td>28</td><td>174.1</td><td> 6.71</td><td>1.91</td><td>1.14</td><td>0.305</td><td>72.7</td><td>4.28</td><td>5.36</td><td>4.78</td><td>4.80</td><td>3.03</td><td> 80000</td></tr>
-    <tr><th scope="row">12</th><td>11</td><td> 6</td><td> 0</td><td> 1</td><td>0</td><td>30</td><td>29</td><td>188.2</td><td> 5.06</td><td>1.96</td><td>0.95</td><td>0.329</td><td>69.7</td><td>4.53</td><td>4.79</td><td>4.78</td><td>4.97</td><td>2.89</td><td> 50000</td></tr>
-    <tr><th scope="row">13</th><td> 8</td><td> 6</td><td> 0</td><td> 0</td><td>0</td><td>23</td><td>19</td><td>118.1</td><td> 5.55</td><td>1.37</td><td>0.68</td><td>0.331</td><td>72.3</td><td>3.65</td><td>4.25</td><td>4.07</td><td>4.19</td><td>2.79</td><td> 13000</td></tr>
-    <tr><th scope="row">14</th><td>12</td><td> 6</td><td> 0</td><td> 0</td><td>0</td><td>28</td><td>28</td><td>171.1</td><td> 6.15</td><td>2.94</td><td>1.10</td><td>0.290</td><td>78.3</td><td>3.68</td><td>5.92</td><td>5.07</td><td>5.14</td><td>2.54</td><td> 25000</td></tr>
-    <tr><th scope="row">15</th><td> 8</td><td> 4</td><td> 0</td><td> 3</td><td>0</td><td>35</td><td>14</td><td>100.2</td><td> 8.40</td><td>3.22</td><td>0.98</td><td>0.336</td><td>73.2</td><td>4.38</td><td>3.01</td><td>4.51</td><td>4.34</td><td>2.25</td><td> 15500</td></tr>
-    <tr><th scope="row">16</th><td>11</td><td> 5</td><td> 0</td><td> 1</td><td>1</td><td>30</td><td>22</td><td>130.1</td><td> 7.80</td><td>2.83</td><td>1.31</td><td>0.298</td><td>75.8</td><td>4.21</td><td>4.22</td><td>4.91</td><td>4.77</td><td>2.20</td><td> 40000</td></tr>
-    <tr><th scope="row">17</th><td> 8</td><td> 6</td><td> 0</td><td> 0</td><td>0</td><td>25</td><td>25</td><td>131.1</td><td> 7.33</td><td>3.77</td><td>0.69</td><td>0.327</td><td>63.5</td><td>5.35</td><td>1.53</td><td>4.79</td><td>4.84</td><td>2.15</td><td> 29000</td></tr>
-    <tr><th scope="row">18</th><td> 7</td><td>10</td><td> 0</td><td> 0</td><td>0</td><td>27</td><td>25</td><td>133.0</td><td> 6.77</td><td>1.56</td><td>1.29</td><td>0.334</td><td>60.6</td><td>5.21</td><td>1.48</td><td>4.95</td><td>4.98</td><td>2.14</td><td> 70000</td></tr>
-    <tr><th scope="row">19</th><td> 6</td><td>10</td><td> 0</td><td> 0</td><td>0</td><td>27</td><td>26</td><td>124.1</td><td> 8.18</td><td>3.26</td><td>0.87</td><td>0.335</td><td>71.3</td><td>4.63</td><td>3.15</td><td>4.81</td><td>4.79</td><td>2.04</td><td> 11500</td></tr>
-    <tr><th scope="row">20</th><td> 1</td><td> 3</td><td>37</td><td> 0</td><td>5</td><td>61</td><td> 0</td><td> 62.0</td><td> 9.00</td><td>1.60</td><td>1.02</td><td>0.311</td><td>89.9</td><td>2.18</td><td>3.91</td><td>3.69</td><td>3.37</td><td>1.82</td><td> 70000</td></tr>
-    <tr><th scope="row">21</th><td> 6</td><td> 4</td><td>26</td><td> 0</td><td>5</td><td>56</td><td> 0</td><td> 59.0</td><td>11.90</td><td>2.90</td><td>0.76</td><td>0.304</td><td>79.4</td><td>2.75</td><td>2.85</td><td>3.26</td><td>2.69</td><td>1.81</td><td>120000</td></tr>
-    <tr><th scope="row">22</th><td> 6</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>23</td><td>22</td><td>120.0</td><td> 6.15</td><td>2.48</td><td>1.20</td><td>0.340</td><td>63.1</td><td>6.00</td><td>1.52</td><td>5.13</td><td>5.22</td><td>1.80</td><td> 13000</td></tr>
-    <tr><th scope="row">23</th><td> 3</td><td> 6</td><td> 0</td><td>22</td><td>0</td><td>68</td><td> 0</td><td> 80.0</td><td> 7.76</td><td>2.14</td><td>0.45</td><td>0.336</td><td>63.9</td><td>4.39</td><td>2.02</td><td>3.60</td><td>3.52</td><td>1.71</td><td> 18500</td></tr>
-    <tr><th scope="row">24</th><td> 7</td><td> 8</td><td> 0</td><td> 0</td><td>0</td><td>25</td><td>25</td><td>128.0</td><td> 6.05</td><td>2.04</td><td>1.20</td><td>0.328</td><td>66.4</td><td>5.06</td><td>2.47</td><td>5.10</td><td>5.21</td><td>1.68</td><td> 50000</td></tr>
-    <tr><th scope="row">25</th><td>12</td><td> 7</td><td> 0</td><td> 1</td><td>0</td><td>29</td><td>28</td><td>151.1</td><td> 6.36</td><td>3.63</td><td>0.95</td><td>0.287</td><td>75.3</td><td>4.10</td><td>4.31</td><td>5.38</td><td>5.55</td><td>1.62</td><td> 20000</td></tr>
-    <tr><th scope="row">26</th><td> 4</td><td> 3</td><td> 6</td><td> 4</td><td>1</td><td>70</td><td> 0</td><td> 66.0</td><td> 7.77</td><td>2.18</td><td>0.55</td><td>0.337</td><td>68.0</td><td>3.95</td><td>2.43</td><td>3.57</td><td>3.45</td><td>1.54</td><td> 10000</td></tr>
-    <tr><th scope="row">27</th><td>10</td><td> 6</td><td> 0</td><td>15</td><td>2</td><td>69</td><td> 0</td><td> 89.2</td><td> 9.84</td><td>2.71</td><td>1.30</td><td>0.268</td><td>76.1</td><td>3.61</td><td>3.20</td><td>4.30</td><td>3.92</td><td>1.47</td><td> 23000</td></tr>
-    <tr><th scope="row">28</th><td> 5</td><td> 1</td><td> 3</td><td> 6</td><td>1</td><td>60</td><td> 3</td><td> 88.2</td><td> 8.73</td><td>3.05</td><td>1.02</td><td>0.312</td><td>71.4</td><td>4.06</td><td>1.97</td><td>4.41</td><td>4.22</td><td>1.38</td><td> 18800</td></tr>
-    <tr><th scope="row">29</th><td> 5</td><td> 7</td><td> 0</td><td> 0</td><td>0</td><td>28</td><td>23</td><td>119.0</td><td> 8.85</td><td>3.10</td><td>1.66</td><td>0.350</td><td>65.4</td><td>5.67</td><td>1.04</td><td>5.53</td><td>5.35</td><td>1.31</td><td> 19000</td></tr>
-    <tr><th scope="row">30</th><td> 7</td><td> 2</td><td> 7</td><td>12</td><td>1</td><td>70</td><td> 0</td><td> 89.0</td><td> 7.38</td><td>3.24</td><td>0.61</td><td>0.316</td><td>73.5</td><td>3.44</td><td>2.68</td><td>4.15</td><td>4.09</td><td>1.27</td><td> 15000</td></tr>
-    <tr><th scope="row">⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
-    <tr><th scope="row">123</th><td>0</td><td>2</td><td> 0</td><td> 1</td><td>1</td><td>14</td><td> 0</td><td>21.0</td><td>3.86</td><td>4.71</td><td>0.00</td><td>0.315</td><td>69.2</td><td> 3.43</td><td> 0.12</td><td> 5.16</td><td> 5.73</td><td>-0.12</td><td> 4000</td></tr>
-    <tr><th scope="row">124</th><td>0</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td> 4</td><td> 2</td><td> 7.1</td><td>6.14</td><td>7.36</td><td>1.23</td><td>0.613</td><td>50.7</td><td>17.18</td><td>-0.52</td><td> 7.83</td><td> 8.32</td><td>-0.12</td><td> 3600</td></tr>
-    <tr><th scope="row">125</th><td>1</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td>24</td><td> 2</td><td>30.0</td><td>5.70</td><td>4.20</td><td>1.80</td><td>0.389</td><td>65.3</td><td> 5.70</td><td>-0.51</td><td> 6.47</td><td> 6.57</td><td>-0.16</td><td> 5200</td></tr>
-    <tr><th scope="row">126</th><td>1</td><td>3</td><td> 0</td><td>11</td><td>1</td><td>37</td><td> 0</td><td>31.1</td><td>4.88</td><td>2.59</td><td>1.72</td><td>0.311</td><td>67.3</td><td> 6.32</td><td> 0.04</td><td> 6.48</td><td> 6.78</td><td>-0.16</td><td>45000</td></tr>
-    <tr><th scope="row">127</th><td>0</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td>21</td><td> 1</td><td>32.0</td><td>5.91</td><td>6.47</td><td>1.12</td><td>0.378</td><td>59.6</td><td> 8.72</td><td>-0.10</td><td> 6.39</td><td> 6.59</td><td>-0.17</td><td> 3000</td></tr>
-    <tr><th scope="row">128</th><td>1</td><td>1</td><td> 0</td><td> 0</td><td>0</td><td>11</td><td> 2</td><td>17.0</td><td>3.71</td><td>5.82</td><td>1.06</td><td>0.300</td><td>53.0</td><td> 7.94</td><td>-0.52</td><td> 6.73</td><td> 7.22</td><td>-0.18</td><td> 9000</td></tr>
-    <tr><th scope="row">129</th><td>3</td><td>6</td><td> 0</td><td> 0</td><td>0</td><td>16</td><td>12</td><td>59.0</td><td>4.42</td><td>3.97</td><td>1.83</td><td>0.330</td><td>64.3</td><td> 7.17</td><td> 0.05</td><td> 6.77</td><td> 7.04</td><td>-0.18</td><td> 7300</td></tr>
-    <tr><th scope="row">130</th><td>2</td><td>6</td><td> 0</td><td> 0</td><td>1</td><td>14</td><td> 8</td><td>36.1</td><td>5.20</td><td>5.70</td><td>1.24</td><td>0.376</td><td>65.3</td><td> 7.93</td><td>-0.35</td><td> 6.68</td><td> 7.04</td><td>-0.19</td><td> 6000</td></tr>
-    <tr><th scope="row">131</th><td>3</td><td>3</td><td> 0</td><td> 0</td><td>0</td><td>20</td><td> 3</td><td>35.2</td><td>6.56</td><td>4.04</td><td>2.02</td><td>0.333</td><td>78.7</td><td> 5.55</td><td> 0.59</td><td> 6.79</td><td> 6.86</td><td>-0.19</td><td> 4200</td></tr>
-    <tr><th scope="row">132</th><td>0</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td> 7</td><td> 0</td><td>11.1</td><td>6.35</td><td>5.56</td><td>3.18</td><td>0.361</td><td>68.6</td><td> 9.53</td><td>-0.26</td><td> 9.29</td><td> 9.48</td><td>-0.20</td><td> 2900</td></tr>
-    <tr><th scope="row">133</th><td>0</td><td>1</td><td> 0</td><td> 0</td><td>0</td><td>20</td><td> 1</td><td>36.0</td><td>4.00</td><td>5.25</td><td>0.25</td><td>0.381</td><td>67.0</td><td> 6.75</td><td>-0.07</td><td> 5.46</td><td> 5.96</td><td>-0.20</td><td> 6000</td></tr>
-    <tr><th scope="row">134</th><td>7</td><td>4</td><td>11</td><td> 6</td><td>6</td><td>65</td><td> 1</td><td>80.1</td><td>7.39</td><td>5.27</td><td>1.12</td><td>0.267</td><td>75.0</td><td> 4.59</td><td> 1.89</td><td> 5.54</td><td> 5.53</td><td>-0.20</td><td>15000</td></tr>
-    <tr><th scope="row">135</th><td>1</td><td>4</td><td> 0</td><td> 0</td><td>0</td><td> 9</td><td> 7</td><td>32.0</td><td>7.59</td><td>3.94</td><td>2.53</td><td>0.359</td><td>52.5</td><td> 9.84</td><td>-0.43</td><td> 7.39</td><td> 7.36</td><td>-0.20</td><td> 5700</td></tr>
-    <tr><th scope="row">136</th><td>5</td><td>6</td><td> 0</td><td>15</td><td>6</td><td>63</td><td> 0</td><td>73.1</td><td>7.85</td><td>4.05</td><td>1.60</td><td>0.303</td><td>61.0</td><td> 6.63</td><td>-0.74</td><td> 5.68</td><td> 5.59</td><td>-0.22</td><td>24000</td></tr>
-    <tr><th scope="row">137</th><td>0</td><td>1</td><td> 0</td><td> 0</td><td>0</td><td> 3</td><td> 1</td><td> 8.0</td><td>4.50</td><td>6.75</td><td>4.50</td><td>0.346</td><td>82.1</td><td> 9.00</td><td>-0.16</td><td>11.48</td><td>11.73</td><td>-0.23</td><td> 3000</td></tr>
-    <tr><th scope="row">138</th><td>3</td><td>1</td><td> 0</td><td> 2</td><td>1</td><td>24</td><td> 0</td><td>26.2</td><td>3.71</td><td>2.70</td><td>1.69</td><td>0.307</td><td>71.4</td><td> 5.40</td><td> 0.19</td><td> 6.47</td><td> 6.83</td><td>-0.24</td><td>10000</td></tr>
-    <tr><th scope="row">139</th><td>1</td><td>2</td><td> 1</td><td> 5</td><td>2</td><td>35</td><td> 0</td><td>38.0</td><td>7.34</td><td>3.55</td><td>2.13</td><td>0.273</td><td>71.1</td><td> 5.68</td><td>-0.05</td><td> 6.76</td><td> 6.77</td><td>-0.24</td><td> 6500</td></tr>
-    <tr><th scope="row">140</th><td>2</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td>16</td><td> 0</td><td>19.0</td><td>4.74</td><td>4.74</td><td>1.42</td><td>0.324</td><td>67.0</td><td> 6.63</td><td>-0.09</td><td> 7.10</td><td> 7.57</td><td>-0.25</td><td> 3200</td></tr>
-    <tr><th scope="row">141</th><td>0</td><td>2</td><td> 0</td><td> 1</td><td>0</td><td>37</td><td> 1</td><td>39.0</td><td>5.08</td><td>3.92</td><td>1.62</td><td>0.294</td><td>68.3</td><td> 6.23</td><td> 0.25</td><td> 6.40</td><td> 6.63</td><td>-0.28</td><td> 6800</td></tr>
-    <tr><th scope="row">142</th><td>0</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td> 9</td><td> 0</td><td> 8.0</td><td>2.25</td><td>6.75</td><td>3.38</td><td>0.281</td><td>47.3</td><td>10.12</td><td>-0.61</td><td>10.73</td><td>11.37</td><td>-0.30</td><td> 3000</td></tr>
-    <tr><th scope="row">143</th><td>4</td><td>3</td><td> 3</td><td> 8</td><td>4</td><td>53</td><td> 0</td><td>53.0</td><td>6.62</td><td>2.38</td><td>2.21</td><td>0.280</td><td>73.9</td><td> 5.09</td><td> 0.28</td><td> 6.30</td><td> 6.27</td><td>-0.38</td><td> 9000</td></tr>
-    <tr><th scope="row">144</th><td>5</td><td>3</td><td> 0</td><td> 0</td><td>0</td><td>39</td><td>13</td><td>89.2</td><td>5.12</td><td>3.41</td><td>1.51</td><td>0.320</td><td>57.4</td><td> 7.33</td><td>-0.27</td><td> 6.31</td><td> 6.58</td><td>-0.41</td><td>12500</td></tr>
-    <tr><th scope="row">145</th><td>0</td><td>4</td><td> 0</td><td> 0</td><td>0</td><td>15</td><td> 5</td><td>31.0</td><td>4.65</td><td>6.97</td><td>2.03</td><td>0.340</td><td>66.4</td><td> 8.71</td><td>-0.42</td><td> 8.15</td><td> 8.52</td><td>-0.42</td><td> 3600</td></tr>
-    <tr><th scope="row">146</th><td>2</td><td>0</td><td> 0</td><td> 0</td><td>0</td><td>30</td><td> 0</td><td>31.2</td><td>7.11</td><td>6.25</td><td>2.56</td><td>0.276</td><td>81.9</td><td> 5.12</td><td> 0.31</td><td> 8.03</td><td> 8.03</td><td>-0.44</td><td> 7000</td></tr>
-    <tr><th scope="row">147</th><td>5</td><td>6</td><td> 1</td><td> 3</td><td>2</td><td>39</td><td>12</td><td>81.2</td><td>5.18</td><td>3.42</td><td>1.65</td><td>0.314</td><td>63.2</td><td> 6.61</td><td>-0.02</td><td> 6.33</td><td> 6.54</td><td>-0.46</td><td> 7600</td></tr>
-    <tr><th scope="row">148</th><td>2</td><td>5</td><td> 0</td><td> 0</td><td>2</td><td>33</td><td> 5</td><td>62.2</td><td>4.31</td><td>3.30</td><td>1.58</td><td>0.355</td><td>56.9</td><td> 7.76</td><td>-1.21</td><td> 6.21</td><td> 6.48</td><td>-0.47</td><td> 7100</td></tr>
-    <tr><th scope="row">149</th><td>3</td><td>2</td><td> 0</td><td> 0</td><td>0</td><td>25</td><td>11</td><td>59.1</td><td>4.85</td><td>5.61</td><td>1.06</td><td>0.263</td><td>65.4</td><td> 5.92</td><td> 0.39</td><td> 6.41</td><td> 6.77</td><td>-0.49</td><td> 7500</td></tr>
-    <tr><th scope="row">150</th><td>0</td><td>2</td><td> 0</td><td> 0</td><td>0</td><td> 9</td><td> 2</td><td>14.2</td><td>4.91</td><td>4.91</td><td>2.45</td><td>0.382</td><td>52.8</td><td>11.66</td><td>-0.83</td><td> 8.03</td><td> 8.29</td><td>-0.61</td><td>10000</td></tr>
-    <tr><th scope="row">151</th><td>0</td><td>3</td><td> 0</td><td> 1</td><td>0</td><td>41</td><td> 0</td><td>43.2</td><td>7.63</td><td>7.01</td><td>1.44</td><td>0.341</td><td>73.9</td><td> 5.77</td><td>-0.40</td><td> 6.87</td><td> 6.95</td><td>-0.70</td><td> 4000</td></tr>
-    <tr><th scope="row">152</th><td>4</td><td>4</td><td> 0</td><td> 0</td><td>0</td><td>24</td><td>14</td><td>81.0</td><td>5.78</td><td>5.89</td><td>2.00</td><td>0.312</td><td>65.3</td><td> 7.67</td><td>-0.68</td><td> 7.60</td><td> 7.81</td><td>-1.01</td><td> 4000</td></tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">1</td>
+<td>16</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>190.0</td>
+<td>8.95</td>
+<td>2.13</td>
+<td>0.76</td>
+<td>0.342</td>
+<td>73.7</td>
+<td>3.60</td>
+<td>6.91</td>
+<td>3.69</td>
+<td>3.44</td>
+<td>6.62</td>
+<td>140000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">2</td>
+<td>11</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>185.1</td>
+<td>7.43</td>
+<td>1.85</td>
+<td>0.53</td>
+<td>0.319</td>
+<td>67.1</td>
+<td>3.88</td>
+<td>6.80</td>
+<td>3.52</td>
+<td>3.41</td>
+<td>6.08</td>
+<td>120000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">3</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>31</td>
+<td>31</td>
+<td>193.1</td>
+<td>7.36</td>
+<td>2.09</td>
+<td>0.79</td>
+<td>0.332</td>
+<td>72.1</td>
+<td>3.44</td>
+<td>6.54</td>
+<td>3.94</td>
+<td>3.82</td>
+<td>5.64</td>
+<td>230000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">4</td>
+<td>10</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>175.2</td>
+<td>8.04</td>
+<td>1.95</td>
+<td>1.02</td>
+<td>0.298</td>
+<td>75.0</td>
+<td>3.43</td>
+<td>6.11</td>
+<td>4.20</td>
+<td>4.03</td>
+<td>4.63</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">5</td>
+<td>13</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>187.1</td>
+<td>7.49</td>
+<td>2.11</td>
+<td>0.91</td>
+<td>0.323</td>
+<td>74.1</td>
+<td>3.80</td>
+<td>6.13</td>
+<td>4.36</td>
+<td>4.31</td>
+<td>4.38</td>
+<td>111000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">6</td>
+<td>8</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>26</td>
+<td>26</td>
+<td>160.0</td>
+<td>7.42</td>
+<td>1.74</td>
+<td>1.12</td>
+<td>0.289</td>
+<td>76.1</td>
+<td>3.04</td>
+<td>6.52</td>
+<td>4.42</td>
+<td>4.32</td>
+<td>3.94</td>
+<td>85000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">7</td>
+<td>8</td>
+<td>12</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>25</td>
+<td>24</td>
+<td>141.2</td>
+<td>7.94</td>
+<td>1.02</td>
+<td>0.83</td>
+<td>0.362</td>
+<td>64.6</td>
+<td>5.08</td>
+<td>2.97</td>
+<td>3.88</td>
+<td>3.78</td>
+<td>3.87</td>
+<td>11500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">8</td>
+<td>14</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>29</td>
+<td>29</td>
+<td>180.1</td>
+<td>6.24</td>
+<td>2.55</td>
+<td>0.60</td>
+<td>0.293</td>
+<td>75.8</td>
+<td>3.14</td>
+<td>7.28</td>
+<td>4.26</td>
+<td>4.35</td>
+<td>3.85</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">9</td>
+<td>9</td>
+<td>8</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>35</td>
+<td>24</td>
+<td>137.1</td>
+<td>9.11</td>
+<td>4.19</td>
+<td>0.52</td>
+<td>0.321</td>
+<td>73.1</td>
+<td>3.67</td>
+<td>4.99</td>
+<td>3.91</td>
+<td>3.67</td>
+<td>3.78</td>
+<td>16000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">10</td>
+<td>9</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>176.0</td>
+<td>7.31</td>
+<td>1.99</td>
+<td>1.12</td>
+<td>0.353</td>
+<td>76.5</td>
+<td>4.14</td>
+<td>5.66</td>
+<td>4.65</td>
+<td>4.61</td>
+<td>3.64</td>
+<td>70000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">11</td>
+<td>12</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>174.1</td>
+<td>6.71</td>
+<td>1.91</td>
+<td>1.14</td>
+<td>0.305</td>
+<td>72.7</td>
+<td>4.28</td>
+<td>5.36</td>
+<td>4.78</td>
+<td>4.80</td>
+<td>3.03</td>
+<td>80000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">12</td>
+<td>11</td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>188.2</td>
+<td>5.06</td>
+<td>1.96</td>
+<td>0.95</td>
+<td>0.329</td>
+<td>69.7</td>
+<td>4.53</td>
+<td>4.79</td>
+<td>4.78</td>
+<td>4.97</td>
+<td>2.89</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">13</td>
+<td>8</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>23</td>
+<td>19</td>
+<td>118.1</td>
+<td>5.55</td>
+<td>1.37</td>
+<td>0.68</td>
+<td>0.331</td>
+<td>72.3</td>
+<td>3.65</td>
+<td>4.25</td>
+<td>4.07</td>
+<td>4.19</td>
+<td>2.79</td>
+<td>13000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">14</td>
+<td>12</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>171.1</td>
+<td>6.15</td>
+<td>2.94</td>
+<td>1.10</td>
+<td>0.290</td>
+<td>78.3</td>
+<td>3.68</td>
+<td>5.92</td>
+<td>5.07</td>
+<td>5.14</td>
+<td>2.54</td>
+<td>25000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">15</td>
+<td>8</td>
+<td>4</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>35</td>
+<td>14</td>
+<td>100.2</td>
+<td>8.40</td>
+<td>3.22</td>
+<td>0.98</td>
+<td>0.336</td>
+<td>73.2</td>
+<td>4.38</td>
+<td>3.01</td>
+<td>4.51</td>
+<td>4.34</td>
+<td>2.25</td>
+<td>15500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">16</td>
+<td>11</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>30</td>
+<td>22</td>
+<td>130.1</td>
+<td>7.80</td>
+<td>2.83</td>
+<td>1.31</td>
+<td>0.298</td>
+<td>75.8</td>
+<td>4.21</td>
+<td>4.22</td>
+<td>4.91</td>
+<td>4.77</td>
+<td>2.20</td>
+<td>40000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">17</td>
+<td>8</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>25</td>
+<td>25</td>
+<td>131.1</td>
+<td>7.33</td>
+<td>3.77</td>
+<td>0.69</td>
+<td>0.327</td>
+<td>63.5</td>
+<td>5.35</td>
+<td>1.53</td>
+<td>4.79</td>
+<td>4.84</td>
+<td>2.15</td>
+<td>29000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">18</td>
+<td>7</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>25</td>
+<td>133.0</td>
+<td>6.77</td>
+<td>1.56</td>
+<td>1.29</td>
+<td>0.334</td>
+<td>60.6</td>
+<td>5.21</td>
+<td>1.48</td>
+<td>4.95</td>
+<td>4.98</td>
+<td>2.14</td>
+<td>70000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">19</td>
+<td>6</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>26</td>
+<td>124.1</td>
+<td>8.18</td>
+<td>3.26</td>
+<td>0.87</td>
+<td>0.335</td>
+<td>71.3</td>
+<td>4.63</td>
+<td>3.15</td>
+<td>4.81</td>
+<td>4.79</td>
+<td>2.04</td>
+<td>11500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">20</td>
+<td>1</td>
+<td>3</td>
+<td>37</td>
+<td>0</td>
+<td>5</td>
+<td>61</td>
+<td>0</td>
+<td>62.0</td>
+<td>9.00</td>
+<td>1.60</td>
+<td>1.02</td>
+<td>0.311</td>
+<td>89.9</td>
+<td>2.18</td>
+<td>3.91</td>
+<td>3.69</td>
+<td>3.37</td>
+<td>1.82</td>
+<td>70000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">21</td>
+<td>6</td>
+<td>4</td>
+<td>26</td>
+<td>0</td>
+<td>5</td>
+<td>56</td>
+<td>0</td>
+<td>59.0</td>
+<td>11.90</td>
+<td>2.90</td>
+<td>0.76</td>
+<td>0.304</td>
+<td>79.4</td>
+<td>2.75</td>
+<td>2.85</td>
+<td>3.26</td>
+<td>2.69</td>
+<td>1.81</td>
+<td>120000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">22</td>
+<td>6</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>23</td>
+<td>22</td>
+<td>120.0</td>
+<td>6.15</td>
+<td>2.48</td>
+<td>1.20</td>
+<td>0.340</td>
+<td>63.1</td>
+<td>6.00</td>
+<td>1.52</td>
+<td>5.13</td>
+<td>5.22</td>
+<td>1.80</td>
+<td>13000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">23</td>
+<td>3</td>
+<td>6</td>
+<td>0</td>
+<td>22</td>
+<td>0</td>
+<td>68</td>
+<td>0</td>
+<td>80.0</td>
+<td>7.76</td>
+<td>2.14</td>
+<td>0.45</td>
+<td>0.336</td>
+<td>63.9</td>
+<td>4.39</td>
+<td>2.02</td>
+<td>3.60</td>
+<td>3.52</td>
+<td>1.71</td>
+<td>18500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">24</td>
+<td>7</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>25</td>
+<td>25</td>
+<td>128.0</td>
+<td>6.05</td>
+<td>2.04</td>
+<td>1.20</td>
+<td>0.328</td>
+<td>66.4</td>
+<td>5.06</td>
+<td>2.47</td>
+<td>5.10</td>
+<td>5.21</td>
+<td>1.68</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">25</td>
+<td>12</td>
+<td>7</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>29</td>
+<td>28</td>
+<td>151.1</td>
+<td>6.36</td>
+<td>3.63</td>
+<td>0.95</td>
+<td>0.287</td>
+<td>75.3</td>
+<td>4.10</td>
+<td>4.31</td>
+<td>5.38</td>
+<td>5.55</td>
+<td>1.62</td>
+<td>20000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">26</td>
+<td>4</td>
+<td>3</td>
+<td>6</td>
+<td>4</td>
+<td>1</td>
+<td>70</td>
+<td>0</td>
+<td>66.0</td>
+<td>7.77</td>
+<td>2.18</td>
+<td>0.55</td>
+<td>0.337</td>
+<td>68.0</td>
+<td>3.95</td>
+<td>2.43</td>
+<td>3.57</td>
+<td>3.45</td>
+<td>1.54</td>
+<td>10000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">27</td>
+<td>10</td>
+<td>6</td>
+<td>0</td>
+<td>15</td>
+<td>2</td>
+<td>69</td>
+<td>0</td>
+<td>89.2</td>
+<td>9.84</td>
+<td>2.71</td>
+<td>1.30</td>
+<td>0.268</td>
+<td>76.1</td>
+<td>3.61</td>
+<td>3.20</td>
+<td>4.30</td>
+<td>3.92</td>
+<td>1.47</td>
+<td>23000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">28</td>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+<td>6</td>
+<td>1</td>
+<td>60</td>
+<td>3</td>
+<td>88.2</td>
+<td>8.73</td>
+<td>3.05</td>
+<td>1.02</td>
+<td>0.312</td>
+<td>71.4</td>
+<td>4.06</td>
+<td>1.97</td>
+<td>4.41</td>
+<td>4.22</td>
+<td>1.38</td>
+<td>18800</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">29</td>
+<td>5</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>23</td>
+<td>119.0</td>
+<td>8.85</td>
+<td>3.10</td>
+<td>1.66</td>
+<td>0.350</td>
+<td>65.4</td>
+<td>5.67</td>
+<td>1.04</td>
+<td>5.53</td>
+<td>5.35</td>
+<td>1.31</td>
+<td>19000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">30</td>
+<td>7</td>
+<td>2</td>
+<td>7</td>
+<td>12</td>
+<td>1</td>
+<td>70</td>
+<td>0</td>
+<td>89.0</td>
+<td>7.38</td>
+<td>3.24</td>
+<td>0.61</td>
+<td>0.316</td>
+<td>73.5</td>
+<td>3.44</td>
+<td>2.68</td>
+<td>4.15</td>
+<td>4.09</td>
+<td>1.27</td>
+<td>15000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">123</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>14</td>
+<td>0</td>
+<td>21.0</td>
+<td>3.86</td>
+<td>4.71</td>
+<td>0.00</td>
+<td>0.315</td>
+<td>69.2</td>
+<td>3.43</td>
+<td>0.12</td>
+<td>5.16</td>
+<td>5.73</td>
+<td>-0.12</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">124</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>2</td>
+<td>7.1</td>
+<td>6.14</td>
+<td>7.36</td>
+<td>1.23</td>
+<td>0.613</td>
+<td>50.7</td>
+<td>17.18</td>
+<td>-0.52</td>
+<td>7.83</td>
+<td>8.32</td>
+<td>-0.12</td>
+<td>3600</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">125</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>24</td>
+<td>2</td>
+<td>30.0</td>
+<td>5.70</td>
+<td>4.20</td>
+<td>1.80</td>
+<td>0.389</td>
+<td>65.3</td>
+<td>5.70</td>
+<td>-0.51</td>
+<td>6.47</td>
+<td>6.57</td>
+<td>-0.16</td>
+<td>5200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">126</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>11</td>
+<td>1</td>
+<td>37</td>
+<td>0</td>
+<td>31.1</td>
+<td>4.88</td>
+<td>2.59</td>
+<td>1.72</td>
+<td>0.311</td>
+<td>67.3</td>
+<td>6.32</td>
+<td>0.04</td>
+<td>6.48</td>
+<td>6.78</td>
+<td>-0.16</td>
+<td>45000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">127</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>21</td>
+<td>1</td>
+<td>32.0</td>
+<td>5.91</td>
+<td>6.47</td>
+<td>1.12</td>
+<td>0.378</td>
+<td>59.6</td>
+<td>8.72</td>
+<td>-0.10</td>
+<td>6.39</td>
+<td>6.59</td>
+<td>-0.17</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">128</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>11</td>
+<td>2</td>
+<td>17.0</td>
+<td>3.71</td>
+<td>5.82</td>
+<td>1.06</td>
+<td>0.300</td>
+<td>53.0</td>
+<td>7.94</td>
+<td>-0.52</td>
+<td>6.73</td>
+<td>7.22</td>
+<td>-0.18</td>
+<td>9000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">129</td>
+<td>3</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>16</td>
+<td>12</td>
+<td>59.0</td>
+<td>4.42</td>
+<td>3.97</td>
+<td>1.83</td>
+<td>0.330</td>
+<td>64.3</td>
+<td>7.17</td>
+<td>0.05</td>
+<td>6.77</td>
+<td>7.04</td>
+<td>-0.18</td>
+<td>7300</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">130</td>
+<td>2</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>14</td>
+<td>8</td>
+<td>36.1</td>
+<td>5.20</td>
+<td>5.70</td>
+<td>1.24</td>
+<td>0.376</td>
+<td>65.3</td>
+<td>7.93</td>
+<td>-0.35</td>
+<td>6.68</td>
+<td>7.04</td>
+<td>-0.19</td>
+<td>6000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">131</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>20</td>
+<td>3</td>
+<td>35.2</td>
+<td>6.56</td>
+<td>4.04</td>
+<td>2.02</td>
+<td>0.333</td>
+<td>78.7</td>
+<td>5.55</td>
+<td>0.59</td>
+<td>6.79</td>
+<td>6.86</td>
+<td>-0.19</td>
+<td>4200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">132</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+<td>0</td>
+<td>11.1</td>
+<td>6.35</td>
+<td>5.56</td>
+<td>3.18</td>
+<td>0.361</td>
+<td>68.6</td>
+<td>9.53</td>
+<td>-0.26</td>
+<td>9.29</td>
+<td>9.48</td>
+<td>-0.20</td>
+<td>2900</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">133</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>20</td>
+<td>1</td>
+<td>36.0</td>
+<td>4.00</td>
+<td>5.25</td>
+<td>0.25</td>
+<td>0.381</td>
+<td>67.0</td>
+<td>6.75</td>
+<td>-0.07</td>
+<td>5.46</td>
+<td>5.96</td>
+<td>-0.20</td>
+<td>6000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">134</td>
+<td>7</td>
+<td>4</td>
+<td>11</td>
+<td>6</td>
+<td>6</td>
+<td>65</td>
+<td>1</td>
+<td>80.1</td>
+<td>7.39</td>
+<td>5.27</td>
+<td>1.12</td>
+<td>0.267</td>
+<td>75.0</td>
+<td>4.59</td>
+<td>1.89</td>
+<td>5.54</td>
+<td>5.53</td>
+<td>-0.20</td>
+<td>15000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">135</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>7</td>
+<td>32.0</td>
+<td>7.59</td>
+<td>3.94</td>
+<td>2.53</td>
+<td>0.359</td>
+<td>52.5</td>
+<td>9.84</td>
+<td>-0.43</td>
+<td>7.39</td>
+<td>7.36</td>
+<td>-0.20</td>
+<td>5700</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">136</td>
+<td>5</td>
+<td>6</td>
+<td>0</td>
+<td>15</td>
+<td>6</td>
+<td>63</td>
+<td>0</td>
+<td>73.1</td>
+<td>7.85</td>
+<td>4.05</td>
+<td>1.60</td>
+<td>0.303</td>
+<td>61.0</td>
+<td>6.63</td>
+<td>-0.74</td>
+<td>5.68</td>
+<td>5.59</td>
+<td>-0.22</td>
+<td>24000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">137</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+<td>8.0</td>
+<td>4.50</td>
+<td>6.75</td>
+<td>4.50</td>
+<td>0.346</td>
+<td>82.1</td>
+<td>9.00</td>
+<td>-0.16</td>
+<td>11.48</td>
+<td>11.73</td>
+<td>-0.23</td>
+<td>3000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">138</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>24</td>
+<td>0</td>
+<td>26.2</td>
+<td>3.71</td>
+<td>2.70</td>
+<td>1.69</td>
+<td>0.307</td>
+<td>71.4</td>
+<td>5.40</td>
+<td>0.19</td>
+<td>6.47</td>
+<td>6.83</td>
+<td>-0.24</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">139</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+<td>35</td>
+<td>0</td>
+<td>38.0</td>
+<td>7.34</td>
+<td>3.55</td>
+<td>2.13</td>
+<td>0.273</td>
+<td>71.1</td>
+<td>5.68</td>
+<td>-0.05</td>
+<td>6.76</td>
+<td>6.77</td>
+<td>-0.24</td>
+<td>6500</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">140</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>16</td>
+<td>0</td>
+<td>19.0</td>
+<td>4.74</td>
+<td>4.74</td>
+<td>1.42</td>
+<td>0.324</td>
+<td>67.0</td>
+<td>6.63</td>
+<td>-0.09</td>
+<td>7.10</td>
+<td>7.57</td>
+<td>-0.25</td>
+<td>3200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">141</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>37</td>
+<td>1</td>
+<td>39.0</td>
+<td>5.08</td>
+<td>3.92</td>
+<td>1.62</td>
+<td>0.294</td>
+<td>68.3</td>
+<td>6.23</td>
+<td>0.25</td>
+<td>6.40</td>
+<td>6.63</td>
+<td>-0.28</td>
+<td>6800</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">142</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>0</td>
+<td>8.0</td>
+<td>2.25</td>
+<td>6.75</td>
+<td>3.38</td>
+<td>0.281</td>
+<td>47.3</td>
+<td>10.12</td>
+<td>-0.61</td>
+<td>10.73</td>
+<td>11.37</td>
+<td>-0.30</td>
+<td>3000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">143</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>8</td>
+<td>4</td>
+<td>53</td>
+<td>0</td>
+<td>53.0</td>
+<td>6.62</td>
+<td>2.38</td>
+<td>2.21</td>
+<td>0.280</td>
+<td>73.9</td>
+<td>5.09</td>
+<td>0.28</td>
+<td>6.30</td>
+<td>6.27</td>
+<td>-0.38</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">144</td>
+<td>5</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>39</td>
+<td>13</td>
+<td>89.2</td>
+<td>5.12</td>
+<td>3.41</td>
+<td>1.51</td>
+<td>0.320</td>
+<td>57.4</td>
+<td>7.33</td>
+<td>-0.27</td>
+<td>6.31</td>
+<td>6.58</td>
+<td>-0.41</td>
+<td>12500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">145</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>15</td>
+<td>5</td>
+<td>31.0</td>
+<td>4.65</td>
+<td>6.97</td>
+<td>2.03</td>
+<td>0.340</td>
+<td>66.4</td>
+<td>8.71</td>
+<td>-0.42</td>
+<td>8.15</td>
+<td>8.52</td>
+<td>-0.42</td>
+<td>3600</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">146</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>0</td>
+<td>31.2</td>
+<td>7.11</td>
+<td>6.25</td>
+<td>2.56</td>
+<td>0.276</td>
+<td>81.9</td>
+<td>5.12</td>
+<td>0.31</td>
+<td>8.03</td>
+<td>8.03</td>
+<td>-0.44</td>
+<td>7000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">147</td>
+<td>5</td>
+<td>6</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>39</td>
+<td>12</td>
+<td>81.2</td>
+<td>5.18</td>
+<td>3.42</td>
+<td>1.65</td>
+<td>0.314</td>
+<td>63.2</td>
+<td>6.61</td>
+<td>-0.02</td>
+<td>6.33</td>
+<td>6.54</td>
+<td>-0.46</td>
+<td>7600</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">148</td>
+<td>2</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>33</td>
+<td>5</td>
+<td>62.2</td>
+<td>4.31</td>
+<td>3.30</td>
+<td>1.58</td>
+<td>0.355</td>
+<td>56.9</td>
+<td>7.76</td>
+<td>-1.21</td>
+<td>6.21</td>
+<td>6.48</td>
+<td>-0.47</td>
+<td>7100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">149</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>25</td>
+<td>11</td>
+<td>59.1</td>
+<td>4.85</td>
+<td>5.61</td>
+<td>1.06</td>
+<td>0.263</td>
+<td>65.4</td>
+<td>5.92</td>
+<td>0.39</td>
+<td>6.41</td>
+<td>6.77</td>
+<td>-0.49</td>
+<td>7500</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">150</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>2</td>
+<td>14.2</td>
+<td>4.91</td>
+<td>4.91</td>
+<td>2.45</td>
+<td>0.382</td>
+<td>52.8</td>
+<td>11.66</td>
+<td>-0.83</td>
+<td>8.03</td>
+<td>8.29</td>
+<td>-0.61</td>
+<td>10000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">151</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>41</td>
+<td>0</td>
+<td>43.2</td>
+<td>7.63</td>
+<td>7.01</td>
+<td>1.44</td>
+<td>0.341</td>
+<td>73.9</td>
+<td>5.77</td>
+<td>-0.40</td>
+<td>6.87</td>
+<td>6.95</td>
+<td>-0.70</td>
+<td>4000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">152</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>24</td>
+<td>14</td>
+<td>81.0</td>
+<td>5.78</td>
+<td>5.89</td>
+<td>2.00</td>
+<td>0.312</td>
+<td>65.3</td>
+<td>7.67</td>
+<td>-0.68</td>
+<td>7.60</td>
+<td>7.81</td>
+<td>-1.01</td>
+<td>4000</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -781,10 +2478,10 @@ F-statistic: 176.1 on 9 and 142 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="model3aic" class="level3">
 <h3 class="anchored" data-anchor-id="model3aic">model3(AIC)</h3>
 <p><code>-</code> AIC(Step)</p>
-<div class="cell" data-execution_count="39">
+<div id="a29db301-3345-4070-8035-2c5a673ee4c4" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>m0 <span class="ot">=</span> <span class="fu">lm</span>(연봉.<span class="fl">2018.</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="40">
+<div id="27f62c55-a24e-4d16-a448-354920d01f74" class="cell" data-tags="[]" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>model3 <span class="ot">=</span> <span class="fu">step</span>(</span>
 <span id="cb31-2"><a href="#cb31-2"></a> m0,</span>
 <span id="cb31-3"><a href="#cb31-3"></a> <span class="at">scope =</span> 연봉.<span class="fl">2018.</span> <span class="sc">~</span>연봉.<span class="fl">2017.</span><span class="sc">+</span>승<span class="sc">+</span>패<span class="sc">+</span>세<span class="sc">+</span>홀드<span class="sc">+</span>블론<span class="sc">+</span>경기<span class="sc">+</span>선발<span class="sc">+</span>이닝<span class="sc">+</span>삼진<span class="fl">.9</span><span class="sc">+</span>볼넷<span class="fl">.9</span><span class="sc">+</span>홈런<span class="fl">.9</span><span class="sc">+</span>BABIP<span class="sc">+</span>LOB.<span class="sc">+</span>ERA<span class="sc">+</span>RA9.WAR<span class="sc">+</span>FIP<span class="sc">+</span>kFIP<span class="sc">+</span>WAR,</span>
@@ -993,7 +2690,7 @@ Step:  AIC=2771.4
 </div>
 <section id="summary" class="level4">
 <h4 class="anchored" data-anchor-id="summary">summary</h4>
-<div class="cell" data-execution_count="41">
+<div id="8a9cdf2d-93f8-4c96-a7da-160728b36479" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">summary</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
@@ -1024,7 +2721,7 @@ F-statistic: 333.4 on 5 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li>AIC를 이용하면 최종 모형은 “연봉.2018. ~ 연봉.2017. + WAR + kFIP+승+이닝” 이다.</li>
 </ul>
-<div class="cell" data-execution_count="42">
+<div id="41988bb5-5992-4e6c-93a9-4de67aedf5ea" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">vif</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
@@ -1043,25 +2740,134 @@ F-statistic: 333.4 on 5 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li>서로 상관성이 높은 변수들의 선형 결합으로 만들어 기존의 상관성이 높은 변수들을 요약, 축소하는 기법</li>
 </ul>
-<div class="cell" data-execution_count="66">
+<div id="bcdfaae7-3684-4824-af95-50334f8b49f4" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">head</span>(dt, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>A data.frame: 3 × 20</caption>
 <thead>
-    <tr><th></th><th scope="col">승</th><th scope="col">패</th><th scope="col">세</th><th scope="col">홀드</th><th scope="col">블론</th><th scope="col">경기</th><th scope="col">선발</th><th scope="col">이닝</th><th scope="col">삼진.9</th><th scope="col">볼넷.9</th><th scope="col">홈런.9</th><th scope="col">BABIP</th><th scope="col">LOB.</th><th scope="col">ERA</th><th scope="col">RA9.WAR</th><th scope="col">FIP</th><th scope="col">kFIP</th><th scope="col">WAR</th><th scope="col">연봉.2018.</th><th scope="col">연봉.2017.</th></tr>
-    <tr><th></th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;int&gt;</th></tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">승</th>
+<th data-quarto-table-cell-role="th" scope="col">패</th>
+<th data-quarto-table-cell-role="th" scope="col">세</th>
+<th data-quarto-table-cell-role="th" scope="col">홀드</th>
+<th data-quarto-table-cell-role="th" scope="col">블론</th>
+<th data-quarto-table-cell-role="th" scope="col">경기</th>
+<th data-quarto-table-cell-role="th" scope="col">선발</th>
+<th data-quarto-table-cell-role="th" scope="col">이닝</th>
+<th data-quarto-table-cell-role="th" scope="col">삼진.9</th>
+<th data-quarto-table-cell-role="th" scope="col">볼넷.9</th>
+<th data-quarto-table-cell-role="th" scope="col">홈런.9</th>
+<th data-quarto-table-cell-role="th" scope="col">BABIP</th>
+<th data-quarto-table-cell-role="th" scope="col">LOB.</th>
+<th data-quarto-table-cell-role="th" scope="col">ERA</th>
+<th data-quarto-table-cell-role="th" scope="col">RA9.WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">FIP</th>
+<th data-quarto-table-cell-role="th" scope="col">kFIP</th>
+<th data-quarto-table-cell-role="th" scope="col">WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2018.</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2017.</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;dbl&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+<th data-quarto-table-cell-role="th" scope="col">&lt;int&gt;</th>
+</tr>
 </thead>
 <tbody>
-    <tr><th scope="row">1</th><td>16</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>190.0</td><td>8.95</td><td>2.13</td><td>0.76</td><td>0.342</td><td>73.7</td><td>3.60</td><td>6.91</td><td>3.69</td><td>3.44</td><td>6.62</td><td>140000</td><td> 85000</td></tr>
-    <tr><th scope="row">2</th><td>11</td><td>11</td><td>1</td><td>0</td><td>0</td><td>30</td><td>29</td><td>185.1</td><td>7.43</td><td>1.85</td><td>0.53</td><td>0.319</td><td>67.1</td><td>3.88</td><td>6.80</td><td>3.52</td><td>3.41</td><td>6.08</td><td>120000</td><td> 50000</td></tr>
-    <tr><th scope="row">3</th><td>20</td><td> 6</td><td>0</td><td>0</td><td>0</td><td>31</td><td>31</td><td>193.1</td><td>7.36</td><td>2.09</td><td>0.79</td><td>0.332</td><td>72.1</td><td>3.44</td><td>6.54</td><td>3.94</td><td>3.82</td><td>5.64</td><td>230000</td><td>150000</td></tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">1</td>
+<td>16</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>190.0</td>
+<td>8.95</td>
+<td>2.13</td>
+<td>0.76</td>
+<td>0.342</td>
+<td>73.7</td>
+<td>3.60</td>
+<td>6.91</td>
+<td>3.69</td>
+<td>3.44</td>
+<td>6.62</td>
+<td>140000</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">2</td>
+<td>11</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>185.1</td>
+<td>7.43</td>
+<td>1.85</td>
+<td>0.53</td>
+<td>0.319</td>
+<td>67.1</td>
+<td>3.88</td>
+<td>6.80</td>
+<td>3.52</td>
+<td>3.41</td>
+<td>6.08</td>
+<td>120000</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">3</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>31</td>
+<td>31</td>
+<td>193.1</td>
+<td>7.36</td>
+<td>2.09</td>
+<td>0.79</td>
+<td>0.332</td>
+<td>72.1</td>
+<td>3.44</td>
+<td>6.54</td>
+<td>3.94</td>
+<td>3.82</td>
+<td>5.64</td>
+<td>230000</td>
+<td>150000</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="cell" data-execution_count="67">
+<div id="8c38afe2-3440-4963-b948-cf81ce9abea9" class="cell" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>log.dt <span class="ot">&lt;-</span> <span class="fu">log</span>(dt[,<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning message in FUN(X[[i]], ...):
@@ -1072,10 +2878,10 @@ Warning message in FUN(X[[i]], ...):
 “NaNs produced”</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="57">
+<div id="f6b9f8d0-a8e2-4483-b2a8-81372c755e5a" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>dt.pca <span class="ot">&lt;-</span> <span class="fu">princomp</span>(dt, <span class="at">cor=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="58">
+<div id="ba7c80cd-7352-4de2-8a06-3c83c7250a0c" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">summary</span>(dt.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Importance of components:
@@ -1104,7 +2910,7 @@ Cumulative Proportion  0.9999977277 1.000000e+00</code></pre>
 <ul>
 <li>제 1주성분과 제6주성분까지의 누적 분산비율은 대략 85.71%로 6개의 주성분 변수를 활용해 전체 데이터의 85.71%를 설명할 수 있다.</li>
 </ul>
-<div class="cell" data-execution_count="60">
+<div id="314dd7e0-cddb-4927-aae0-3e12f218a0d6" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">screeplot</span>(dt.pca, <span class="at">npcs=</span><span class="dv">8</span>, <span class="at">type=</span><span class="st">"lines"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="AS4_5_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
@@ -1113,7 +2919,7 @@ Cumulative Proportion  0.9999977277 1.000000e+00</code></pre>
 <ul>
 <li>주성분들에 의해 설명되는 변동 비율</li>
 </ul>
-<div class="cell" data-execution_count="61">
+<div id="ea8605f3-4836-424e-ad32-23df8009dd52" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">loadings</span>(dt.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
@@ -1207,10 +3013,10 @@ Cumulative Var    0.90    0.95    1.00</code></pre>
 </section>
 <section id="능형회귀" class="level1">
 <h1>능형회귀</h1>
-<div class="cell" data-execution_count="43">
+<div id="22bfea5f-5f68-4bca-9713-5350838b37cb" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>rfit <span class="ot">&lt;-</span> <span class="fu">lm.ridge</span>(연봉.<span class="fl">2018.</span><span class="sc">~</span>., dt, <span class="at">lambda=</span><span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="dv">20</span>,<span class="fl">0.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="44">
+<div id="1d944015-6c04-4eac-b19b-8ce95ca77118" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">select</span>(rfit) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>modified HKB estimator is 1.552458 
@@ -1218,7 +3024,7 @@ modified L-W estimator is 1.638756
 smallest value of GCV  at 4.11 </code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="45">
+<div id="096a8cf4-e0ae-40f8-9c7c-c821fb1aecb7" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">round</span>(rfit<span class="sc">$</span>coef[,rfit<span class="sc">$</span>lam<span class="sc">==</span><span class="st">'4.11'</span>],<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
@@ -1229,7 +3035,7 @@ smallest value of GCV  at 4.11 </code></pre>
 </style><dl class="dl-inline"><dt>승</dt><dd>3659.317</dd><dt>패</dt><dd>-737.614</dd><dt>세</dt><dd>-93.401</dd><dt>홀드</dt><dd>-155.777</dd><dt>블론</dt><dd>859.526</dd><dt>경기</dt><dd>-1932.839</dd><dt>선발</dt><dd>-3234.453</dd><dt>이닝</dt><dd>441.579</dd><dt>삼진.9</dt><dd>-934.786</dd><dt>볼넷.9</dt><dd>1047.402</dd><dt>홈런.9</dt><dd>1328.778</dd><dt>BABIP</dt><dd>-755.31</dd><dt>LOB.</dt><dd>-578.691</dd><dt>ERA</dt><dd>-288.368</dd><dt>RA9.WAR</dt><dd>516.127</dd><dt>FIP</dt><dd>-176.744</dd><dt>kFIP</dt><dd>-420.71</dd><dt>WAR</dt><dd>9904.312</dd><dt>연봉.2017.</dt><dd>21113.076</dd></dl>
 </div>
 </div>
-<div class="cell" data-execution_count="46">
+<div id="77028c5a-628d-45ee-b77c-2367c6460341" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">matplot</span>(rfit<span class="sc">$</span>lambda, <span class="fu">t</span>(rfit<span class="sc">$</span>coef), <span class="at">type=</span><span class="st">'l'</span>,</span>
 <span id="cb49-2"><a href="#cb49-2"></a>        <span class="at">xlab=</span><span class="fu">expression</span>(lambda),</span>
 <span id="cb49-3"><a href="#cb49-3"></a>        <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">bold</span>(beta)(lambda)), <span class="at">lwd=</span><span class="dv">2</span>) </span>
@@ -1241,32 +3047,178 @@ smallest value of GCV  at 4.11 </code></pre>
 </div>
 <section id="glm" class="level2">
 <h2 class="anchored" data-anchor-id="glm">glm</h2>
-<div class="cell" data-execution_count="47">
+<div id="c6f1124b-2194-4f87-83f3-e2d49469aff4" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a></span>
 <span id="cb50-2"><a href="#cb50-2"></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(연봉.<span class="fl">2018.</span><span class="sc">~</span>., dt)[,<span class="sc">-</span><span class="dv">1</span>] </span>
 <span id="cb50-3"><a href="#cb50-3"></a>y <span class="ot">&lt;-</span> dt<span class="sc">$</span>연봉.<span class="fl">2018.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="48">
+<div id="6b7555a2-a047-4333-a2ad-82c621a4f158" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">head</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>A matrix: 6 × 19 of type dbl</caption>
 <thead>
-    <tr><th></th><th scope="col">승</th><th scope="col">패</th><th scope="col">세</th><th scope="col">홀드</th><th scope="col">블론</th><th scope="col">경기</th><th scope="col">선발</th><th scope="col">이닝</th><th scope="col">삼진.9</th><th scope="col">볼넷.9</th><th scope="col">홈런.9</th><th scope="col">BABIP</th><th scope="col">LOB.</th><th scope="col">ERA</th><th scope="col">RA9.WAR</th><th scope="col">FIP</th><th scope="col">kFIP</th><th scope="col">WAR</th><th scope="col">연봉.2017.</th></tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th" scope="col">승</th>
+<th data-quarto-table-cell-role="th" scope="col">패</th>
+<th data-quarto-table-cell-role="th" scope="col">세</th>
+<th data-quarto-table-cell-role="th" scope="col">홀드</th>
+<th data-quarto-table-cell-role="th" scope="col">블론</th>
+<th data-quarto-table-cell-role="th" scope="col">경기</th>
+<th data-quarto-table-cell-role="th" scope="col">선발</th>
+<th data-quarto-table-cell-role="th" scope="col">이닝</th>
+<th data-quarto-table-cell-role="th" scope="col">삼진.9</th>
+<th data-quarto-table-cell-role="th" scope="col">볼넷.9</th>
+<th data-quarto-table-cell-role="th" scope="col">홈런.9</th>
+<th data-quarto-table-cell-role="th" scope="col">BABIP</th>
+<th data-quarto-table-cell-role="th" scope="col">LOB.</th>
+<th data-quarto-table-cell-role="th" scope="col">ERA</th>
+<th data-quarto-table-cell-role="th" scope="col">RA9.WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">FIP</th>
+<th data-quarto-table-cell-role="th" scope="col">kFIP</th>
+<th data-quarto-table-cell-role="th" scope="col">WAR</th>
+<th data-quarto-table-cell-role="th" scope="col">연봉.2017.</th>
+</tr>
 </thead>
 <tbody>
-    <tr><th scope="row">1</th><td>16</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>190.0</td><td>8.95</td><td>2.13</td><td>0.76</td><td>0.342</td><td>73.7</td><td>3.60</td><td>6.91</td><td>3.69</td><td>3.44</td><td>6.62</td><td> 85000</td></tr>
-    <tr><th scope="row">2</th><td>11</td><td>11</td><td>1</td><td>0</td><td>0</td><td>30</td><td>29</td><td>185.1</td><td>7.43</td><td>1.85</td><td>0.53</td><td>0.319</td><td>67.1</td><td>3.88</td><td>6.80</td><td>3.52</td><td>3.41</td><td>6.08</td><td> 50000</td></tr>
-    <tr><th scope="row">3</th><td>20</td><td> 6</td><td>0</td><td>0</td><td>0</td><td>31</td><td>31</td><td>193.1</td><td>7.36</td><td>2.09</td><td>0.79</td><td>0.332</td><td>72.1</td><td>3.44</td><td>6.54</td><td>3.94</td><td>3.82</td><td>5.64</td><td>150000</td></tr>
-    <tr><th scope="row">4</th><td>10</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>28</td><td>28</td><td>175.2</td><td>8.04</td><td>1.95</td><td>1.02</td><td>0.298</td><td>75.0</td><td>3.43</td><td>6.11</td><td>4.20</td><td>4.03</td><td>4.63</td><td>100000</td></tr>
-    <tr><th scope="row">5</th><td>13</td><td> 7</td><td>0</td><td>0</td><td>0</td><td>30</td><td>30</td><td>187.1</td><td>7.49</td><td>2.11</td><td>0.91</td><td>0.323</td><td>74.1</td><td>3.80</td><td>6.13</td><td>4.36</td><td>4.31</td><td>4.38</td><td> 85000</td></tr>
-    <tr><th scope="row">6</th><td> 8</td><td>10</td><td>0</td><td>0</td><td>0</td><td>26</td><td>26</td><td>160.0</td><td>7.42</td><td>1.74</td><td>1.12</td><td>0.289</td><td>76.1</td><td>3.04</td><td>6.52</td><td>4.42</td><td>4.32</td><td>3.94</td><td> 35000</td></tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">1</td>
+<td>16</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>190.0</td>
+<td>8.95</td>
+<td>2.13</td>
+<td>0.76</td>
+<td>0.342</td>
+<td>73.7</td>
+<td>3.60</td>
+<td>6.91</td>
+<td>3.69</td>
+<td>3.44</td>
+<td>6.62</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">2</td>
+<td>11</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>29</td>
+<td>185.1</td>
+<td>7.43</td>
+<td>1.85</td>
+<td>0.53</td>
+<td>0.319</td>
+<td>67.1</td>
+<td>3.88</td>
+<td>6.80</td>
+<td>3.52</td>
+<td>3.41</td>
+<td>6.08</td>
+<td>50000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">3</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>31</td>
+<td>31</td>
+<td>193.1</td>
+<td>7.36</td>
+<td>2.09</td>
+<td>0.79</td>
+<td>0.332</td>
+<td>72.1</td>
+<td>3.44</td>
+<td>6.54</td>
+<td>3.94</td>
+<td>3.82</td>
+<td>5.64</td>
+<td>150000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">4</td>
+<td>10</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>175.2</td>
+<td>8.04</td>
+<td>1.95</td>
+<td>1.02</td>
+<td>0.298</td>
+<td>75.0</td>
+<td>3.43</td>
+<td>6.11</td>
+<td>4.20</td>
+<td>4.03</td>
+<td>4.63</td>
+<td>100000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" scope="row">5</td>
+<td>13</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+<td>187.1</td>
+<td>7.49</td>
+<td>2.11</td>
+<td>0.91</td>
+<td>0.323</td>
+<td>74.1</td>
+<td>3.80</td>
+<td>6.13</td>
+<td>4.36</td>
+<td>4.31</td>
+<td>4.38</td>
+<td>85000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th" scope="row">6</td>
+<td>8</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>26</td>
+<td>26</td>
+<td>160.0</td>
+<td>7.42</td>
+<td>1.74</td>
+<td>1.12</td>
+<td>0.289</td>
+<td>76.1</td>
+<td>3.04</td>
+<td>6.52</td>
+<td>4.42</td>
+<td>4.32</td>
+<td>3.94</td>
+<td>35000</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="cell" data-execution_count="49">
+<div id="3e66ab82-9b06-4b50-a594-070d471ecf47" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>ridge.fit<span class="ot">&lt;-</span><span class="fu">glmnet</span>(X,y,<span class="at">alpha=</span><span class="dv">0</span>, <span class="at">lambda=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="do">##ridge : alpha=0 </span></span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="fu">plot</span>(ridge.fit, <span class="at">label=</span><span class="cn">TRUE</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"grey"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1274,14 +3226,14 @@ smallest value of GCV  at 4.11 </code></pre>
 <p><img src="AS4_5_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="50">
+<div id="dbf97f85-9110-4325-927d-31e71743372a" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>cv.fit<span class="ot">&lt;-</span><span class="fu">cv.glmnet</span>(X,y,<span class="at">alpha=</span><span class="dv">0</span>,<span class="at">nfolds=</span><span class="fu">length</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning message:
 “Option grouped=FALSE enforced in cv.glmnet, since &lt; 3 observations per fold”</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="51">
+<div id="c4d73dba-7665-4a7d-80dc-3e1d3e84cfe3" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>cv.fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>
@@ -1294,7 +3246,7 @@ min   2869   100 117171048 49876335      19
 1se  12711    84 166795504 78214517      19</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="52">
+<div id="6aa76f69-5930-4b3b-bfd2-b38744640b98" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">plot</span>(cv.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="AS4_5_files/figure-html/cell-57-output-1.png" class="img-fluid"></p>
@@ -1304,7 +3256,7 @@ min   2869   100 117171048 49876335      19
 </section>
 <section id="번외-war을-y로" class="level1">
 <h1>번외 (WAR을 y로)</h1>
-<div class="cell" data-execution_count="53">
+<div id="b29cd3e7-7341-44a0-9535-dd72253ce369" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>model_ <span class="ot">&lt;-</span> <span class="fu">lm</span>(WAR <span class="sc">~</span> ., dt)</span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="fu">summary</span>(model_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1346,7 +3298,7 @@ Multiple R-squared:  0.9147,    Adjusted R-squared:  0.9024
 F-statistic:  74.5 on 19 and 132 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="54">
+<div id="eff3eb48-a77c-4c55-982a-530eda02e2e3" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">vif</span>(model_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
@@ -1402,9 +3354,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1440,10 +3406,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1453,8 +3418,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1469,6 +3443,168 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1509,6 +3645,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

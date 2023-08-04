@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-05-24-try2변형.html">사기거래</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-05-24-try2변형.html">사기거래</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-05-24-try2변형.html">사기거래</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/2022_04_23_중간고사예상문제.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-05-24-try2변형.html">사기거래</a></li><li class="breadcrumb-item"><a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</a></li></ol></nav>
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</h1>
@@ -302,13 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
@@ -389,106 +389,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="c36d6b17-9b4c-4aea-b111-133e1afce57e" class="cell" data-execution_count="14">
+<div id="a2ee768e-facb-4f0e-9077-6cde75591199" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> sklearn</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># sklearn</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> sklearn <span class="im">import</span> model_selection <span class="co"># split함수이용</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> sklearn <span class="im">import</span> ensemble <span class="co"># RF,GBM</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># embedding </span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="2774d96b-b24a-492b-a587-2815ff6e3ead" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> build_graph_bipartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    df<span class="op">=</span>df_input.copy()</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df[<span class="st">"cc_num"</span>].values.tolist()<span class="op">+\</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>                                                      df[<span class="st">"merchant"</span>].values.tolist()))}</span>
-<span id="cb2-5"><a href="#cb2-5"></a>    </span>
-<span id="cb2-6"><a href="#cb2-6"></a>    df[<span class="st">"from"</span>]<span class="op">=</span>df[<span class="st">"cc_num"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 출발점</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>    df[<span class="st">"to"</span>]<span class="op">=</span>df[<span class="st">"merchant"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])  <span class="co">#엣지의 도착점</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>    </span>
-<span id="cb2-9"><a href="#cb2-9"></a>    df <span class="op">=</span> df[[<span class="st">'from'</span>, <span class="st">'to'</span>, <span class="st">"amt"</span>, <span class="st">"is_fraud"</span>]].groupby([<span class="st">'from'</span>,<span class="st">'to'</span>]).agg({<span class="st">"is_fraud"</span>:<span class="st">"sum"</span>,<span class="st">"amt"</span>:<span class="st">"sum"</span>}).reset_index()</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    df[<span class="st">"is_fraud"</span>]<span class="op">=</span>df[<span class="st">"is_fraud"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:<span class="dv">1</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>    </span>
-<span id="cb2-12"><a href="#cb2-12"></a>    G<span class="op">=</span>nx.from_edgelist(df[[<span class="st">"from"</span>,<span class="st">"to"</span>]].values, create_using<span class="op">=</span>graph_type)</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    </span>
-<span id="cb2-14"><a href="#cb2-14"></a>    nx.set_edge_attributes(G,{(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"is_fraud"</span>]].iterrows()}, <span class="st">"label"</span>)  <span class="co">#엣지 속성 설정,각 속성의 사기 여부부     </span></span>
-<span id="cb2-15"><a href="#cb2-15"></a>    nx.set_edge_attributes(G,{(<span class="bu">int</span>(x[<span class="st">"from"</span>]),<span class="bu">int</span>(x[<span class="st">"to"</span>])):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx,x <span class="kw">in</span> df[[<span class="st">"from"</span>,<span class="st">"to"</span>,<span class="st">"amt"</span>]].iterrows()}, <span class="st">"weight"</span>) <span class="co"># 엣지 속성 설정, 각 엣지의 거래 금액</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a>    <span class="cf">return</span> G</span>
-<span id="cb2-18"><a href="#cb2-18"></a></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="kw">def</span> build_graph_tripartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
-<span id="cb2-21"><a href="#cb2-21"></a>    df<span class="op">=</span>df_input.copy()</span>
-<span id="cb2-22"><a href="#cb2-22"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df.index.values.tolist() <span class="op">+</span> </span>
-<span id="cb2-23"><a href="#cb2-23"></a>                                                       df[<span class="st">"cc_num"</span>].values.tolist() <span class="op">+</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a>                                                       df[<span class="st">"merchant"</span>].values.tolist()))}</span>
-<span id="cb2-25"><a href="#cb2-25"></a>    df[<span class="st">"in_node"</span>]<span class="op">=</span> df[<span class="st">"cc_num"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: mapping[x])</span>
-<span id="cb2-26"><a href="#cb2-26"></a>    df[<span class="st">"out_node"</span>]<span class="op">=</span>df[<span class="st">"merchant"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x:mapping[x])</span>
-<span id="cb2-27"><a href="#cb2-27"></a>    </span>
-<span id="cb2-28"><a href="#cb2-28"></a>        </span>
-<span id="cb2-29"><a href="#cb2-29"></a>    G<span class="op">=</span>nx.from_edgelist([(x[<span class="st">"in_node"</span>], mapping[idx]) <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()] <span class="op">+\</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a>                        [(x[<span class="st">"out_node"</span>], mapping[idx]) <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()], create_using<span class="op">=</span>graph_type)</span>
-<span id="cb2-31"><a href="#cb2-31"></a>    </span>
-<span id="cb2-32"><a href="#cb2-32"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"in_node"</span>], mapping[idx]):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"label"</span>)     </span>
-<span id="cb2-33"><a href="#cb2-33"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"out_node"</span>], mapping[idx]):x[<span class="st">"is_fraud"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"label"</span>)   </span>
-<span id="cb2-34"><a href="#cb2-34"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"in_node"</span>], mapping[idx]):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"weight"</span>)  </span>
-<span id="cb2-35"><a href="#cb2-35"></a>    nx.set_edge_attributes(G,{(x[<span class="st">"out_node"</span>], mapping[idx]):x[<span class="st">"amt"</span>] <span class="cf">for</span> idx, x <span class="kw">in</span> df.iterrows()}, <span class="st">"weight"</span>)</span>
-<span id="cb2-36"><a href="#cb2-36"></a></span>
-<span id="cb2-37"><a href="#cb2-37"></a>    <span class="cf">return</span> G</span>
-<span id="cb2-38"><a href="#cb2-38"></a>    </span>
-<span id="cb2-39"><a href="#cb2-39"></a>    </span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="kw">def</span> down_sample_textbook(df):</span>
-<span id="cb2-41"><a href="#cb2-41"></a>    df_majority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">0</span>].copy()</span>
-<span id="cb2-42"><a href="#cb2-42"></a>    df_minority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">1</span>].copy()</span>
-<span id="cb2-43"><a href="#cb2-43"></a>    df_maj_dowsampled <span class="op">=</span> sklearn.utils.resample(df_majority, n_samples<span class="op">=</span><span class="bu">len</span>(df_minority), replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb2-44"><a href="#cb2-44"></a>    df_downsampled <span class="op">=</span> pd.concat([df_minority, df_maj_dowsampled])</span>
-<span id="cb2-45"><a href="#cb2-45"></a>    <span class="cf">return</span> df_downsampled</span>
-<span id="cb2-46"><a href="#cb2-46"></a></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="kw">def</span> embedding(Graph):</span>
-<span id="cb2-48"><a href="#cb2-48"></a>    <span class="co"># Graph -&gt; X (feature)</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a>    _edgs <span class="op">=</span> <span class="bu">list</span>(Graph.edges)</span>
-<span id="cb2-50"><a href="#cb2-50"></a>    subGraph <span class="op">=</span> Graph.edge_subgraph([_edgs[x] <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(Graph.edges))]).copy()</span>
-<span id="cb2-51"><a href="#cb2-51"></a>    subGraph.add_nodes_from(<span class="bu">list</span>(<span class="bu">set</span>(Graph.nodes) <span class="op">-</span> <span class="bu">set</span>(subGraph.nodes)))    </span>
-<span id="cb2-52"><a href="#cb2-52"></a>    embedded <span class="op">=</span> AverageEmbedder(Node2Vec(subGraph, weight_key<span class="op">=</span><span class="st">'weight'</span>).fit(window<span class="op">=</span><span class="dv">10</span>).wv)</span>
-<span id="cb2-53"><a href="#cb2-53"></a>    X <span class="op">=</span> [embedded[<span class="bu">str</span>(_edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(_edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(Graph.edges))]</span>
-<span id="cb2-54"><a href="#cb2-54"></a>    <span class="co"># Graph -&gt; y (label)</span></span>
-<span id="cb2-55"><a href="#cb2-55"></a>    y <span class="op">=</span> np.array(<span class="bu">list</span>(nx.get_edge_attributes(Graph, <span class="st">"label"</span>).values()))</span>
-<span id="cb2-56"><a href="#cb2-56"></a>    <span class="cf">return</span> X,y </span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a><span class="kw">def</span> anal(df):</span>
-<span id="cb2-59"><a href="#cb2-59"></a>    Graph <span class="op">=</span> build_graph_bipartite(df)</span>
-<span id="cb2-60"><a href="#cb2-60"></a>    X,XX,y,yy <span class="op">=</span> embedding(Graph)</span>
-<span id="cb2-61"><a href="#cb2-61"></a>    lrnr <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">42</span>) </span>
-<span id="cb2-62"><a href="#cb2-62"></a>    lrnr.fit(X,y)</span>
-<span id="cb2-63"><a href="#cb2-63"></a>    yyhat <span class="op">=</span> lrnr.predict(XX)</span>
-<span id="cb2-64"><a href="#cb2-64"></a>    df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb2-65"><a href="#cb2-65"></a>        <span class="st">'acc'</span>:[sklearn.metrics.accuracy_score(yy,yyhat)], </span>
-<span id="cb2-66"><a href="#cb2-66"></a>        <span class="st">'pre'</span>:[sklearn.metrics.precision_score(yy,yyhat)], </span>
-<span id="cb2-67"><a href="#cb2-67"></a>        <span class="st">'rec'</span>:[sklearn.metrics.recall_score(yy,yyhat)],</span>
-<span id="cb2-68"><a href="#cb2-68"></a>        <span class="st">'f1'</span>:[sklearn.metrics.f1_score(yy,yyhat)]}</span>
-<span id="cb2-69"><a href="#cb2-69"></a>    )    </span>
-<span id="cb2-70"><a href="#cb2-70"></a>    <span class="cf">return</span> df</span>
-<span id="cb2-71"><a href="#cb2-71"></a></span>
-<span id="cb2-72"><a href="#cb2-72"></a><span class="kw">def</span> our_sampling1(df):</span>
-<span id="cb2-73"><a href="#cb2-73"></a>    cus_list <span class="op">=</span> <span class="bu">set</span>(df.query(<span class="st">'is_fraud==1'</span>).cc_num.tolist())</span>
-<span id="cb2-74"><a href="#cb2-74"></a>    <span class="cf">return</span> df.query(<span class="st">"cc_num in @ cus_list"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> torch </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch_geometric</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 모든엣지를 고려</p>
 <div id="9f3d1be1-60ee-436d-a948-27a3254da476" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>N <span class="op">=</span> <span class="dv">10</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># edge_attr = 그래프의 웨이트 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>N <span class="op">=</span> <span class="dv">10</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># edge_attr = 그래프의 웨이트 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="99d85a62-a699-4949-9cd3-b6dc0df90fe6" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>tensor([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
          2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4,
@@ -502,13 +416,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
          6, 7, 8, 9]])</code></pre>
 </div>
 </div>
-<div id="7021dc07-8a06-417b-9fb6-c71b2f05e5eb" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fraudTrain <span class="op">=</span> pd.read_csv(<span class="st">"~/Desktop/fraudTrain.csv"</span>).iloc[:,<span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7021dc07-8a06-417b-9fb6-c71b2f05e5eb" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>fraudTrain <span class="op">=</span> pd.read_csv(<span class="st">"~/Desktop/fraudTrain.csv"</span>).iloc[:,<span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="eb7a9b2b-f984-4bb0-b14b-e523a00d8d38" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
-<span id="cb7-2"><a href="#cb7-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="eb7a9b2b-f984-4bb0-b14b-e523a00d8d38" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
+<span id="cb6-2"><a href="#cb6-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -811,46 +725,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cbcddfcc-5807-4d2a-aa9a-630dd85838a5" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>diff <span class="op">=</span> fraudTrain.trans_date_trans_time[<span class="dv">101</span>]<span class="op">-</span>fraudTrain.trans_date_trans_time[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cbcddfcc-5807-4d2a-aa9a-630dd85838a5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>diff <span class="op">=</span> fraudTrain.trans_date_trans_time[<span class="dv">101</span>]<span class="op">-</span>fraudTrain.trans_date_trans_time[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="70034543-3afd-44c5-accd-bc868f5da908" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="70034543-3afd-44c5-accd-bc868f5da908" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Timedelta('0 days 01:17:00')</code></pre>
 </div>
 </div>
-<div id="29ece58c-1ef3-487e-84e6-4cb005cf7dc5" class="cell" data-execution_count="93">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>diff.total_seconds()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
-<pre><code>4620.0</code></pre>
-</div>
-</div>
-<div id="db19a1c9-bd90-4766-9b55-62b46134bef6" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>theta <span class="op">=</span> <span class="dv">86400</span><span class="op">*</span><span class="fl">1.2</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div id="db19a1c9-bd90-4766-9b55-62b46134bef6" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>theta <span class="op">=</span> <span class="dv">86400</span><span class="op">*</span><span class="fl">1.2</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>103680.0</code></pre>
 </div>
 </div>
-<div id="9777eb29-ffa1-47ab-b8fe-27ad2170b187" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>theta <span class="op">=</span> <span class="dv">86400</span><span class="op">*</span><span class="fl">1.2</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>np.exp(<span class="op">-</span>diff.total_seconds()<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="9777eb29-ffa1-47ab-b8fe-27ad2170b187" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>theta <span class="op">=</span> <span class="dv">86400</span><span class="op">*</span><span class="fl">1.2</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>np.exp(<span class="op">-</span>diff.total_seconds()<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>0.9564180361647693</code></pre>
 </div>
 </div>
 <div id="39ae6515-12c5-46a0-b0be-e6599adfa13a" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># !git add .</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># !git commit -m. </span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># !git push </span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="co"># !quarto publish --no-browser --no-prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># !git add .</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># !git commit -m. </span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># !git push </span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># !quarto publish --no-browser --no-prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="해보자" class="level2">
 <h2 class="anchored" data-anchor-id="해보자">해보자</h2>
 <div id="485ede51-0706-4e58-bb23-b73e78388784" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
-<span id="cb18-2"><a href="#cb18-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
+<span id="cb15-2"><a href="#cb15-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
@@ -1155,152 +1063,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="ad9c937d-914e-4d4a-85f8-02a7208e3abf" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>N <span class="op">=</span> <span class="bu">len</span>(fraudTrain)</span>
-<span id="cb19-2"><a href="#cb19-2"></a>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>N <span class="op">=</span> <span class="bu">len</span>(fraudTrain)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>1048575</code></pre>
 </div>
 </div>
-<p><code>-</code> 시도1</p>
 <div id="e6df0e96-84f8-469d-a266-61c64fab2570" class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>edge_index_list <span class="op">=</span> []</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb21-4"><a href="#cb21-4"></a>        time_difference <span class="op">=</span> (fraudTrain[<span class="st">'trans_date_trans_time'</span>][i] <span class="op">-</span> fraudTrain[<span class="st">'trans_date_trans_time'</span>][j]).total_seconds()</span>
-<span id="cb21-5"><a href="#cb21-5"></a>        edge_index_list.append([i, j, time_difference])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># edge_index_list = []</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co"># for i in range(N):</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#     for j in range(N):</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#         time_difference = (fraudTrain['trans_date_trans_time'][i] - fraudTrain['trans_date_trans_time'][j]).total_seconds()</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#         edge_index_list.append([i, j, time_difference])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="e3a01238-31cd-456e-819e-604d740f58b0" class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>edge_index <span class="op">=</span> torch.tensor(edge_index_list).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>-</code> 시도2</p>
-<div id="6551dc15-2843-4b9f-94e7-951d6d2f0626" class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>N <span class="op">=</span> <span class="bu">len</span>(fraudTrain)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="co"># edge_attr = 그래프의 웨이트 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>너~무 오래걸린다.</li>
-</ul>
-<p><code>-</code> 시도3</p>
-<ul>
-<li>df02을 이용해서 해보자.</li>
-</ul>
-<div id="adec4c87-7a49-41dd-ba04-879643113486" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>_df1 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">0</span>].sample(frac<span class="op">=</span><span class="fl">0.20</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>_df2 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
-<span id="cb24-3"><a href="#cb24-3"></a>df02 <span class="op">=</span> pd.concat([_df1,_df2])</span>
-<span id="cb24-4"><a href="#cb24-4"></a>df02.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>(214520, 22)</code></pre>
-</div>
-</div>
-<div id="7e57bd74-f016-4aa7-a3b4-769caa2483cc" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="dv">214520</span><span class="op">*</span><span class="dv">214520</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>46018830400</code></pre>
-</div>
-</div>
-<div id="edd53275-b1d2-474d-97b1-d980c4630dd3" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># N = len(df02)</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="co"># edge_index = torch.tensor([[i,j] for i in range(N) for j in range(N)]).T</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>-</code> 시도4: df50</p>
-<div id="b1eab03c-9ee2-45e1-95a5-923642e8ce6f" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df50 <span class="op">=</span> down_sample_textbook(df02)</span>
-<span id="cb29-2"><a href="#cb29-2"></a>df50.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>(12012, 22)</code></pre>
-</div>
-</div>
-<div id="0d8983c1-b6c2-4331-9adf-14d799fb8460" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="dv">12012</span><span class="op">*</span><span class="dv">12012</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>144288144</code></pre>
-</div>
-</div>
-<div id="4f3c12b1-433f-41ac-85c0-c42ae389ba60" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>df50 <span class="op">=</span> df50.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="e181f302-3ddb-4fe1-9e7b-3298617a3f34" class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df50_tr,df50_test <span class="op">=</span> sklearn.model_selection.train_test_split(df50, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="3834d100-e0d5-4f6e-a459-249fb4454b18" class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df50_tr.is_fraud.mean().<span class="bu">round</span>(<span class="dv">5</span>), df50_test.is_fraud.mean().<span class="bu">round</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
-<pre><code>(0.49828, 0.50516)</code></pre>
-</div>
-</div>
-<div id="4fa01551-1ec3-44b7-8d00-76aed0ff21f6" class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>df50_tr.shape, df50_test.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="77">
-<pre><code>((9009, 23), (3003, 23))</code></pre>
-</div>
-</div>
-<div id="f684a722-b0c9-4ec0-b5e6-4c3a0b11e20f" class="cell" data-execution_count="78">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>N <span class="op">=</span> <span class="bu">len</span>(df50_tr)</span>
-<span id="cb39-2"><a href="#cb39-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
-<span id="cb39-3"><a href="#cb39-3"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="78">
-<pre><code>tensor([[   0,    0,    0,  ..., 9008, 9008, 9008],
-        [   0,    1,    2,  ..., 9006, 9007, 9008]])</code></pre>
-</div>
-</div>
-<div id="d8a1fc2c-1de3-4a36-b0b9-8eae2dd29c48" class="cell" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df50_tr <span class="op">=</span> df50_tr.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="993f6531-37c2-4be2-8eab-cd3481e3b780" class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>edge_index_list <span class="op">=</span> []</span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb42-4"><a href="#cb42-4"></a>        time_difference <span class="op">=</span> (df50_tr[<span class="st">'trans_date_trans_time'</span>][i] <span class="op">-</span> df50_tr[<span class="st">'trans_date_trans_time'</span>][j]).total_seconds()</span>
-<span id="cb42-5"><a href="#cb42-5"></a>        edge_index_list.append([i, j, time_difference])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="3241c7c3-f884-41c2-b6f7-ceabf5ec2db4" class="cell" data-execution_count="137">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>edge_index <span class="op">=</span> np.array(edge_index_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="0d9fbf10-bd2a-4f20-b81e-72d3883583f5" class="cell" data-execution_count="138">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>edge_index.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="138">
-<pre><code>(81162081, 3)</code></pre>
-</div>
-</div>
-<div id="fb850e8c-c5cc-4448-9bee-90cfed6b7fce" class="cell" data-execution_count="139">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> np.<span class="bu">abs</span>(edge_index[:,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="b697e389-0761-4a18-8fde-b316275cb31c" class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>theta <span class="op">=</span> edge_index[:,<span class="dv">2</span>].mean()</span>
-<span id="cb47-2"><a href="#cb47-2"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="142">
-<pre><code>12230796.273867842</code></pre>
-</div>
-</div>
-<div id="041de342-6e42-4147-82e5-db6f26977a73" class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> (np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)<span class="op">!=</span><span class="dv">1</span>) <span class="op">*</span> np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="55ef9411-1e70-4551-a3d1-841810c24a28" class="cell" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="144">
-<pre><code>array([[0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
-       [0.00000000e+00, 1.00000000e+00, 1.90157975e-01],
-       [0.00000000e+00, 2.00000000e+00, 9.79646259e-02],
-       ...,
-       [9.00800000e+03, 9.00600000e+03, 6.60662164e-01],
-       [9.00800000e+03, 9.00700000e+03, 1.49150646e-01],
-       [9.00800000e+03, 9.00800000e+03, 0.00000000e+00]])</code></pre>
-</div>
-</div>
-<div id="6a8bcc96-6de0-4a6a-abba-7862a1271a58" class="cell" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>edge_index_list_updated <span class="op">=</span> edge_index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="e6f4bcd2-97e8-4cbf-bddc-8f9f4125960e" class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>edge_index_list_updated[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
-<pre><code>[[0.0, 0.0, 0.0],
- [0.0, 1.0, 0.19015797528259762],
- [0.0, 2.0, 0.09796462590589798],
- [0.0, 3.0, 0.1424157407389685],
- [0.0, 4.0, 0.11107338192969567]]</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># edge_index = torch.tensor(edge_index_list).T</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

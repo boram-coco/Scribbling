@@ -1,95 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/논문.html</loc>
-    <lastmod>2023-08-01T08:48:27.063Z</lastmod>
+    <loc>https://boram-coco.github.io/Scribbling/index.html</loc>
+    <lastmod>2023-05-19T09:52:24.844Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/AS4_5.html</loc>
-    <lastmod>2023-08-01T08:48:27.475Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/VAE.html</loc>
-    <lastmod>2023-08-01T08:48:27.647Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/Czech-banking-customer-trans-analysis.html</loc>
-    <lastmod>2023-08-01T08:48:28.323Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch & PyTorch Geometric.html</loc>
-    <lastmod>2023-08-01T08:48:28.511Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/graph4-3.html</loc>
-    <lastmod>2023-08-01T08:48:28.723Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/ml with python 8.html</loc>
-    <lastmod>2023-08-01T08:48:28.955Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/coin prediction.html</loc>
-    <lastmod>2023-08-01T08:48:29.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/학회.html</loc>
-    <lastmod>2023-08-01T08:48:29.375Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/2022_04_23_중간고사예상문제.html</loc>
-    <lastmod>2023-08-01T08:48:29.563Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/GAN논문정리.html</loc>
-    <lastmod>2023-08-01T08:48:29.747Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html</loc>
-    <lastmod>2023-08-01T08:48:29.927Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/낙서.html</loc>
-    <lastmod>2023-08-01T08:48:30.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/사기거래 날짜 230602.html</loc>
-    <lastmod>2023-08-01T08:48:30.359Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/9999.html</loc>
-    <lastmod>2023-08-01T08:48:30.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님 data(원본).html</loc>
-    <lastmod>2023-08-01T08:48:30.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/2023-05-24-try2변형.html</loc>
-    <lastmod>2023-08-01T08:48:31.155Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님 data(re).html</loc>
-    <lastmod>2023-08-01T08:48:31.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님.html</loc>
-    <lastmod>2023-08-01T08:48:31.675Z</lastmod>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html</loc>
+    <lastmod>2023-08-02T02:24:23.844Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/graph8(frac.html</loc>
-    <lastmod>2023-08-01T08:48:31.883Z</lastmod>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님 data(re).html</loc>
+    <lastmod>2023-06-02T08:13:52.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님 data(원본).html</loc>
+    <lastmod>2023-06-02T08:13:44.450Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/사기거래 날짜 230602.html</loc>
+    <lastmod>2023-06-02T09:20:10.211Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/2023-07-19-그래프자료로 데이터정리.out.html</loc>
+    <lastmod>2023-08-02T10:28:02.841Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/2022_04_23_중간고사예상문제.html</loc>
+    <lastmod>2023-06-27T08:51:23.974Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/coin prediction.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/graph4-3.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/Czech-banking-customer-trans-analysis.html</loc>
+    <lastmod>2023-05-26T05:15:13.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/AS4_5.html</loc>
+    <lastmod>2023-06-11T06:34:14.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/논문.html</loc>
+    <lastmod>2023-06-11T07:29:19.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/VAE.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/Hands-on Graph Neural Networks with PyTorch & PyTorch Geometric.html</loc>
+    <lastmod>2023-06-02T06:39:30.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/hadamangeo/ml with python 8.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/학회.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/GAN논문정리.html</loc>
+    <lastmod>2023-08-01T05:54:37.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/낙서.html</loc>
+    <lastmod>2023-06-02T08:09:27.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/9999.html</loc>
+    <lastmod>2023-06-02T08:13:56.130Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/2023-05-24-try2변형.html</loc>
+    <lastmod>2023-06-02T08:13:47.846Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님.html</loc>
+    <lastmod>2023-05-19T09:52:24.848Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/posts/사기거래/교수님 data(time12).html</loc>
-    <lastmod>2023-08-01T08:48:32.287Z</lastmod>
+    <lastmod>2023-06-02T08:14:31.362Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/Scribbling/about.html</loc>
-    <lastmod>2023-08-01T08:48:32.435Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/Scribbling/index.html</loc>
-    <lastmod>2023-08-01T08:48:32.751Z</lastmod>
+    <lastmod>2023-05-19T09:52:24.844Z</lastmod>
   </url>
 </urlset>
