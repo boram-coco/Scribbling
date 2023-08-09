@@ -389,23 +389,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="c36d6b17-9b4c-4aea-b111-133e1afce57e" class="cell" data-execution_count="14">
+<div id="c36d6b17-9b4c-4aea-b111-133e1afce57e" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> sklearn</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># sklearn</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> sklearn <span class="im">import</span> model_selection <span class="co"># split함수이용</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> sklearn <span class="im">import</span> ensemble <span class="co"># RF,GBM</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># embedding </span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> torch</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># sklearn</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> sklearn <span class="im">import</span> model_selection <span class="co"># split함수이용</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> sklearn <span class="im">import</span> ensemble <span class="co"># RF,GBM</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># embedding </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2774d96b-b24a-492b-a587-2815ff6e3ead" class="cell" data-execution_count="15">
+<div id="2774d96b-b24a-492b-a587-2815ff6e3ead" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> build_graph_bipartite(df_input, graph_type<span class="op">=</span>nx.Graph()):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    df<span class="op">=</span>df_input.copy()</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    mapping<span class="op">=</span>{x:node_id <span class="cf">for</span> node_id, x <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(df[<span class="st">"cc_num"</span>].values.tolist()<span class="op">+\</span></span>
@@ -482,14 +483,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-74"><a href="#cb2-74"></a>    <span class="cf">return</span> df.query(<span class="st">"cc_num in @ cus_list"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 모든엣지를 고려</p>
-<div id="9f3d1be1-60ee-436d-a948-27a3254da476" class="cell" data-execution_count="3">
+<div id="9f3d1be1-60ee-436d-a948-27a3254da476" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>N <span class="op">=</span> <span class="dv">10</span> </span>
 <span id="cb3-2"><a href="#cb3-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co"># edge_attr = 그래프의 웨이트 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="99d85a62-a699-4949-9cd3-b6dc0df90fe6" class="cell" data-execution_count="19">
+<div id="99d85a62-a699-4949-9cd3-b6dc0df90fe6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>tensor([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
          2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4,
          4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7,
@@ -502,13 +503,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
          6, 7, 8, 9]])</code></pre>
 </div>
 </div>
-<div id="7021dc07-8a06-417b-9fb6-c71b2f05e5eb" class="cell" data-execution_count="3">
+<div id="7021dc07-8a06-417b-9fb6-c71b2f05e5eb" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fraudTrain <span class="op">=</span> pd.read_csv(<span class="st">"~/Desktop/fraudTrain.csv"</span>).iloc[:,<span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="eb7a9b2b-f984-4bb0-b14b-e523a00d8d38" class="cell" data-execution_count="4">
+<div id="eb7a9b2b-f984-4bb0-b14b-e523a00d8d38" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>fraudTrain <span class="op">=</span> fraudTrain.assign(trans_date_trans_time<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: pd.to_datetime(x), fraudTrain.trans_date_trans_time)))</span>
 <span id="cb7-2"><a href="#cb7-2"></a>fraudTrain</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -1185,12 +1186,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>df02을 이용해서 해보자.</li>
 </ul>
-<div id="adec4c87-7a49-41dd-ba04-879643113486" class="cell" data-execution_count="9">
+<div id="adec4c87-7a49-41dd-ba04-879643113486" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>_df1 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">0</span>].sample(frac<span class="op">=</span><span class="fl">0.20</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb24-2"><a href="#cb24-2"></a>_df2 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb24-3"><a href="#cb24-3"></a>df02 <span class="op">=</span> pd.concat([_df1,_df2])</span>
 <span id="cb24-4"><a href="#cb24-4"></a>df02.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>(214520, 22)</code></pre>
 </div>
 </div>
@@ -1205,23 +1206,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb28-2"><a href="#cb28-2"></a><span class="co"># edge_index = torch.tensor([[i,j] for i in range(N) for j in range(N)]).T</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 시도4: df50</p>
-<div id="b1eab03c-9ee2-45e1-95a5-923642e8ce6f" class="cell" data-execution_count="17">
+<div id="b1eab03c-9ee2-45e1-95a5-923642e8ce6f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df50 <span class="op">=</span> down_sample_textbook(df02)</span>
 <span id="cb29-2"><a href="#cb29-2"></a>df50.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>(12012, 22)</code></pre>
 </div>
 </div>
-<div id="0d8983c1-b6c2-4331-9adf-14d799fb8460" class="cell" data-execution_count="19">
+<div id="0d8983c1-b6c2-4331-9adf-14d799fb8460" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="dv">12012</span><span class="op">*</span><span class="dv">12012</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>144288144</code></pre>
 </div>
 </div>
-<div id="4f3c12b1-433f-41ac-85c0-c42ae389ba60" class="cell" data-execution_count="37">
+<div id="4f3c12b1-433f-41ac-85c0-c42ae389ba60" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>df50 <span class="op">=</span> df50.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e181f302-3ddb-4fe1-9e7b-3298617a3f34" class="cell" data-execution_count="73">
+<div id="e181f302-3ddb-4fe1-9e7b-3298617a3f34" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df50_tr,df50_test <span class="op">=</span> sklearn.model_selection.train_test_split(df50, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="3834d100-e0d5-4f6e-a459-249fb4454b18" class="cell" data-execution_count="74">
@@ -1236,50 +1237,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>((9009, 23), (3003, 23))</code></pre>
 </div>
 </div>
-<div id="f684a722-b0c9-4ec0-b5e6-4c3a0b11e20f" class="cell" data-execution_count="78">
+<div id="f684a722-b0c9-4ec0-b5e6-4c3a0b11e20f" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>N <span class="op">=</span> <span class="bu">len</span>(df50_tr)</span>
 <span id="cb39-2"><a href="#cb39-2"></a>edge_index <span class="op">=</span> torch.tensor([[i,j] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N)]).T</span>
 <span id="cb39-3"><a href="#cb39-3"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>tensor([[   0,    0,    0,  ..., 9008, 9008, 9008],
         [   0,    1,    2,  ..., 9006, 9007, 9008]])</code></pre>
 </div>
 </div>
-<div id="d8a1fc2c-1de3-4a36-b0b9-8eae2dd29c48" class="cell" data-execution_count="81">
+<div id="d8a1fc2c-1de3-4a36-b0b9-8eae2dd29c48" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df50_tr <span class="op">=</span> df50_tr.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="993f6531-37c2-4be2-8eab-cd3481e3b780" class="cell" data-execution_count="82">
+<div id="993f6531-37c2-4be2-8eab-cd3481e3b780" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>edge_index_list <span class="op">=</span> []</span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
 <span id="cb42-3"><a href="#cb42-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N):</span>
 <span id="cb42-4"><a href="#cb42-4"></a>        time_difference <span class="op">=</span> (df50_tr[<span class="st">'trans_date_trans_time'</span>][i] <span class="op">-</span> df50_tr[<span class="st">'trans_date_trans_time'</span>][j]).total_seconds()</span>
 <span id="cb42-5"><a href="#cb42-5"></a>        edge_index_list.append([i, j, time_difference])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3241c7c3-f884-41c2-b6f7-ceabf5ec2db4" class="cell" data-execution_count="137">
+<div id="3241c7c3-f884-41c2-b6f7-ceabf5ec2db4" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>edge_index <span class="op">=</span> np.array(edge_index_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0d9fbf10-bd2a-4f20-b81e-72d3883583f5" class="cell" data-execution_count="138">
+<div id="0d9fbf10-bd2a-4f20-b81e-72d3883583f5" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>edge_index.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="138">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>(81162081, 3)</code></pre>
 </div>
 </div>
-<div id="fb850e8c-c5cc-4448-9bee-90cfed6b7fce" class="cell" data-execution_count="139">
+<div id="fb850e8c-c5cc-4448-9bee-90cfed6b7fce" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> np.<span class="bu">abs</span>(edge_index[:,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b697e389-0761-4a18-8fde-b316275cb31c" class="cell" data-execution_count="142">
+<div id="b697e389-0761-4a18-8fde-b316275cb31c" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>theta <span class="op">=</span> edge_index[:,<span class="dv">2</span>].mean()</span>
 <span id="cb47-2"><a href="#cb47-2"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="142">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>12230796.273867842</code></pre>
 </div>
 </div>
-<div id="041de342-6e42-4147-82e5-db6f26977a73" class="cell" data-execution_count="143">
+<div id="041de342-6e42-4147-82e5-db6f26977a73" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> (np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)<span class="op">!=</span><span class="dv">1</span>) <span class="op">*</span> np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="55ef9411-1e70-4551-a3d1-841810c24a28" class="cell" data-execution_count="144">
+<div id="55ef9411-1e70-4551-a3d1-841810c24a28" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="144">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>array([[0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
        [0.00000000e+00, 1.00000000e+00, 1.90157975e-01],
        [0.00000000e+00, 2.00000000e+00, 9.79646259e-02],
@@ -1289,17 +1290,930 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        [9.00800000e+03, 9.00800000e+03, 0.00000000e+00]])</code></pre>
 </div>
 </div>
-<div id="6a8bcc96-6de0-4a6a-abba-7862a1271a58" class="cell" data-execution_count="145">
+<div id="6a8bcc96-6de0-4a6a-abba-7862a1271a58" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>edge_index_list_updated <span class="op">=</span> edge_index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e6f4bcd2-97e8-4cbf-bddc-8f9f4125960e" class="cell" data-execution_count="146">
+<div id="e6f4bcd2-97e8-4cbf-bddc-8f9f4125960e" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>edge_index_list_updated[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>[[0.0, 0.0, 0.0],
  [0.0, 1.0, 0.19015797528259762],
  [0.0, 2.0, 0.09796462590589798],
  [0.0, 3.0, 0.1424157407389685],
  [0.0, 4.0, 0.11107338192969567]]</code></pre>
+</div>
+</div>
+<div id="48bc7895-b670-4431-84bd-598535616183" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>df50_tr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">level_0</th>
+<th data-quarto-table-cell-role="th">index</th>
+<th data-quarto-table-cell-role="th">trans_date_trans_time</th>
+<th data-quarto-table-cell-role="th">cc_num</th>
+<th data-quarto-table-cell-role="th">merchant</th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">first</th>
+<th data-quarto-table-cell-role="th">last</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">long</th>
+<th data-quarto-table-cell-role="th">city_pop</th>
+<th data-quarto-table-cell-role="th">job</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">trans_num</th>
+<th data-quarto-table-cell-role="th">unix_time</th>
+<th data-quarto-table-cell-role="th">merch_lat</th>
+<th data-quarto-table-cell-role="th">merch_long</th>
+<th data-quarto-table-cell-role="th">is_fraud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>476</td>
+<td>51331</td>
+<td>2019-01-31 00:44:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Medhurst PLC</td>
+<td>shopping_net</td>
+<td>921.24</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>c8928ba53be26fdd997b26f7130c757e</td>
+<td>1327970678</td>
+<td>40.064488</td>
+<td>-78.210499</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>3671</td>
+<td>625691</td>
+<td>2019-09-23 00:09:00</td>
+<td>2.610530e+15</td>
+<td>fraud_Torphy-Goyette</td>
+<td>shopping_pos</td>
+<td>698.28</td>
+<td>Tanya</td>
+<td>Dickerson</td>
+<td>F</td>
+<td>...</td>
+<td>36.2416</td>
+<td>-86.6117</td>
+<td>22191</td>
+<td>Prison officer</td>
+<td>1994-07-27</td>
+<td>90453290b765904ed1c3426882a6788b</td>
+<td>1348358993</td>
+<td>35.884288</td>
+<td>-87.513318</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>6641</td>
+<td>896244</td>
+<td>2019-12-25 21:30:00</td>
+<td>6.011330e+15</td>
+<td>fraud_Monahan-Morar</td>
+<td>personal_care</td>
+<td>220.56</td>
+<td>Lauren</td>
+<td>Butler</td>
+<td>F</td>
+<td>...</td>
+<td>36.0557</td>
+<td>-96.0602</td>
+<td>413574</td>
+<td>Teacher, special educational needs</td>
+<td>1971-09-01</td>
+<td>4072a3effcf51cf7cf88f69d00642cd9</td>
+<td>1356471044</td>
+<td>35.789798</td>
+<td>-95.859736</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4288</td>
+<td>717690</td>
+<td>2019-11-02 22:22:00</td>
+<td>6.011380e+15</td>
+<td>fraud_Daugherty, Pouros and Beahan</td>
+<td>shopping_pos</td>
+<td>905.43</td>
+<td>Martin</td>
+<td>Duarte</td>
+<td>M</td>
+<td>...</td>
+<td>44.6001</td>
+<td>-84.2931</td>
+<td>864</td>
+<td>General practice doctor</td>
+<td>1942-05-04</td>
+<td>f2fa1b25eef2f43fa5c09e3e1bfe7f77</td>
+<td>1351894926</td>
+<td>44.652759</td>
+<td>-84.500359</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4770</td>
+<td>815813</td>
+<td>2019-12-08 02:50:00</td>
+<td>4.430880e+15</td>
+<td>fraud_Hudson-Ratke</td>
+<td>grocery_pos</td>
+<td>307.98</td>
+<td>Alicia</td>
+<td>Morales</td>
+<td>F</td>
+<td>...</td>
+<td>39.3199</td>
+<td>-106.6596</td>
+<td>61</td>
+<td>Public relations account executive</td>
+<td>1939-11-04</td>
+<td>f06eff8da349e36e623cff026de8e970</td>
+<td>1354935056</td>
+<td>38.389399</td>
+<td>-106.111026</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9004</td>
+<td>11964</td>
+<td>177703</td>
+<td>2019-04-02 21:48:00</td>
+<td>3.572980e+15</td>
+<td>fraud_Ziemann-Waters</td>
+<td>health_fitness</td>
+<td>63.89</td>
+<td>William</td>
+<td>Lopez</td>
+<td>M</td>
+<td>...</td>
+<td>41.1832</td>
+<td>-96.9882</td>
+<td>614</td>
+<td>Associate Professor</td>
+<td>1967-06-20</td>
+<td>5b19aad28d65a6b0a912fa7b9d1896de</td>
+<td>1333403300</td>
+<td>42.067169</td>
+<td>-96.876892</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9005</td>
+<td>5191</td>
+<td>921796</td>
+<td>2019-12-30 23:29:00</td>
+<td>6.762920e+11</td>
+<td>fraud_Wiza, Schaden and Stark</td>
+<td>misc_pos</td>
+<td>51.41</td>
+<td>Lisa</td>
+<td>Fitzpatrick</td>
+<td>F</td>
+<td>...</td>
+<td>41.2336</td>
+<td>-75.2389</td>
+<td>104</td>
+<td>Financial trader</td>
+<td>1927-08-25</td>
+<td>b2a9e44026fc57e54b4e45ade6017668</td>
+<td>1356910178</td>
+<td>40.502189</td>
+<td>-74.814956</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9006</td>
+<td>5390</td>
+<td>950365</td>
+<td>2020-01-16 03:15:00</td>
+<td>4.807550e+12</td>
+<td>fraud_Murray-Smitham</td>
+<td>grocery_pos</td>
+<td>357.62</td>
+<td>Kimberly</td>
+<td>Castro</td>
+<td>F</td>
+<td>...</td>
+<td>40.2158</td>
+<td>-83.9579</td>
+<td>133</td>
+<td>Professor Emeritus</td>
+<td>1954-01-29</td>
+<td>4bfa37c329f327074e7220ea6e5d8f8d</td>
+<td>1358306148</td>
+<td>40.620284</td>
+<td>-84.274495</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9007</td>
+<td>860</td>
+<td>88685</td>
+<td>2019-02-22 02:19:00</td>
+<td>5.738600e+11</td>
+<td>fraud_McDermott-Weimann</td>
+<td>grocery_pos</td>
+<td>304.75</td>
+<td>Cristian</td>
+<td>Jones</td>
+<td>M</td>
+<td>...</td>
+<td>42.0765</td>
+<td>-87.7246</td>
+<td>27020</td>
+<td>Trade mark attorney</td>
+<td>1986-07-23</td>
+<td>a1c3025ddb615ab2ef890bf82fc3d66a</td>
+<td>1329877195</td>
+<td>42.722479</td>
+<td>-88.362364</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9008</td>
+<td>7270</td>
+<td>753787</td>
+<td>2019-11-18 10:58:00</td>
+<td>6.042293e+10</td>
+<td>fraud_Terry, Johns and Bins</td>
+<td>misc_pos</td>
+<td>1.64</td>
+<td>Jeffrey</td>
+<td>Powers</td>
+<td>M</td>
+<td>...</td>
+<td>33.6028</td>
+<td>-81.9748</td>
+<td>46944</td>
+<td>Secondary school teacher</td>
+<td>1942-04-02</td>
+<td>ee10d61782bde2b5cabc2ad649e977cc</td>
+<td>1353236287</td>
+<td>34.243599</td>
+<td>-82.971344</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>9009 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<ul>
+<li>cc_num로 그룹별로 묶자.</li>
+</ul>
+<div id="75db8478-214f-4c7b-b524-396ceccd146c" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>df50_tr[df50_tr[<span class="st">'cc_num'</span>]<span class="op">==</span><span class="fl">3.543590e+15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">level_0</th>
+<th data-quarto-table-cell-role="th">index</th>
+<th data-quarto-table-cell-role="th">trans_date_trans_time</th>
+<th data-quarto-table-cell-role="th">cc_num</th>
+<th data-quarto-table-cell-role="th">merchant</th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">first</th>
+<th data-quarto-table-cell-role="th">last</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">long</th>
+<th data-quarto-table-cell-role="th">city_pop</th>
+<th data-quarto-table-cell-role="th">job</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">trans_num</th>
+<th data-quarto-table-cell-role="th">unix_time</th>
+<th data-quarto-table-cell-role="th">merch_lat</th>
+<th data-quarto-table-cell-role="th">merch_long</th>
+<th data-quarto-table-cell-role="th">is_fraud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>476</td>
+<td>51331</td>
+<td>2019-01-31 00:44:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Medhurst PLC</td>
+<td>shopping_net</td>
+<td>921.24</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>c8928ba53be26fdd997b26f7130c757e</td>
+<td>1327970678</td>
+<td>40.064488</td>
+<td>-78.210499</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">344</td>
+<td>462</td>
+<td>50905</td>
+<td>2019-01-30 16:53:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Lesch Ltd</td>
+<td>shopping_pos</td>
+<td>881.11</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>9f7b7675c4decefd03cce56df045ed1c</td>
+<td>1327942400</td>
+<td>39.591484</td>
+<td>-79.575246</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1377</td>
+<td>6607</td>
+<td>814736</td>
+<td>2019-12-07 22:17:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Botsford and Sons</td>
+<td>home</td>
+<td>10.41</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>aa9b533e84970309a4ad60a914a8cd77</td>
+<td>1354918668</td>
+<td>41.287791</td>
+<td>-79.980592</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1447</td>
+<td>485</td>
+<td>51816</td>
+<td>2019-01-31 12:38:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Ruecker-Mayert</td>
+<td>kids_pets</td>
+<td>21.93</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>cec656f154e0978b0f26702c29ddeeca</td>
+<td>1328013517</td>
+<td>39.946187</td>
+<td>-78.078864</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1639</td>
+<td>11176</td>
+<td>12947</td>
+<td>2019-01-08 11:08:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Stroman, Hudson and Erdman</td>
+<td>gas_transport</td>
+<td>76.03</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>c10451edc4e21b865d049312acf18ecd</td>
+<td>1326020892</td>
+<td>39.503960</td>
+<td>-78.471680</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2046</td>
+<td>8124</td>
+<td>627045</td>
+<td>2019-09-23 12:53:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Botsford Ltd</td>
+<td>shopping_pos</td>
+<td>3.20</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>003d591d208f7ee52277b5cc4fa4a37f</td>
+<td>1348404838</td>
+<td>40.066686</td>
+<td>-79.326630</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2093</td>
+<td>477</td>
+<td>51367</td>
+<td>2019-01-31 01:36:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Watsica, Haag and Considine</td>
+<td>shopping_pos</td>
+<td>1090.67</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>b42bc0820a78de54845c5138b9c39dd5</td>
+<td>1327973774</td>
+<td>40.923284</td>
+<td>-78.882504</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2415</td>
+<td>491</td>
+<td>52402</td>
+<td>2019-01-31 22:17:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Metz, Russel and Metz</td>
+<td>kids_pets</td>
+<td>22.35</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>51f9352216e99bbe9e8b03b082305971</td>
+<td>1328048275</td>
+<td>39.979547</td>
+<td>-78.851379</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2625</td>
+<td>463</td>
+<td>51047</td>
+<td>2019-01-30 19:35:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Ruecker-Mayert</td>
+<td>kids_pets</td>
+<td>22.95</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>8e804422b761537e3a49a237afd1ea9a</td>
+<td>1327952100</td>
+<td>40.051981</td>
+<td>-79.021769</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2769</td>
+<td>478</td>
+<td>51374</td>
+<td>2019-01-31 01:42:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Schmidt and Sons</td>
+<td>shopping_net</td>
+<td>1043.59</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>bbe4e9e431cba66e6531199ffaf79657</td>
+<td>1327974178</td>
+<td>40.192896</td>
+<td>-79.366393</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3192</td>
+<td>505</td>
+<td>52522</td>
+<td>2019-01-31 23:57:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Kutch, Steuber and Gerhold</td>
+<td>food_dining</td>
+<td>116.45</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>fcf46ca0264437bbb938c29eca2c92ad</td>
+<td>1328054256</td>
+<td>40.288401</td>
+<td>-78.286914</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3670</td>
+<td>11714</td>
+<td>1010269</td>
+<td>2020-02-20 06:02:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Huels-Hahn</td>
+<td>gas_transport</td>
+<td>51.80</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>b72c0124f4c5662db13e1bea2f04784b</td>
+<td>1361340164</td>
+<td>39.672719</td>
+<td>-79.642589</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3945</td>
+<td>6087</td>
+<td>243892</td>
+<td>2019-05-02 13:38:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Cruickshank-Mills</td>
+<td>entertainment</td>
+<td>5.72</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>990da059d387e5fa7481d76ff5c29199</td>
+<td>1335965925</td>
+<td>40.577553</td>
+<td>-79.315460</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5017</td>
+<td>484</td>
+<td>51431</td>
+<td>2019-01-31 03:28:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Cremin, Hamill and Reichel</td>
+<td>misc_pos</td>
+<td>741.98</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>41312d7d5fc76be3782b5e9cef04726f</td>
+<td>1327980509</td>
+<td>41.290570</td>
+<td>-79.682069</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5505</td>
+<td>8148</td>
+<td>181398</td>
+<td>2019-04-04 23:32:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Feil, Hilpert and Koss</td>
+<td>food_dining</td>
+<td>89.23</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>e304fd4ebc897fce190925dadcd2b524</td>
+<td>1333582347</td>
+<td>39.736380</td>
+<td>-79.481667</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5729</td>
+<td>11116</td>
+<td>329202</td>
+<td>2019-06-06 03:26:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Connelly, Reichert and Fritsch</td>
+<td>gas_transport</td>
+<td>69.36</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>bc0832ac8bac6d26548ab6ab553d5d5e</td>
+<td>1338953171</td>
+<td>40.780469</td>
+<td>-79.668417</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7605</td>
+<td>481</td>
+<td>51392</td>
+<td>2019-01-31 02:16:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Huels-Hahn</td>
+<td>gas_transport</td>
+<td>12.41</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>5f4379c2fc20457f0f99a126cadda1af</td>
+<td>1327976216</td>
+<td>39.884234</td>
+<td>-79.374966</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7800</td>
+<td>8609</td>
+<td>55920</td>
+<td>2019-02-03 06:51:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Corwin-Gorczany</td>
+<td>misc_net</td>
+<td>6.70</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>90f33381b6b6644c6d03c8cdb51d05dc</td>
+<td>1328251865</td>
+<td>40.064532</td>
+<td>-78.920283</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8100</td>
+<td>10488</td>
+<td>509733</td>
+<td>2019-08-09 11:47:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Kutch and Sons</td>
+<td>grocery_pos</td>
+<td>108.74</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>40a620cc7c5ba396b1fe112f5361e4a9</td>
+<td>1344512838</td>
+<td>40.057443</td>
+<td>-78.569798</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8313</td>
+<td>504</td>
+<td>52514</td>
+<td>2019-01-31 23:52:00</td>
+<td>3.543590e+15</td>
+<td>fraud_Douglas, Schneider and Turner</td>
+<td>shopping_pos</td>
+<td>1129.56</td>
+<td>Margaret</td>
+<td>Lam</td>
+<td>F</td>
+<td>...</td>
+<td>40.4603</td>
+<td>-79.0097</td>
+<td>922</td>
+<td>Early years teacher</td>
+<td>1972-10-04</td>
+<td>ec208107f178422e0953560343d0cf8b</td>
+<td>1328053975</td>
+<td>40.840340</td>
+<td>-78.027854</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>20 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<div id="3b44a232-8aed-4dea-b59c-44440a3e1e11" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>df50_grouped<span class="op">=</span>df50_tr.groupby(by<span class="op">=</span><span class="st">'cc_num'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2c388201-0cc7-4627-8c7a-086ca0c7cb8c" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>edge_index_list <span class="op">=</span> []</span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb58-3"><a href="#cb58-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb58-4"><a href="#cb58-4"></a>        <span class="cf">if</span> df50_tr[<span class="st">'cc_num'</span>][i] <span class="op">!=</span> df50_tr[<span class="st">'cc_num'</span>][j]:  <span class="co"># cc_num 값이 같다면</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>            time_difference <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>        <span class="cf">else</span>:</span>
+<span id="cb58-7"><a href="#cb58-7"></a>            time_difference <span class="op">=</span> (df50_tr[<span class="st">'trans_date_trans_time'</span>][i] <span class="op">-</span> df50_tr[<span class="st">'trans_date_trans_time'</span>][j]).total_seconds()</span>
+<span id="cb58-8"><a href="#cb58-8"></a>        edge_index_list.append([i, j, time_difference])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3e030499-3306-4a6b-ae9b-6f143adbf2f2" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>edge_index <span class="op">=</span> np.array(edge_index_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c8fa09d1-0195-4545-9045-d4793bd13232" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>edge_index.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>(81162081, 3)</code></pre>
+</div>
+</div>
+<div id="e580e97f-74e4-4283-b3fd-96d9f76ec569" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>array([[0.000e+00, 0.000e+00, 0.000e+00],
+       [0.000e+00, 1.000e+00, 0.000e+00],
+       [0.000e+00, 2.000e+00, 0.000e+00],
+       ...,
+       [9.008e+03, 9.006e+03, 0.000e+00],
+       [9.008e+03, 9.007e+03, 0.000e+00],
+       [9.008e+03, 9.008e+03, 0.000e+00]])</code></pre>
+</div>
+</div>
+<div id="f0e843e1-6631-47e6-b336-0a2929b45c72" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> np.<span class="bu">abs</span>(edge_index[:,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="710d65ef-adac-4519-be26-c155cf3bb1b5" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>theta <span class="op">=</span> edge_index[:,<span class="dv">2</span>].mean()</span>
+<span id="cb65-2"><a href="#cb65-2"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+<pre><code>10988.585252761077</code></pre>
+</div>
+</div>
+<div id="e9c57e46-f1c7-4ea3-ad8b-4c022ef6cbc8" class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<pre><code>array([[0.000e+00, 0.000e+00, 0.000e+00],
+       [0.000e+00, 1.000e+00, 0.000e+00],
+       [0.000e+00, 2.000e+00, 0.000e+00],
+       ...,
+       [9.008e+03, 9.006e+03, 0.000e+00],
+       [9.008e+03, 9.007e+03, 0.000e+00],
+       [9.008e+03, 9.008e+03, 0.000e+00]])</code></pre>
+</div>
+</div>
+<div id="74e5c3d5-2ce5-4d4c-90bb-065f5ecfa73e" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>edge_index[:,<span class="dv">2</span>] <span class="op">=</span> (np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)<span class="op">!=</span><span class="dv">1</span>) <span class="op">*</span> np.exp(<span class="op">-</span>edge_index[:,<span class="dv">2</span>]<span class="op">/</span>theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e3dc891e-744f-4377-b7a9-9cf57422e34b" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>edge_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="99">
+<pre><code>array([[0.00000000e+00, 0.00000000e+00, 9.99909001e-01],
+       [0.00000000e+00, 1.00000000e+00, 9.99909001e-01],
+       [0.00000000e+00, 2.00000000e+00, 9.99909001e-01],
+       ...,
+       [9.00800000e+03, 9.00600000e+03, 9.99909001e-01],
+       [9.00800000e+03, 9.00700000e+03, 9.99909001e-01],
+       [9.00800000e+03, 9.00800000e+03, 9.99909001e-01]])</code></pre>
+</div>
+</div>
+<div id="98d41435-adba-451e-afb8-22f90266b0b4" class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>edge_index_list_updated <span class="op">=</span> edge_index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="57fa2122-0cfe-42c5-864c-abb6dfadffc4" class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>edge_index_list_updated[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>[[0.0, 0.0, 0.9999090006150367],
+ [0.0, 1.0, 0.9999090006150367],
+ [0.0, 2.0, 0.9999090006150367],
+ [0.0, 3.0, 0.9999090006150367],
+ [0.0, 4.0, 0.9999090006150367]]</code></pre>
 </div>
 </div>
 
