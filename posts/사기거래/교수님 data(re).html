@@ -311,13 +311,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-0810.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/2023-07-19-그래프자료로 데이터정리.out-Copy1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/사기거래/230810 데이터 정리1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>[FRAUD]</strong> 그래프자료로 데이터정리</span></a>
   </div>
 </li>
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../posts/사기거래/graph8(frac.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/사기거래/Untitled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Untitled</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/사기거래/Untitled1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. 그래프 데이터 준비</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -517,12 +529,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> df20</p>
-<div id="a9a20c0d-9453-4cde-97e5-aafeff2a35d3" class="cell" data-execution_count="5">
+<div id="a9a20c0d-9453-4cde-97e5-aafeff2a35d3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>_df1 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">0</span>].sample(frac<span class="op">=</span><span class="fl">0.2</span>,random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>_df2 <span class="op">=</span> fraudTrain[fraudTrain[<span class="st">"is_fraud"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb7-3"><a href="#cb7-3"></a>df02 <span class="op">=</span> pd.concat([_df1,_df2])</span>
 <span id="cb7-4"><a href="#cb7-4"></a>df02.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(214520, 22)</code></pre>
 </div>
 </div>
