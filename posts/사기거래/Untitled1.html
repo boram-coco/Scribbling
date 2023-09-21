@@ -199,6 +199,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../posts/2023 가을겨울 학회.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2023학년도 가을겨울 학회</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../posts/AS4_5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">AS HW4_5</span></a>
   </div>
@@ -315,12 +321,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/사기거래/Untitled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Untitled</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../posts/사기거래/Untitled1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1. 그래프 데이터 준비</span></a>
   </div>
@@ -427,6 +427,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-46"><a href="#cb1-46"></a><span class="cf">with</span> torch.no_grad():</span>
 <span id="cb1-47"><a href="#cb1-47"></a>    output <span class="op">=</span> model(test_data)</span>
 <span id="cb1-48"><a href="#cb1-48"></a>    predictions <span class="op">=</span> torch.argmax(output, dim<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># GCN 모델의 출력을 얻습니다.</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    output <span class="op">=</span> model(test_data)  <span class="co"># 예측 점수 (클래스 별 확률)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># 예측 클래스를 얻습니다.</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>predictions <span class="op">=</span> torch.argmax(output, dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># 예측 클래스와 실제 라벨을 numpy 배열로 변환합니다.</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>predicted_labels <span class="op">=</span> predictions.cpu().numpy()</span>
+<span id="cb2-13"><a href="#cb2-13"></a>true_labels <span class="op">=</span> yy  <span class="co"># yy는 실제 라벨입니다.</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co"># f1 score를 계산합니다.</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>f1 <span class="op">=</span> f1_score(true_labels, predicted_labels)</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="bu">print</span>(<span class="st">"F1 Score:"</span>, f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Credit Card Fraud Detection Dataset:</p>
+<p>데이터 출처: Kaggle 또는 UCI Machine Learning Repository 등에서 제공 데이터 설명: 신용 카드 거래 데이터로, 사기 거래와 정상 거래를 포함합니다. 대부분의 특성은 익명화되어 있으며, 사기 거래가 정상 거래보다 훨씬 적기 때문에 클래스 불균형 문제를 다룹니다. 활용: 사기 거래 탐지 모델을 개발하고 테스트하는 데 널리 사용됩니다. Synthetic Fraud Detection Dataset:</p>
+<p>데이터 출처: 실제 금융 거래 데이터를 기반으로 합성한 데이터셋 데이터 설명: 실제 거래에서 파생된 데이터로, 사기 거래와 정상 거래를 구분하기 위한 목적으로 생성됩니다. 이러한 합성 데이터셋은 모델 개발과 실험에 사용할 수 있습니다. 활용: 실제 금융 거래 데이터를 사용하기 어려울 때 합성 데이터셋을 활용하여 모델을 훈련하고 평가합니다. Online Retail Fraud Detection Dataset:</p>
+<p>데이터 출처: 온라인 소매업체의 거래 데이터에서 추출 데이터 설명: 온라인 리테일 거래 데이터로, 사기 거래와 정상 거래를 식별하기 위한 정보를 포함합니다. 주문, 결제, 제품 정보 등이 포함됩니다. 활용: 온라인 리테일 사이트에서 사기 거래를 탐지하는 모델을 구축하려는 경우에 유용합니다. Banking Transaction Fraud Detection Dataset:</p>
+<p>데이터 출처: 은행 거래 데이터 데이터 설명: 은행 거래 및 이체 데이터로, 사기 거래와 정상 거래를 구분하기 위한 데이터입니다. 거래 금액, 송금자 및 수취인 정보 등이 포함됩니다. 활용: 금융 기관에서 사기 거래를 탐지하기 위한 모델을 개발하는 데 사용됩니다. 이러한 데이터셋 중 일부는 Kaggle 또는 UCI Machine Learning Repository와 같은 온라인 플랫폼에서 무료로 사용할 수 있으며, 사기 거래 탐지 모델을 개발하기 위한 기반 데이터로 활용할 수 있습니다.</p>
 
 
 
